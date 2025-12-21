@@ -85,7 +85,7 @@ export const DATA = {
   ],
   education: [
     {
-      school: "Siddhant's University", 
+      school: "Siddhant's University",
       href: "#",
       degree: "Business Operator / Entrepreneurship",
       logoUrl: "",
@@ -115,8 +115,8 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "",
-      video: "/vinci.gif",
+      image: "/vinci.gif",
+      video: "",
     },
     {
       title: "0xcel",
@@ -138,8 +138,8 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "",
-      video: "/0xcel.gif",
+      image: "/0xcel.gif",
+      video: "",
     },
   ],
   hackathons: [],
