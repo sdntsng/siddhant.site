@@ -12,15 +12,14 @@ export const DATA = {
   summary:
     "I am a technologist at heart, a business operator by education, and an entrepreneur by consequence. I believe in the alchemy of data, design, and digital spaces. I passionately follow the consumer internet space and evolving technologies such as blockchain, computer vision, and natural language processing. I often explore business and tech philosophy on my blog, and in my downtime, I produce [electronic music](/music).",
   avatarUrl: "/sid.jpg",
-  skills: [
-    "GenAI",
-    "Web3",
-    "Strategy",
-    "Product",
-    "Python",
-    "Next.js",
-    "Typescript",
-    "Blockchain",
+  Interests: [
+    "generative ai",
+    "web3",
+    "strategy",
+    "product",
+    "blockchain",
+    "commerce",
+    "consumer internet",
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },

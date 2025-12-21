@@ -19,7 +19,7 @@ export default async function BlogPage() {
         <Breadcrumb
           items={[{ label: "Home", href: "/" }, { label: "Blog" }]}
         />
-        <h1 className="font-medium text-2xl mb-8 tracking-tighter">blog</h1>
+        <h1 className="font-medium text-2xl mb-8 tracking-tighter">thoughts on biz, tech, and life</h1>
       </BlurFade>
       <BlogPostsList posts={posts} />
     </section>
