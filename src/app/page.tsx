@@ -1,3 +1,5 @@
+"use client";
+
 import { HackathonCard } from "@/components/hackathon-card";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
@@ -8,10 +10,18 @@ import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
+import { useTerminal } from "@/components/terminal-context";
+import TerminalView from "@/components/terminal-view";
 
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
+  const { mode } = useTerminal();
+
+  if (mode === "terminal") {
+    return <TerminalView />;
+  }
+
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="hero">

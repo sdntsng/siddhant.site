@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Lato as FontSans } from "next/font/google";
 import "./globals.css";
+import { TerminalProvider } from "@/components/terminal-context";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -49,11 +50,13 @@ export const metadata: Metadata = {
   },
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -63,10 +66,12 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="light">
-          <TooltipProvider delayDuration={0}>
-            {children}
-            <Navbar />
-          </TooltipProvider>
+          <TerminalProvider>
+            <TooltipProvider delayDuration={0}>
+              {children}
+              <Navbar />
+            </TooltipProvider>
+          </TerminalProvider>
         </ThemeProvider>
       </body>
     </html>
