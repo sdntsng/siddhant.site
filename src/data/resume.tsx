@@ -11,7 +11,7 @@ export const DATA = {
     "Technologist & Entrepreneur. Focused on GenAI and decentralized infrastructures. Operator & Builder.",
   summary:
     "I am a technologist at heart, a business operator by education, and an entrepreneur by consequence. I believe in the alchemy of data, design, and digital spaces. I passionately follow the consumer internet space and evolving technologies such as blockchain, computer vision, and natural language processing.",
-  avatarUrl: "/me.png",
+  avatarUrl: "/sid.jpg",
   skills: [
     "GenAI",
     "Web3",
