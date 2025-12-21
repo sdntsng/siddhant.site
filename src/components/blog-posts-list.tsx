@@ -59,7 +59,7 @@ export default function BlogPostsList({ posts }: { posts: any[] }) {
                                 href={`/blog/${post.slug}`}
                             >
                                 <div className="w-full flex flex-col">
-                                    <p className="tracking-tight font-medium">{post.metadata.title}</p>
+                                    <p className="tracking-tight font-medium lowercase italic">{post.metadata.title}</p>
                                     <p className="h-6 text-xs text-muted-foreground">
                                         {post.metadata.publishedAt}
                                     </p>
