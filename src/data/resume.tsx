@@ -8,9 +8,9 @@ export const DATA = {
   location: "Dehradun, India",
   locationLink: "https://www.google.com/maps/place/Dehradun",
   description:
-    "Technologist & Entrepreneur. Focused on GenAI and decentralized infrastructures. Operator & Builder.",
+    "Technologist & Entrepreneur",
   summary:
-    "I am a technologist at heart, a business operator by education, and an entrepreneur by consequence. I believe in the alchemy of data, design, and digital spaces. I passionately follow the consumer internet space and evolving technologies such as blockchain, computer vision, and natural language processing. I often explore business and tech philosophy on my blog, and in my downtime, I produce [electronic music](/music).",
+    "I am a technologist at heart, a business operator by education, and an entrepreneur by consequence. I believe in the alchemy of data, design, and digital spaces. <br> I passionately follow the consumer internet space and evolving technologies such as blockchain, computer vision, and natural language processing. I often explore business and tech philosophy on my blog, and in my downtime, produce [electronic music](/music).",
   avatarUrl: "/sid.jpg",
   Interests: [
     "generative ai",
