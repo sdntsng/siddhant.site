@@ -44,13 +44,13 @@ export const DATA = {
       },
       X: {
         name: "X",
-        url: "https://twitter.com/sdntsng",
+        url: "https://x.com/sdntsng",
         icon: Icons.x,
         navbar: true,
       },
       Instagram: {
         name: "Instagram",
-        url: "https://www.instagram.com/sid.vinci",
+        url: "https://www.instagram.com/founder.vs.market",
         icon: Icons.instagram,
         navbar: true,
       },
@@ -58,13 +58,13 @@ export const DATA = {
         name: "WhatsApp",
         url: "https://wa.me/919522565616",
         icon: Icons.whatsapp,
-        navbar: true,
+        navbar: false,
       },
       Resume: {
         name: "Resume",
         url: "/resume",
         icon: Icons.googleDrive,
-        navbar: true,
+        navbar: false,
       },
       email: {
         name: "Send Email",

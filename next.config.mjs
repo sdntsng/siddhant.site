@@ -28,7 +28,7 @@ const nextConfig = {
       },
       {
         source: "/ig",
-        destination: "https://www.instagram.com/sid.vinci",
+        destination: "https://www.instagram.com/founder.vs.market",
         permanent: false,
       },
       {

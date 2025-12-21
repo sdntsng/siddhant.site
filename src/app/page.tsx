@@ -168,7 +168,7 @@ export default function Page() {
                   href={DATA.contact.social.X.url}
                   className="text-blue-500 hover:underline"
                 >
-                  Twitter
+                  X
                 </Link>{" "}
                 or book a session directly on my{" "}
                 <Link
