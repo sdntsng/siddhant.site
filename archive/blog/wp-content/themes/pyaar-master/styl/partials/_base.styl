@@ -1,0 +1,410 @@
+/* ==========================================================================
+   0. Normalize.css v2.1.3 | MIT License | git.io/normalize | (minified)
+   ==========================================================================*/
+
+article, aside, details,
+figcaption, figure,
+footer, header, hgroup,
+main, nav, section,
+summary { display: block; }
+audio, canvas, video { display: inline-block; }
+audio:not([controls]) { display: none; height: 0; }
+[hidden], template { display: none; }
+html {
+   font-family: sans-serif;
+   -ms-text-size-adjust: 100%;
+   -webkit-text-size-adjust: 100%;
+}
+body { margin: 0; }
+a { background: transparent; }
+a:focus { outline: thin dotted; }
+a:active, a:hover { outline: 0; }
+h1 { font-size: 2em; margin: 0.67em 0; }
+abbr[title] { border-bottom: 1px dotted; }
+b, strong { font-weight: bold; }
+dfn { font-style: italic; }
+hr {
+   -moz-box-sizing: content-box;
+   box-sizing: content-box;
+   height: 0;
+}
+mark { background: #ff0; color: #000; }
+code, kbd, pre,
+samp { font-family: monospace, serif; font-size: 1em; }
+pre { white-space: pre-wrap; }
+q { quotes: "\201C" "\201D" "\2018" "\2019"; }
+small { font-size: 80%; }
+sub, sup {
+   font-size: 75%;
+   line-height: 0;
+   position: relative;
+   vertical-align: baseline;
+}
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+img { border: 0; }
+svg:not(:root) { overflow: hidden; }
+figure { margin: 0; }
+fieldset {
+   border: 1px solid #c0c0c0;
+   margin: 0 2px;
+   padding: 0.35em 0.625em 0.75em;
+}
+legend { border: 0; padding: 0; }
+button, input, select,
+textarea { font-family: inherit; font-size: 100%; margin: 0; }
+button, input { line-height: normal; }
+button, select { text-transform: none; }
+button, html input[type="button"],
+input[type="reset"], input[type="submit"] {
+   -webkit-appearance: button;
+   cursor: pointer;
+}
+button[disabled], html input[disabled] { cursor: default; }
+input[type="checkbox"],
+input[type="radio"] { box-sizing: border-box; padding: 0; }
+input[type="search"] {
+   -webkit-appearance: textfield;
+   -moz-box-sizing: content-box;
+   -webkit-box-sizing: content-box;
+   box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+button::-moz-focus-inner,
+input::-moz-focus-inner { border: 0; padding: 0; }
+textarea { overflow: auto; vertical-align: top; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+em {
+  -webkit-text-stroke: 0;
+}
+
+/*! normalize-opentype v0.1.2 | MIT License | kennethormandy.com/journal/normalize-opentype-css */
+
+/**
+ * 1. Turn on kerning, standard ligatures, and proportional, oldstyle numerals
+ *    Turn off all other ligatures, tabular, lining numerals, and alternates
+ */
+
+html,
+body {
+  font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0; /* 1. */
+}
+
+/* Headings
+========================================================================== */
+
+/**
+ * 1. Turn on discretionary ligatures for larger headings
+ */
+
+h1,
+h2,
+h3 {
+  font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 1; /* 1. */
+}
+
+/* Text-level semantics
+========================================================================== */
+
+/**
+ * 1. Change all letters to uppercase
+ * 2. Turn on small caps for upper and lowercase letters
+ */
+
+abbr {
+  text-transform: uppercase; /* 1 */
+  font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "smcp" 1, "c2sc" 1; /* 2 */
+}
+
+/*
+ * TODO: Turn on diagonal fractions where appropriate
+ */
+
+time {
+  font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0;
+}
+
+/*
+ * 1. Turn off kerning and ligatures,
+ *    Turn on lining, tabular numerals, slashed zero
+ */
+
+pre,
+kbd,
+samp,
+code {
+  font-feature-settings: "kern" 0, "liga" 0, "dlig" 0, "pnum" 0, "tnum" 1, "onum" 0, "lnum" 1, "zero" 1; /* 1. */
+}
+
+mark {
+}
+
+small {
+}
+
+cite {
+}
+
+/**
+ * 1. Turn on proper supercript numerals
+ */
+
+sup {
+  font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "sups" 1; /* 1. */
+}
+
+/**
+ * 1. Turn on proper subscript numerals
+ */
+
+sub {
+  font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "subs" 1; /* 1. */
+}
+
+
+/* Grouping content
+========================================================================== */
+
+figcaption {
+}
+
+blockquote,
+q {
+}
+
+/**
+ * TODO: Adds proper bullets
+ */
+
+ul {
+}
+
+/*
+ * TODO:
+ * 1. Adds counters for lists
+ * 2. Use proper numerals for lists
+ */
+
+ol {
+}
+
+/**
+ * Adds proper small caps
+ */
+
+dl,
+dd,
+dl,
+dt,
+dfn {
+}
+
+/**
+ * TODO: scmp, sc2c, pnum, case sensitive forms for postal codes
+ */
+
+address {
+}
+
+
+/* Forms
+========================================================================== */
+
+/**
+ * 1. Turns on lining, proportional numerals without clarified zeroes
+ * TODO: Additional input modes https://developer.mozilla.org/en/docs/Web/HTML/Element/Input#attr-inputmode
+ */
+
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="number"],
+input[type="range"],
+input[type="tel"],
+input[type="week"], {
+  font-feature-settings: "kern" 0, "liga" 1, "pnum" 1, "tnum" 0, "onum" 0, "lnum" 1, "zero" 0; /* 1. */
+}
+
+/* Localisation
+========================================================================== */
+
+// /**
+//  * According to Wikipedia: http://en.wikipedia.org/wiki/Non-English_usage_of_quotation_marks
+//  * This is built on prior knowledge, which I would like to find and cite
+//  */
+//
+// :lang(cy) q {
+//   quotes: '\2018' '\2019' '\201C' '\201D' '\2018' '\2019' '\201C' '\201D';
+//   /*         ‘       ’       “       ”       ‘       ’       “       ”  */
+// }
+//
+// :lang(af) q,
+// :lang(zh) q,
+// :lang(en) q,
+// :lang(en-us) q,
+// :lang(eo) q,
+// :lang(id) q,
+// :lang(ga) q,
+// :lang(ko) q,
+// :lang(pt-br) q,
+// :lang(th) q,
+// :lang(tr) q {
+//   quotes: '\201C' '\201D' '\2018' '\2019' '\201C' '\201D' '\2018' '\2019';
+//   /*         “       ”       ‘       ’       “       ”       ‘       ’  */
+// }
+//
+// :lang(sq) q,
+// :lang(bs) q {
+//   quotes: '\201E' '\201C' '\2018' '\2019' '\201E' '\201C' '\2018' '\2019';
+//   /*         „       “       ‘       ’       „       “       ‘       ’  */
+// }
+//
+// :lang(ar) q {
+//   quotes: '\201D' '\201C';
+//   /*         ”       “  */
+// }
+//
+// :lang(cs) q,
+// :lang(de) q,
+// :lang(sk) q,
+// :lang(sl) q,
+// :lang(sb) q,
+// :lang(is) q {
+//   quotes: '\201E' '\201C' '\201A' '\2018' '\201E' '\201C' '\201A' '\2018';
+//   /*         „       “       ‚       ‘       „       “       ‚       ‘  */
+// }
+//
+// q:before {
+//   content: open-quote;
+// }
+//
+// q:after {
+//   content: close-quote;
+// }
+
+
+/* Tables
+========================================================================== */
+
+/**
+ * 1. Turns on tabular, lining numerals and slashed zero
+ *    Turns off kerning, as it could impact tabular numerals
+ */
+
+table {
+  font-feature-settings: "kern" 0, "liga" 1, "pnum" 0, "tnum" 1, "onum" 0, "lnum" 1, "zero" 1; /* 1. */
+}
+
+/**
+ * 1. Revert to defaults for table headings
+ */
+
+table thead,
+table tfoot {
+  font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0; /* 2. */
+}
+
+
+/* ==========================================================================
+   1. Icons - Sets up the icon font and respective classes
+   ==========================================================================*/
+
+@font-face {
+  font-family: 'symmetrycode';
+  src:url('icons/symmetrycode.eot');
+  src:url('icons/symmetrycode.eot?#iefix') format('embedded-opentype'),
+    url('icons/symmetrycode.ttf') format('truetype'),
+    url('icons/symmetrycode.woff') format('woff'),
+    url('icons/symmetrycode.svg#symmetrycode') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class*="icon-"] {
+  font-family: 'symmetrycode';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering ===========*/
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon--inline {
+    position: relative;
+    top: 4px;
+    margin-right: .25em;
+}
+
+.icon-envelop:before {
+  content: "\e001";
+}
+.icon-books:before {
+  content: "\e002";
+}
+.icon-suitcase:before {
+  content: "\e003";
+}
+.icon-twitter:before {
+  content: "\e004";
+}
+.icon-dribbble:before {
+  content: "\e005";
+}
+.icon-google-plus:before {
+  content: "\e006";
+}
+.icon-github:before {
+  content: "\e007";
+}
+.icon-search:before {
+  content: "\e000";
+}
+
+
+
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000; /* Above WP toolbar. */
+}
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+  outline: 0;
+}

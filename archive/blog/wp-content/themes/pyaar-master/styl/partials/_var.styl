@@ -1,0 +1,32 @@
+/** @TODO
+ * Main footer
+ */
+
+$font-prim = 'EB Garamond', Georgia, serif;
+$font-sec = 'Lato', sans-serif;
+
+$color-prim = #2c95fa;
+
+$color-bg--light = lighten(mix($color-prim, #fefefe, 10%), 80%);
+
+$color-border = desaturate(darken($color-bg--light, 4%), 40%);
+$color-border--dark = darken($color-border, 2%);
+$color-border--light = lighten($color-border, 5%);
+
+$color-font = mix($color-prim, #353535, 5%);
+$color-font--light = lighten($color-font, 20%);
+$color-font--lighter = lighten($color-font, 60%);
+$color-font--dark = darken($color-font, 10%);
+
+
+/* Layout */
+$post-right = 12.5%;
+$site-header-width = 27.5%
+
+
+post-width(font-size = 1em) {
+  width: (35em/font-size);
+  float: right;
+  max-width: 100% - $site-header-width - $post-right;
+  margin: 0 ($site-header-width + $post-right) 0 0;
+}

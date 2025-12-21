@@ -1,0 +1,579 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"l",
+				"li\tTag"
+			],
+			[
+				"u",
+				"ul\tTag"
+			],
+			[
+				"lef",
+				"margin-left\tproperty"
+			],
+			[
+				"font",
+				"font-size\tproperty"
+			],
+			[
+				"over",
+				"overflow-x\tproperty"
+			],
+			[
+				"mar",
+				"margin-bottom\tproperty"
+			],
+			[
+				"margin",
+				"margin-top\tproperty"
+			],
+			[
+				"ma",
+				"margin-top\t(style.css)"
+			],
+			[
+				"marg",
+				"margin-top\t(style.css)"
+			],
+			[
+				"padd",
+				"padding\tproperty"
+			],
+			[
+				"max",
+				"max-width\tproperty"
+			],
+			[
+				"hi",
+				"hidden-xs"
+			],
+			[
+				"cl",
+				"class\tAttr"
+			],
+			[
+				"bol",
+				"bolder\tfont-weight"
+			],
+			[
+				"headi",
+				"heading2"
+			],
+			[
+				"2",
+				"292929"
+			],
+			[
+				"col",
+				"color\tproperty"
+			],
+			[
+				"col-sm",
+				"col-sm-12"
+			],
+			[
+				"tool",
+				"toolskills"
+			],
+			[
+				"d",
+				"div\tTag"
+			],
+			[
+				"trans",
+				"transition\tproperty"
+			],
+			[
+				"paddi",
+				"padding-left\tproperty"
+			],
+			[
+				"line",
+				"line-height\tproperty"
+			],
+			[
+				"back",
+				"background-color\tproperty"
+			],
+			[
+				"ffc",
+				"ffc300"
+			],
+			[
+				"text",
+				"text-center"
+			],
+			[
+				"image",
+				"images/"
+			],
+			[
+				"border-r",
+				"border-radius\tproperty"
+			],
+			[
+				"fon",
+				"font-weight\t(style.css)"
+			],
+			[
+				"wh",
+				"white\t(style.css)"
+			],
+			[
+				"smal",
+				"small-heading2\t(style.css)"
+			],
+			[
+				"data",
+				"data-toggle=\"tooltip"
+			],
+			[
+				"tex",
+				"text-decoration\tproperty"
+			],
+			[
+				"ff",
+				"ffc300"
+			],
+			[
+				"socia",
+				"social-media"
+			],
+			[
+				"hidd",
+				"hidden-xs"
+			],
+			[
+				"rgb",
+				"rgba()\tbackground-color"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": ".gitattributes",
+			"settings":
+			{
+				"buffer_size": 66,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"reinden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"indent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"1",
+				"Text Pastry: From 1 To X"
+			],
+			[
+				"0",
+				"Text Pastry: From 0 To X"
+			],
+			[
+				"pas",
+				"Paste Repeater"
+			],
+			[
+				"print ht",
+				"Print to HTML: print as HTML to new buffer"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"print",
+				"Print Entire File"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"to x",
+				"Text Pastry: From 1 To X"
+			],
+			[
+				"p",
+				"Paste Repeater"
+			],
+			[
+				"1 to",
+				"Text Pastry: From 1 To X"
+			],
+			[
+				"past",
+				"Paste Repeater"
+			],
+			[
+				"pa",
+				"Paste Repeater"
+			],
+			[
+				"PAS",
+				"Paste Repeater"
+			],
+			[
+				"PA",
+				"Paste Repeater"
+			],
+			[
+				"",
+				"Changelog"
+			],
+			[
+				"paste",
+				"Paste Repeater"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"PACKAG",
+				"Package Control: Install Package"
+			],
+			[
+				"color css",
+				"Package Control: Discover Packages"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"colo",
+				"UI: Select Color Scheme"
+			],
+			[
+				"package control",
+				"Package Control: Remove Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"font",
+				"Set Syntax: Font"
+			],
+			[
+				"color sc",
+				"UI: Select Color Scheme"
+			],
+			[
+				"theme",
+				"UI: Select Theme"
+			],
+			[
+				"insat",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+	],
+	"file_history":
+	[
+		"/Users/Sid/Downloads/ValhallaDSP - ValhallaRoom v1.1.1.3 OS X [R2R][dada]/ValhallaRoom v1.1.1.3/R2R.txt",
+		"/Users/Sid/Downloads/Flp Link.txt",
+		"/Users/Sid/Downloads/WhatsApp Chat with Shruti Jayaraman PGP18.txt",
+		"/Users/Sid/Downloads/subscribed_segment_export_376bfd3fcd.csv",
+		"/Users/Sid/Desktop/Name;Siddhant Singh",
+		"/Users/Sid/Desktop/s.html",
+		"/Users/Sid/Library/Application Support/Sublime Text 3/Packages/Simple Print Function/README.md",
+		"/Users/Sid/Desktop/ResumeCopy/run.bat",
+		"/Users/Sid/Downloads/AnyoneSid_ My TimeTable Workbook Term IV - Sheet8.csv",
+		"/Users/Sid/Downloads/Cineflare KINETIC TEXT 2.0 for Final Cut Pro X/SN.txt",
+		"/Users/Sid/Downloads/TwitterCode(uploaded).txt",
+		"/Users/Sid/Downloads/bojack s1/BoJack.Horseman - S01.en/BoJack.Horseman.S01E01.WEBRip.RED.en.srt",
+		"/Users/Sid/Documents/GitHub/siddhantsingh.me/index.html",
+		"/Users/Sid/get_tweets/get_tweets.py",
+		"/Users/Sid/Downloads/tdesktop-dev/README.md",
+		"/Users/Sid/Downloads/Kids_1995/Kids_1995.idx",
+		"/Users/Sid/Downloads/TF.htm",
+		"/Users/Sid/Google Drive (corporaterelations@iimidr.ac.in)/Old Files/Icon\r",
+		"/Users/Sid/Downloads/Birthdays_iimidr.ac.in_2641qmoq9snpe9et3jj8uf2rv8@group.calendar.google.com.ics",
+		"/Users/Sid/Downloads/Practice Data.sav",
+		"/Users/Sid/Downloads/mail.csv",
+		"/Users/Sid/Downloads/i94de-coscf2.vcf",
+		"/Users/Sid/Google Drive/PlaceCom/Design/logos/index.html",
+		"/Users/Sid/Downloads/PGPM17 Contacts",
+		"/Users/Sid/Desktop/mail.csv",
+		"/Users/Sid/Desktop/untitled folder 2/mail.csv",
+		"/Users/Sid/Google Drive/PlaceCom/portal-template.html",
+		"/Users/Sid/Google Drive/PlaceCom/processupdate.html",
+		"/Users/Sid/Desktop/7boats.pdf",
+		"/Users/Sid/Downloads/TimeTable Google Calender - Sheet3 (2).csv",
+		"/Users/Sid/Downloads/view_companies2.html",
+		"/Users/Sid/Downloads/Companies.csv",
+		"/Users/Sid/Downloads/25ec5104-12a5-4c60-8112-6aa418130242.csv",
+		"/Users/Sid/Google Drive/PlaceCom/JPC Contacts Text.txt",
+		"/Users/Sid/Documents/GitHub/siddhantsingh.me/loreal/wp-content/themes/mugs/style.css",
+		"/Users/Sid/Documents/GitHub/siddhantsingh.me/loreal/index.html",
+		"/Users/Sid/Documents/GitHub/siddhantsingh.me/projects/loreal/wp-content/themes/mugs/style.css",
+		"/Users/Sid/Desktop/signature.html",
+		"/Users/Sid/Documents/GitHub/siddhantsingh.me/projects/loreal/index.html",
+		"/Users/Sid/Desktop/loreal/loreal2",
+		"/Users/Sid/Library/Application Support/Sublime Text 3/Packages/User/ColorHighlighter.sublime-settings",
+		"/Users/Sid/Library/Application Support/Sublime Text 3/Packages/Color Highlighter/ColorHighlighter.sublime-settings",
+		"/Users/Sid/Desktop/Microland",
+		"/Users/Sid/Downloads/sitemap_new1.xml",
+		"/Users/Sid/Downloads/links.json",
+		"/Users/Sid/Desktop/untitled folder/IIMI_Admin.vcf",
+		"/Users/Sid/Desktop/JPC/jpc.csv",
+		"/Users/Sid/Google Drive/PGP Term I/Resume/Proofs/Icon\r",
+		"/Users/Sid/Desktop/sd.txt",
+		"/Users/Sid/Downloads/scrape-crunchbase-master/city data.txt",
+		"/Users/Sid/Desktop/Druva.txt",
+		"/Users/Sid/Downloads/scrape-crunchbase-master/Funding Data.txt",
+		"/Users/Sid/Downloads/scrape-crunchbase-master/crunchbase_companies/zynga.json",
+		"/a",
+		"/Users/Sid/Desktop/AmazonAce",
+		"/Users/Sid/Downloads/Screen-Shot-2018-07-08-at-7.32.23-PM.ocr.txt",
+		"/Users/Sid/Downloads/Screen-Shot-2018-07-08-at-7.32.08-PM.ocr.txt",
+		"/Users/Sid/Downloads/Screen-Shot-2018-07-08-at-7.32.29-PM.ocr.txt",
+		"/Volumes/WorkDrive/Working Projects/FoodOfDoon/set/set.csv",
+		"/Volumes/WorkDrive/Working Projects/Scripts/crawler.py",
+		"/Volumes/Mirror for LG TV 2.1.6 1/Extra/rhash",
+		"/Volumes/Mirror for LG TV 2.1.6 1/Extra/tnt.sfv",
+		"/Volumes/Mirror for LG TV 2.1.6 1/Extra/tnt.nfo",
+		"/usr/local/Cellar/ntfs-3g/2017.3.23/sbin/mount_ntfs",
+		"/Library/LaunchDaemons/com.pplauncher.plist",
+		"/private/etc/paths",
+		"/Users/Sid/Documents/GitHub/siddhantsingh.me/bootstrap/css/bootstrap.min.css",
+		"/Users/Sid/Documents/GitHub/siddhantsingh.me/js/script.js",
+		"/Users/Sid/Documents/GitHub/siddhantsingh.me/css/style.css",
+		"/Users/Sid/Documents/GitHub/siddhantsingh.me/projects/atharv17/wp-content/themes/mugs/style.css",
+		"/Users/Sid/Documents/GitHub/siddhantsingh.me/projects/atharv17/index.html",
+		"/Users/Sid/Documents/GitHub/siddhantsingh.me/css/responsive.css",
+		"/Users/Sid/Documents/GitHub/siddhantsingh.me/visual/.htaccess",
+		"/Users/Sid/Documents/GitHub/siddhantsingh.me/visual/wp-config.php",
+		"/Users/Sid/Documents/GitHub/siddhantsingh.me/blog/wp-config.php",
+		"/Users/Sid/Documents/GitHub/siddhantsingh.me/blog/.htaccess",
+		"/Users/Sid/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/Users/Sid/Documents/GitHub/siddhantsingh.me/xml copy.xml",
+		"/Users/Sid/Library/Application Support/Sublime Text 3/Packages/Package Control/Package Control.sublime-settings",
+		"/Users/Sid/keys.txt.pub",
+		"/Users/Sid/Downloads/index.html",
+		"/Users/Sid/Downloads/atharvthefest/2017.html",
+		"/Users/Sid/Downloads/atharvthefest/index.html",
+		"/Volumes/WorkDrive/Working Projects/Intellecap/Drive Takeout/Takeout/Hangouts/Hangouts.json",
+		"/Volumes/WorkDrive/Working Projects/Scripts/python-sitemap-master/ssme.xml",
+		"/Volumes/WorkDrive/Working Projects/Scripts/python-sitemap-master/robots.txt",
+		"/Users/Sid/Downloads/sitemap.csv",
+		"/Volumes/WorkDrive/Working Projects/Scripts/try.py",
+		"/Volumes/WorkDrive/Working Projects/Draft and Again/Brand Tools/Email Template/x.html"
+	],
+	"find":
+	{
+		"height": 31.0
+	},
+	"find_in_files":
+	{
+		"height": 131.0,
+		"where_history":
+		[
+			"",
+			"*.*",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"siddhantsingh.me"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"siddhant.site"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": ".gitattributes",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 66,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								66,
+								66
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": 0,
+								"count": 8,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"syntax": "Packages/Materialize/Langs/Git.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 31.0
+	},
+	"input":
+	{
+		"height": 53.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "main.sublime-project",
+	"replace":
+	{
+		"height": 58.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 154.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

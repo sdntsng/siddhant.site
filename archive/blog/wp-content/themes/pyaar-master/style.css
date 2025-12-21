@@ -1,0 +1,1156 @@
+/*
+Trying to version
+*/
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+[hidden],
+template {
+  display: none;
+}
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+}
+a {
+  background: transparent;
+}
+a:focus {
+  outline: thin dotted;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+b,
+strong {
+  font-weight: bold;
+}
+dfn {
+  font-style: italic;
+}
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+mark {
+  background: #ff0;
+  color: #000;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em;
+}
+pre {
+  white-space: pre-wrap;
+}
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+small {
+  font-size: 80%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+img {
+  border: 0;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+figure {
+  margin: 0;
+}
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+legend {
+  border: 0;
+  padding: 0;
+}
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+}
+button,
+input {
+  line-height: normal;
+}
+button,
+select {
+  text-transform: none;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+em {
+  -webkit-text-stroke: 0;
+}
+/* normalize-opentype v0.1.2 | MIT License | kennethormandy.com/journal/normalize-opentype-css */
+html,
+body {
+  font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0; /* 1. */
+}
+h1,
+h2,
+h3 {
+  font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 1; /* 1. */
+}
+abbr {
+  text-transform: uppercase; /* 1 */
+  font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "smcp" 1, "c2sc" 1; /* 2 */
+}
+time {
+  font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0;
+}
+pre,
+kbd,
+samp,
+code {
+  font-feature-settings: "kern" 0, "liga" 0, "dlig" 0, "pnum" 0, "tnum" 1, "onum" 0, "lnum" 1, "zero" 1; /* 1. */
+}
+sup {
+  font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "sups" 1; /* 1. */
+}
+sub {
+  font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "subs" 1; /* 1. */
+}
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="number"],
+input[type="range"],
+input[type="tel"],
+input[type="week"] {
+  font-feature-settings: "kern" 0, "liga" 1, "pnum" 1, "tnum" 0, "onum" 0, "lnum" 1, "zero" 0; /* 1. */
+}
+table {
+  font-feature-settings: "kern" 0, "liga" 1, "pnum" 0, "tnum" 1, "onum" 0, "lnum" 1, "zero" 1; /* 1. */
+}
+table thead,
+table tfoot {
+  font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0; /* 2. */
+}
+@font-face {
+  font-family: 'symmetrycode';
+  src: url("icons/symmetrycode.eot");
+  src: url("icons/symmetrycode.eot?#iefix") format('embedded-opentype'), url("icons/symmetrycode.ttf") format('truetype'), url("icons/symmetrycode.woff") format('woff'), url("icons/symmetrycode.svg#symmetrycode") format('svg');
+  font-weight: normal;
+  font-style: normal;
+	font-display: swap;
+
+}
+[class*="icon-"] {
+  font-family: 'symmetrycode';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+font-display: swap;
+
+  line-height: 1;
+/* Better Font Rendering ===========*/
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon--inline {
+  position: relative;
+  top: 4px;
+  margin-right: 0.25em;
+}
+.icon-envelop:before {
+  content: "\e001";
+}
+.icon-books:before {
+  content: "\e002";
+}
+.icon-suitcase:before {
+  content: "\e003";
+}
+.icon-twitter:before {
+  content: "\e004";
+}
+.icon-dribbble:before {
+  content: "\e005";
+}
+.icon-google-plus:before {
+  content: "\e006";
+}
+.icon-github:before {
+  content: "\e007";
+}
+.icon-search:before {
+  content: "\e000";
+}
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0,0,0,0.6);
+  clip: auto !important;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000; /* Above WP toolbar. */
+}
+#content[tabindex="-1"]:focus {
+  outline: 0;
+}
+strong {
+  font-weight: 400 !important;
+  font-style: italic;
+}
+/* ==========================================================================
+   2. General - Setting up some base styles
+   ========================================================================== */
+html {
+  height: 100%;
+  max-height: 100%;
+  font-size: 100%;
+}
+body {
+  height: 100%;
+  max-height: 100%;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.5em;
+  line-height: 1.62;
+  color: #34393e;
+  -webkit-font-smoothing: antialiased;
+}
+::selection {
+  color: #fff;
+  background: #ffc300;
+  text-shadow: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-rendering: optimizeLegibility;
+  line-height: 1;
+  margin-top: 0;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+h1 {
+  font-size: 1.75em;
+  line-height: 1.428571428571429em;
+}
+h2 {
+  font-size: 1.25em;
+  line-height: 1.2em;
+}
+h3 {
+  font-size: 1.25em;
+}
+h4 {
+  font-size: 1.125em;
+}
+h5 {
+  font-size: 1em;
+}
+h6 {
+  font-size: 1em;
+}
+a {
+  transition: all ease 0.3s;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(236,243,250,0);
+  color: #a9b0b7;
+  outline: none !important;
+}
+a:hover {
+  color: #2f3338;
+  border-bottom-color: #ecf3fa;
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  color: #a9b0b7;
+}
+p,
+ul,
+ol,
+dl {
+  margin: 1.5em 0;
+}
+ol {
+  list-style-type: lower-roman;
+}
+ul {
+  list-style-type: circle;
+  padding-left: 1em;
+}
+li {
+  padding: 0.25em 0;
+}
+ol ol,
+ul ul,
+ul ol,
+ol ul {
+  margin: 0.4em 0;
+}
+ul li {
+  list-style: none;
+}
+ul li:before {
+  content: '–';
+  margin: 0 0.4em 0 -1em;
+  font-weight: 900;
+  position: relative;
+  top: -1px;
+  opacity: 0.25;
+}
+dl dt {
+  float: left;
+  width: 180px;
+  overflow: hidden;
+  clear: left;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+dl dd {
+  margin-left: 200px;
+  margin-bottom: 1em;
+}
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ecf3fa;
+  margin: 3.2em 0;
+  padding: 0;
+}
+blockquote {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 1.6em 0 1.6em -2.2em;
+  padding: 0 0 0 1.6em;
+  border-left: #ecf3fa 0.4em solid;
+}
+blockquote p {
+  margin: 0.8em 0;
+  font-style: italic;
+}
+blockquote small {
+  display: inline-block;
+  margin: 0.8em 0 0.8em 1.5em;
+  font-size: 0.9em;
+  color: #ccc;
+}
+blockquote smallbefore {
+  content: '\2014 \00A0';
+}
+blockquote cite {
+  font-weight: bold;
+}
+blockquote cite a {
+  font-weight: normal;
+}
+mark {
+  background-color: #ffc336;
+}
+code,
+tt {
+  padding: 0.25em 0.35em;
+  font-family: Inconsolata, monospace, sans-serif;
+  font-size: 0.625em;
+  white-space: pre-wrap;
+  border: 1px solid #e4eef8;
+  background: #fbfdff;
+  border-radius: 2px;
+  vertical-align: middle;
+  -webkit-text-stroke: 0;
+}
+pre {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 1.6em 0;
+  border: 1px solid #e4eef8;
+  width: 100%;
+  padding: 1em;
+  font-family: Inconsolata, Consolas, Monaco, 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
+  font-size: 0.625em;
+  white-space: pre;
+  overflow: auto;
+  background: #fbfdff;
+  border-radius: 3px;
+}
+pre code,
+tt {
+  font-size: inherit;
+  white-space: -moz-pre-wrap;
+  white-space: pre-wrap;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+kbd {
+  display: inline-block;
+  margin-bottom: 0.4em;
+  padding: 1px 8px;
+  border: #ccc 1px solid;
+  color: #666;
+  text-shadow: #fff 0 1px 0;
+  font-size: 0.9em;
+  font-weight: bold;
+  background: #f4f4f4;
+  border-radius: 4px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.2), 0 1px 0 0 #fff inset;
+}
+strikeafter,
+safter,
+delafter {
+  content: ' ';
+  border-top: 1px solid #ecf3fa;
+  top: 50%;
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  margin-top: 2px;
+}
+strike,
+s,
+del {
+  text-decoration: none;
+  position: relative;
+  color: #586169;
+}
+table {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 1.6em 0;
+  width: 100%;
+  max-width: 100%;
+  background-color: transparent;
+}
+table th,
+table td {
+  padding: 8px;
+  line-height: 20px;
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px solid #ecf3fa;
+}
+table th {
+  color: #2f3338;
+}
+table caption + thead tr:first-child th,
+table caption + thead tr:first-child td,
+table colgroup + thead tr:first-child th,
+table colgroup + thead tr:first-child td,
+table thead:first-child tr:first-child th,
+table thead:first-child tr:first-child td {
+  border-top: 0;
+}
+table tbody + tbody {
+  border-top: 2px solid #ecf3fa;
+}
+table table table {
+  background-color: #fff;
+}
+table tbody > tr:nth-child(odd) > td,
+table tbody > tr:nth-child(odd) > th {
+  background-color: #f6f6f6;
+}
+table.plain tbody > tr:nth-child(odd) > td,
+table.plain tbody > tr:nth-child(odd) > th {
+  background: transparent;
+}
+iframe,
+.fluid-width-video-wrapper {
+  display: block;
+  margin: 1.6em 0;
+}
+/* When a video is inside the fitvids wrapper, drop the
+margin on the iframe, cause it breaks stuff. */
+.fluid-width-video-wrapper iframe {
+  margin: 0;
+}
+.post img {
+  max-width: 100%;
+}
+.btn {
+  background: #ffc300;
+  color: #fff;
+  font-size: 0.75em;
+  padding: 0.75em 1em;
+  line-height: 1;
+  border: none;
+  box-sizing: border-box;
+  border: thin solid #ffc300;
+}
+.btn:hover {
+  background: #fff;
+  border: thin solid #ffc300;
+  color: #ffc300;
+}
+.btn--tertiary {
+  border-color: rgba(44,149,250,0);
+  background: #fff;
+  color: #a9b0b7;
+  display: inline-block;
+}
+.post,
+.wrap,
+.nav-links {
+  max-width: 90%;
+  width: 40em;
+  width: 60rem;
+  margin: 0 auto;
+}
+/* ==========================================================================
+   3. Utilities - These things get used a lot
+   ========================================================================== */
+/* Clears shit */
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
+/* Hides shit */
+.hidden {
+  text-indent: -9999px;
+  visibility: hidden;
+  display: none;
+}
+/* Creates a responsive wrapper that makes our content scale nicely */
+.inner {
+  position: relative;
+  width: 80%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+/* Centres vertically yo. (IE8+) */
+.vertical {
+  display: table-cell;
+  vertical-align: middle;
+}
+/* ==========================================================================
+   4. General - The main styles for the the theme
+   ========================================================================== */
+.site-header {
+  font-size: 0.75em;
+  top: 2em;
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  padding: 2em 0;
+  background: #fbfdff !important;
+  border-bottom: thin solid #e7f3ff;
+}
+.site-header h1 {
+  margin: 0 0 0.625em;
+  font-weight: 400;
+}
+.site-header h1 a {
+  white-space: nowrap;
+  border-bottom: 0;
+}
+.site-title a:hover {
+  color: #ffc300;
+}
+.site-title a:hover img {
+  margin: 0 0.5em 0 0;
+}
+.site-title img {
+  display: inline-block;
+  vertical-align: middle;
+  height: 2em;
+  position: relative;
+  top: -2px;
+  margin: 0 0.375em 0 0;
+  transition: all 0.2s ease;
+}
+.site-description {
+  margin: 1em 0;
+}
+.header__social {
+  margin-top: 0.6em;
+  font-size: 1.25em;
+}
+.header__social a + a {
+  margin-left: 0.25em;
+}
+.menu-toggle {
+  display: none;
+}
+.nav-menu {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-menu li:before {
+  content: none;
+}
+.nav-menu li + li:before {
+  content: '·';
+  margin: 0 0.75em;
+  display: inline-block;
+  vertical-align: middle;
+}
+.nav-menu a {
+  text-transform: lowercase;
+  font-weight: 900;
+  border: none !important;
+  display: inline-block;
+  vertical-align: middle;
+}
+.menu-item a[href^="mailto"] {
+  background: #ffc300;
+  color: #fff;
+  padding: 0.15em 0.5em 0;
+  margin-top: -0.15em;
+  font-weight: 500;
+}
+.menu-item a[href^="mailto"]:hover {
+  background: #0570d7;
+}
+/* Every post, on every page, gets this style on its <article> tag */
+.content {
+  overflow: hidden;
+}
+.posts {
+  overflow: hidden;
+  padding-bottom: 0.5em;
+}
+.post {
+  position: relative;
+  word-break: break-word;
+  hyphens: auto;
+  padding: 3em 0;
+}
+.home__post {
+  border-bottom: #edf4fa 1px solid;
+}
+.home__post:after {
+  display: block;
+  content: "***";
+  position: absolute;
+  bottom: -0.75em;
+  left: 50%;
+  margin-left: -1.5em;
+  background: #fff;
+  width: 3em;
+  line-height: 1;
+  text-align: center;
+  color: #e4eef8;
+  letter-spacing: 0.25em;
+}
+.post-title {
+  text-align: center;
+  margin: 0;
+  font-size: 1.5em;
+}
+.post-title a {
+  color: #34393e;
+  text-decoration: none;
+  border-bottom: none;
+}
+.post-title a:hover {
+  color: #ffc300;
+}
+.post-excerpt p {
+  margin: 1.6rem 0 0 0;
+  font-size: 0.9em;
+  line-height: 1.6em;
+}
+.post-meta {
+  display: block;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.75em;
+  margin: 0.666666666666667em 0 0.333333333333333em;
+  color: #a9b0b7;
+}
+.user-meta {
+  position: relative;
+  padding: 0.3rem 40px 0 100px;
+  min-height: 77px;
+}
+.user-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.user-name {
+  display: block;
+  font-weight: bold;
+}
+.user-bio {
+  display: block;
+  max-width: 440px;
+  font-size: 1.4rem;
+  line-height: 1.5em;
+}
+.publish-meta {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 4.3rem 0 4rem 0;
+  text-align: right;
+}
+.publish-heading {
+  display: block;
+  font-weight: bold;
+}
+.publish-date {
+  display: block;
+  font-size: 1.4rem;
+  line-height: 1.5em;
+}
+.read-more {
+  margin: 1.25em 0 0;
+  text-align: center;
+}
+.read-more i {
+  display: inline-block;
+  font-style: normal;
+}
+.read-more a:hover i {
+  animation: wiggle 0.75s ease infinite both alternate;
+}
+.nav-links {
+  font-size: 0.75em;
+  margin: 1em auto;
+  display: flex;
+  justify-content: space-between;
+}
+.nav-links a {
+  border: none;
+}
+.nav-links a:hover {
+  border: none;
+  color: #a9b0b7;
+}
+.nav-previous {
+  flex: 1 0 0;
+  padding-right: 1em;
+}
+.nav-previous a:before {
+  content: '←';
+  padding-right: 0.375em;
+}
+.nav-next {
+  flex: 1 0 0;
+  padding-left: 1em;
+  text-align: right;
+}
+.nav-next a:after {
+  content: '→';
+  padding-left: 0.375em;
+}
+/* ==========================================================================
+   5. Single Post - When you click on an individual post
+   ========================================================================== */
+/* Tweak the .post wrapper style */
+.post-template .post {
+  margin-top: 0;
+  padding-bottom: 1em;
+}
+/* Insert some mad padding up in the header for better spacing */
+.post-template .post-header {
+  padding: 60px 0;
+  text-align: center;
+}
+.post-template .blog-title {
+  display: inline-block;
+  padding: 2.5rem 0;
+}
+.post-content {
+  -webkit-text-stroke: 0.15px;
+}
+/* Keep images centred and within the bounds of the post-width */
+.post-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  padding: 0.6em 0;
+}
+/* Break out larger images to be wider than the main text column
+   the class is applied with jQuery */
+.post-content .full-img {
+  width: 126%;
+  max-width: none;
+  margin: 0 -13%;
+}
+/* Headings */
+.home-template h1,
+.archive-template h1 {
+  font-size: 1.5em;
+  line-height: 1.5em;
+}
+.post h2 {
+  margin: 1.92em 0 1.28em -1em;
+}
+.post h2:before {
+  content: '\00A7';
+  color: #ecf3fa;
+  vertical-align: top;
+  position: relative;
+  margin: 0 0.5em 0 0;
+  top: -2px;
+}
+.post h3 {
+  margin: 2.4em 0 0.8em -0.85em;
+  padding: 0 0 0.1em 0.75em;
+  border-left: 0.1em solid #ecf3fa;
+  font-size: 1em;
+}
+.post__discuss {
+  margin-left: -0.85em;
+  padding: 0 0 0.1em 0.75em;
+  border-left: 0.1em solid #ecf3fa;
+  transition: all 0.3s ease;
+}
+.post__discusshover {
+  border-left-color: #ffc300;
+}
+.post__discuss a {
+  border-bottom: none;
+}
+.post__discuss ahover {
+  color: #ffc300;
+}
+/* The author credit area after the post */
+.post-footer {
+  font-family: 'Lato', sans-serif;
+  color: #a9b0b7;
+  position: relative;
+  padding: 2em 0 0 0;
+  text-align: center;
+  font-size: 0.75em;
+}
+.post-footer a {
+  border-bottom-color: #ecf3fa;
+  color: inherit;
+}
+.post-footer a:hover {
+  color: #ffc300;
+}
+.post-footer h4 {
+  font-size: 1.8rem;
+  margin: 0;
+}
+.post-footer p {
+  margin: 1rem 0;
+  font-size: 1.4rem;
+  line-height: 1.6em;
+}
+/* Drop the share links in the space to the right.
+   Doing it like this means it's easier for the author bio
+   to be flexible at smaller screen sizes while the share
+   links remain at a fixed width the whole time */
+.post-footer .share a {
+  display: inline-block;
+  margin: 1rem 1.6rem 1.6rem 0;
+}
+/* ==========================================================================
+   6. Tag archive
+   ========================================================================== */
+.archive-template .site-head {
+  height: auto;
+  padding-bottom: 5rem;
+}
+.archive-template .site-head a {
+  color: #fff;
+}
+.archive-template .blog-logo {
+  display: block;
+  margin-top: 5rem;
+}
+.tag-archive-header {
+  padding: 20px 0;
+  text-align: center;
+  max-width: 700px;
+  margin: 4rem auto;
+  border-bottom: 1px solid #ebf2f6;
+  position: relative;
+}
+.tag-archive-headerafter {
+  display: block;
+  content: "";
+  width: 7px;
+  height: 7px;
+  border: #ecf3fa 1px solid;
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  margin-left: -5px;
+  background: #fff;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  box-shadow: #fff 0 0 0 5px;
+}
+.archive-template .blog-title {
+  display: inline-block;
+  padding: 2.5rem 0;
+}
+/* ==========================================================================
+   7. Third Party Elements - Embeds from other services
+   ========================================================================== */
+/* Github */
+.gist table {
+  margin: 0;
+  font-size: 1.4rem;
+}
+.gist .line-number {
+  min-width: 25px;
+  font-size: 1.1rem;
+}
+/* ==========================================================================
+   8. Pagination - Tools to let you flick between pages
+   ========================================================================== */
+/* The main wrapper for our pagination links */
+.pagination {
+  position: relative;
+  font-family: 'Lato', sans-serif;
+  color: #9eabb3;
+  text-align: center;
+  font-size: 0.825em;
+  width: 42.42424242424243em;
+  float: right;
+  max-width: 60%;
+  margin: 0 40% 0 0;
+  margin-top: 2.424242424242424em;
+}
+.pagination a {
+  color: #9eabb3;
+}
+/* Push the previous/next links out to the left/right */
+.older-posts,
+.newer-posts {
+  position: absolute;
+  display: inline-block;
+  padding: 0.125em 0.75em;
+  border: #ebf2f6 0.1em solid;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: all ease 0.3s;
+  top: 0;
+}
+.older-posts {
+  right: 0;
+}
+.page-number {
+  display: inline-block;
+  padding: 0.225em 0;
+}
+.newer-posts {
+  left: 0;
+}
+.older-postshover,
+.newer-postshover {
+  color: #ffc300;
+  border-color: #ffc300;
+}
+/* ==========================================================================
+   9. Footer - The bottom of every page
+   ========================================================================== */
+.site-footer {
+  clear: both;
+  position: relative;
+  padding: 4em 0;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.625em;
+  margin: 4em 0 0 0;
+  line-height: 1.7em;
+  color: #586169;
+  text-align: center;
+  border-top: thin solid #e7f3ff;
+  background: #fbfdff;
+}
+/* ==========================================================================
+   =MEDIA
+   ========================================================================== */
+@media (max-width: 45em) {
+  body {
+    font-size: 1.25em;
+  }
+  .post h2,
+  .post h3 {
+    margin-left: 0;
+  }
+  .site-footer {
+    font-size: 0.75em;
+  }
+}
+@media (max-width: 35em) {
+  body {
+    font-size: 1.125em;
+  }
+  .home__post {
+    padding: 2em 0;
+  }
+  .read-more a {
+    border-color: #d4d7db;
+  }
+}
+@media (max-width: 27.5em) {
+  .menu-item {
+    /* display: none; */
+  }
+  .menu-item:first-child,
+  .menu-item:last-child {
+    display: block;
+  }
+}
+@-moz-keyframes wiggle {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0.25em);
+  }
+}
+@-webkit-keyframes wiggle {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0.25em);
+  }
+}
+@-o-keyframes wiggle {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0.25em);
+  }
+}
+@keyframes wiggle {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0.25em);
+  }
+}
+
+.blocks-gallery-grid, .wp-block-gallery 
+{
+    margin: auto !important;
+}

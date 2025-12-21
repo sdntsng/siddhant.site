@@ -1,0 +1,5 @@
+[27-Aug-2024 08:24:05 UTC] Cron reschedule event error for hook: mo_hourly_recurring_job, Error code: could_not_set, Error message: The cron event list could not be saved., Data: {"schedule":"hourly","args":[],"interval":3600}
+[27-Aug-2024 08:24:05 UTC] Cron reschedule event error for hook: mo_hourly_recurring_job, Error code: could_not_set, Error message: The cron event list could not be saved., Data: {"schedule":"hourly","args":[],"interval":3600}
+[27-Aug-2024 08:24:05 UTC] Cron unschedule event error for hook: mo_hourly_recurring_job, Error code: could_not_set, Error message: The cron event list could not be saved., Data: {"schedule":"hourly","args":[],"interval":3600}
+[01-Oct-2024 14:19:13 UTC] Cron reschedule event error for hook: jetpack_clean_nonces, Error code: could_not_set, Error message: The cron event list could not be saved., Data: {"schedule":"hourly","args":[],"interval":3600}
+[28-Oct-2025 19:16:26 UTC] Cron reschedule event error for hook: mo_hourly_recurring_job, Error code: could_not_set, Error message: The cron event list could not be saved., Data: {"schedule":"hourly","args":[],"interval":3600}

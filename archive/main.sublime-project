@@ -1,0 +1,317 @@
+{
+	"folders":
+	[
+		{
+			"path": "projects"
+		},
+		{
+			"path": "letswork"
+		},
+		{
+			"path": "loreal"
+		},
+		{
+			"path": "loreal/wp-content"
+		},
+		{
+			"path": "loreal/manlit"
+		},
+		{
+			"path": "loreal/js"
+		},
+		{
+			"path": "loreal/wp-includes"
+		},
+		{
+			"path": "loreal/wp-json"
+		},
+		{
+			"path": "bootstrap"
+		},
+		{
+			"path": "js"
+		},
+		{
+			"path": "library"
+		},
+		{
+			"path": "images"
+		},
+		{
+			"path": "downloads"
+		},
+		{
+			"path": "music"
+		},
+		{
+			"path": "php"
+		},
+		{
+			"path": "css"
+		},
+		{
+			"path": "ssme"
+		},
+		{
+			"path": "cgi-bin"
+		},
+		{
+			"path": "test"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "cgi-bin/test"
+		},
+		{
+			"path": "php/php"
+		},
+		{
+			"path": "ssme/css"
+		},
+		{
+			"path": "test/cgi"
+		},
+		{
+			"path": "test/apacheasp"
+		},
+		{
+			"path": "test/fcgi"
+		},
+		{
+			"path": "test/coldfusion"
+		},
+		{
+			"path": "test/miva"
+		},
+		{
+			"path": "test/perl"
+		},
+		{
+			"path": "test/php"
+		},
+		{
+			"path": "test/python"
+		},
+		{
+			"path": "test/ssi"
+		},
+		{
+			"path": "projects/eecharts"
+		},
+		{
+			"path": "projects/eecharts/pichart2/js"
+		},
+		{
+			"path": "projects/eecharts/pichart2"
+		},
+		{
+			"path": "projects/eecharts/pichart2/css"
+		},
+		{
+			"path": "projects/eecharts/pichart1"
+		},
+		{
+			"path": "projects/eecharts/pichart1/css"
+		},
+		{
+			"path": "projects/eecharts/pichart1/js"
+		},
+		{
+			"path": "projects/atharv17"
+		},
+		{
+			"path": "projects/atharv17/wp-content"
+		},
+		{
+			"path": "projects/atharv17/wp-content/themes"
+		},
+		{
+			"path": "projects/atharv17/wp-content/themes/mugs"
+		},
+		{
+			"path": "projects/atharv17/wp-content/fa"
+		},
+		{
+			"path": "projects/atharv17/wp-content/fa/css"
+		},
+		{
+			"path": "projects/atharv17/wp-content/fa/fonts"
+		},
+		{
+			"path": "projects/atharv17/wp-content/fa/less"
+		},
+		{
+			"path": "projects/atharv17/wp-content/fa/scss"
+		},
+		{
+			"path": "projects/atharv17/wp-content/uploads"
+		},
+		{
+			"path": "projects/atharv17/wp-content/plugins"
+		},
+		{
+			"path": "projects/atharv17/wp-content/uploads/2015"
+		},
+		{
+			"path": "projects/atharv17/wp-content/plugins/sitepress-multilingual-cms"
+		},
+		{
+			"path": "projects/atharv17/wp-content/plugins/google-analyticator"
+		},
+		{
+			"path": "projects/atharv17/js"
+		},
+		{
+			"path": "projects/atharv17/manlit"
+		},
+		{
+			"path": "projects/atharv17/wp-includes"
+		},
+		{
+			"path": "projects/atharv17/wp-includes/js"
+		},
+		{
+			"path": "projects/atharv17/wp-json"
+		},
+		{
+			"path": "projects/atharv17/wp-includes/js/jquery"
+		},
+		{
+			"path": "projects/textform"
+		},
+		{
+			"path": "projects/proj8"
+		},
+		{
+			"path": "projects/proj8/css"
+		},
+		{
+			"path": "letswork/assets"
+		},
+		{
+			"path": "letswork/assets/css"
+		},
+		{
+			"path": "letswork/assets/img"
+		},
+		{
+			"path": "letswork/assets/js"
+		},
+		{
+			"path": "letswork/assets/img/pattern1"
+		},
+		{
+			"path": "letswork/assets/fonts"
+		},
+		{
+			"path": "loreal/wp-content/themes"
+		},
+		{
+			"path": "loreal/wp-content/themes/mugs"
+		},
+		{
+			"path": "loreal/wp-content/themes/mugs/images"
+		},
+		{
+			"path": "loreal/wp-content/themes/mugs/js"
+		},
+		{
+			"path": "loreal/wp-content/themes/mugs/font"
+		},
+		{
+			"path": "loreal/wp-content/fa"
+		},
+		{
+			"path": "loreal/wp-content/fa/css"
+		},
+		{
+			"path": "loreal/wp-content/fa/fonts"
+		},
+		{
+			"path": "loreal/wp-content/fa/less"
+		},
+		{
+			"path": "loreal/wp-content/fa/scss"
+		},
+		{
+			"path": "loreal/wp-content/uploads/2015"
+		},
+		{
+			"path": "loreal/wp-content/uploads"
+		},
+		{
+			"path": "loreal/wp-content/uploads/2015/07"
+		},
+		{
+			"path": "loreal/wp-content/uploads/2015/08"
+		},
+		{
+			"path": "loreal/wp-content/plugins"
+		},
+		{
+			"path": "loreal/wp-content/plugins/sitepress-multilingual-cms"
+		},
+		{
+			"path": "loreal/wp-content/plugins/sitepress-multilingual-cms/res"
+		},
+		{
+			"path": "loreal/wp-content/plugins/google-analyticator"
+		},
+		{
+			"path": "loreal/wp-includes/js"
+		},
+		{
+			"path": "loreal/wp-includes/js/jquery"
+		},
+		{
+			"path": "bootstrap/css"
+		},
+		{
+			"path": "bootstrap/fonts"
+		},
+		{
+			"path": "bootstrap/js"
+		},
+		{
+			"path": "library/popup"
+		},
+		{
+			"path": "library/font-awesome"
+		},
+		{
+			"path": "library/font-awesome/css"
+		},
+		{
+			"path": "library/font-awesome/fonts"
+		},
+		{
+			"path": "library/gMap"
+		},
+		{
+			"path": "library/jquery-easing"
+		},
+		{
+			"path": "library/mixitup"
+		},
+		{
+			"path": "library/modernizr"
+		},
+		{
+			"path": "library/easy-pie-charts"
+		},
+		{
+			"path": "images/tools"
+		},
+		{
+			"path": "images/menu"
+		},
+		{
+			"path": "images/icon"
+		},
+		{
+			"path": "images/background"
+		}
+	]
+}

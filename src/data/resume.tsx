@@ -10,7 +10,7 @@ export const DATA = {
   description:
     "Technologist & Entrepreneur. Focused on GenAI and decentralized infrastructures. Operator & Builder.",
   summary:
-    "I am a technologist at heart, a business operator by education, and an entrepreneur by consequence. I believe in the alchemy of data, design, and digital spaces. I passionately follow the consumer internet space and evolving technologies such as blockchain, computer vision, and natural language processing.",
+    "I am a technologist at heart, a business operator by education, and an entrepreneur by consequence. I believe in the alchemy of data, design, and digital spaces. I passionately follow the consumer internet space and evolving technologies such as blockchain, computer vision, and natural language processing. I often explore business and tech philosophy on my blog, and in my downtime, I produce [electronic music](/music).",
   avatarUrl: "/sid.jpg",
   skills: [
     "GenAI",
@@ -46,6 +46,24 @@ export const DATA = {
         name: "X",
         url: "https://twitter.com/sdntsng",
         icon: Icons.x,
+        navbar: true,
+      },
+      Instagram: {
+        name: "Instagram",
+        url: "https://www.instagram.com/sid.vinci",
+        icon: Icons.instagram,
+        navbar: true,
+      },
+      WhatsApp: {
+        name: "WhatsApp",
+        url: "https://wa.me/919522565616",
+        icon: Icons.whatsapp,
+        navbar: true,
+      },
+      Resume: {
+        name: "Resume",
+        url: "/resume",
+        icon: Icons.googleDrive,
         navbar: true,
       },
       email: {
