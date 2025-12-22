@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 import { Terminal } from "lucide-react";
-import { useTerminal } from "@/components/terminal-context";
+import { useTerminal } from "@/context/terminal";
 
 export default function Navbar() {
   const { toggleMode } = useTerminal();

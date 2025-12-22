@@ -10,7 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
-import { useTerminal } from "@/components/terminal-context";
+import { useTerminal } from "@/context/terminal";
 import TerminalView from "@/components/terminal-view";
 
 const BLUR_FADE_DELAY = 0.04;

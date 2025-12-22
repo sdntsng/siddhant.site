@@ -1,0 +1,8 @@
+{
+    "name": "porfolio",
+    "compatibility_date": "2024-12-21",
+    "assets": {
+        "directory": "./out",
+        "binding": "ASSETS"
+    }
+}

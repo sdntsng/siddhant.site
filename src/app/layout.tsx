@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Lato as FontSans } from "next/font/google";
 import "./globals.css";
-import { TerminalProvider } from "@/components/terminal-context";
+import { TerminalProvider } from "@/context/terminal";
 
 const fontSans = FontSans({
   subsets: ["latin"],
