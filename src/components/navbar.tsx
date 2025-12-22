@@ -31,7 +31,7 @@ export default function Navbar() {
                   href={item.href}
                   className={cn(
                     buttonVariants({ variant: "ghost", size: "icon" }),
-                    "size-12"
+                    "size-12 rounded-xl"
                   )}
                 >
                   <item.icon className="size-4" />
@@ -54,7 +54,7 @@ export default function Navbar() {
                     href={social.url}
                     className={cn(
                       buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-12"
+                      "size-12 rounded-xl"
                     )}
                   >
                     <social.icon className="size-4" />
@@ -74,7 +74,7 @@ export default function Navbar() {
                 onClick={toggleMode}
                 className={cn(
                   buttonVariants({ variant: "ghost", size: "icon" }),
-                  "size-12"
+                  "size-12 rounded-xl"
                 )}
               >
                 <Terminal className="size-4" />
