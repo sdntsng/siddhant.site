@@ -2,8 +2,13 @@
 
 import { useEffect, useRef } from "react";
 
-import { GitHubCalendar } from "react-github-calendar";
 import { useTheme } from "next-themes";
+import dynamic from "next/dynamic";
+
+const GitHubCalendar = dynamic(
+    () => import("react-github-calendar").then((mod) => mod.GitHubCalendar),
+    { ssr: false }
+);
 
 export default function GithubActivity() {
     const { theme } = useTheme();
