@@ -20,7 +20,11 @@ function getMDXFiles(dir: string) {
 export async function getPost(slug: string) {
   const filePath = path.join("content", `${slug}.mdx`);
   let source = fs.readFileSync(filePath, "utf-8");
-  const { content: rawContent, data: metadata } = matter(source);
+  let { content: rawContent, data: metadata } = matter(source);
+
+  // Remove HTML comments as they break MDX compilation
+  rawContent = rawContent.replace(/<!--[\s\S]*?-->/g, "");
+
   return {
     source: rawContent,
     metadata,
