@@ -5,6 +5,11 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { Breadcrumb } from "@/components/breadcrumb";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import { Tweet } from "react-tweet";
+import rehypePrettyCode from "rehype-pretty-code";
+
+import remarkGfm from "remark-gfm";
 
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
@@ -51,6 +56,10 @@ export async function generateMetadata({
     },
   };
 }
+
+const components = {
+  Tweet,
+};
 
 export default async function Blog({
   params,
@@ -106,10 +115,29 @@ export default async function Blog({
           </p>
         </Suspense>
       </div>
-      <article
-        className="prose dark:prose-invert"
-        dangerouslySetInnerHTML={{ __html: post.source }}
-      ></article>
+      <article className="prose dark:prose-invert">
+        <MDXRemote
+          source={post.source}
+          components={components}
+          options={{
+            mdxOptions: {
+              remarkPlugins: [remarkGfm],
+              rehypePlugins: [
+                [
+                  rehypePrettyCode,
+                  {
+                    theme: {
+                      light: "min-light",
+                      dark: "min-dark",
+                    },
+                    keepBackground: false,
+                  },
+                ],
+              ],
+            },
+          }}
+        />
+      </article>
     </section>
   );
 }
