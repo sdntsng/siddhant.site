@@ -57,8 +57,11 @@ export async function generateMetadata({
   };
 }
 
+import { Callout } from "@/components/callout";
+
 const components = {
   Tweet,
+  Callout,
 };
 
 export default async function Blog({

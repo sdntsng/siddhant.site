@@ -51,4 +51,10 @@ When refactoring existing content:
 4. Ensure all `<br>` are `<br />`.
 
 ## 6. Quotes & Callouts
-- Simplify WP blockquotes to standard Markdown `>` quotes if complex styling isn't strictly necessary, or ensure `className` is used.
+- **Gyan / Alerts**: Use the `<Callout>` component.
+  ```jsx
+  <Callout title="Gyan">
+    Your content here. Can use [markdown links](...).
+  </Callout>
+  ```
+- **Standard Quotes**: Use standard Markdown `>` for regular quotes.
