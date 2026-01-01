@@ -55,7 +55,7 @@ export function SettingsManager() {
         setStatusMessage("");
 
         try {
-            // Construct standard OpenIA compatible /models endpoint
+            // Construct standard OpenAI compatible /models endpoint
             // Handle trailing slash if present
             const baseUrl = llmBaseUrl.replace(/\/+$/, "");
             const res = await fetch(`${baseUrl}/models`, {
