@@ -1,0 +1,8 @@
+name = "siddhant-site"
+compatibility_date = "2024-06-20"
+pages_build_output_dir = ".vercel/output/static"
+
+# Bindings
+[[kv_namespaces]]
+binding = "NEXT_CACHE_WORKERS_KV"
+id = "2dcc853483034a66a704040a43050963"
