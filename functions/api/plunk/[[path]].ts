@@ -1,4 +1,4 @@
-export async function onRequest(context) {
+export async function onRequest(context: any) {
     const url = new URL(context.request.url);
     // Extract the path after /api/plunk/
     const path = url.pathname.replace('/api/plunk/', '');
@@ -17,7 +17,7 @@ export async function onRequest(context) {
     try {
         const response = await fetch(newRequest);
         return response;
-    } catch (e) {
-        return new Response(JSON.stringify({ error: e.message }), { status: 500 });
+    } catch (e: any) {
+        return new Response(JSON.stringify({ error: e.message || "Unknown Error" }), { status: 500 });
     }
 }
