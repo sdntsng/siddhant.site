@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { format } from "date-fns";
-import { FileText, Mail, Share2, Sparkles, Send, Calendar, Clock } from "lucide-react";
+import { formatInTimeZone } from "date-fns-tz";
+import { FileText, Mail, Share2, Sparkles, Send, Calendar, Clock, Users, Globe, Rocket, RefreshCw } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
@@ -126,6 +127,17 @@ export function ContentManager({ posts }: { posts: Post[] }) {
     );
 }
 
+const TIMEZONES = [
+    "UTC",
+    "America/New_York",
+    "America/Los_Angeles",
+    "Europe/London",
+    "Asia/Dubai",
+    "Asia/Kolkata",
+    "Asia/Singapore",
+    "Australia/Sydney",
+];
+
 function NewsletterGenerator({ post }: { post: Post }) {
     const [html, setHtml] = useState("");
     const [loading, setLoading] = useState(false);
@@ -133,20 +145,61 @@ function NewsletterGenerator({ post }: { post: Post }) {
     const [status, setStatus] = useState("");
     const [error, setError] = useState("");
 
-    // Scheduling State
+    // Scheduling & Targeting
+    const [mode, setMode] = useState<"test" | "burst">("test"); // Test vs Burst
     const [showSchedule, setShowSchedule] = useState(false);
     const [scheduleTime, setScheduleTime] = useState("");
+    const [timezone, setTimezone] = useState(Intl.DateTimeFormat().resolvedOptions().timeZone);
+
+    // Segments & Counts
+    const [segments, setSegments] = useState<{ id: string, name: string }[]>([]);
+    const [selectedSegment, setSelectedSegment] = useState<string>("");
+    const [totalContacts, setTotalContacts] = useState<number | null>(null);
+
+    useEffect(() => {
+        // Fetch segments on mount
+        const fetchMetadata = async () => {
+            const plunkKey = localStorage.getItem("plunk_secret_key") || process.env.NEXT_PUBLIC_PLUNK_SECRET_KEY;
+            if (!plunkKey) return;
+
+            try {
+                // 1. Fetch Segments
+                const segRes = await fetch("/api/plunk/segments", {
+                    headers: { "Authorization": `Bearer ${plunkKey}` }
+                });
+                if (segRes.ok) {
+                    const data = await segRes.json();
+                    const items = Array.isArray(data) ? data : (data.items || []);
+                    setSegments(items);
+                }
+
+                // 2. Fetch Total Contacts Count
+                const contactsRes = await fetch("/api/plunk/contacts?limit=1", {
+                    headers: { "Authorization": `Bearer ${plunkKey}` }
+                });
+                if (contactsRes.ok) {
+                    const data = await contactsRes.json();
+                    if (data.meta && typeof data.meta.total === 'number') {
+                        setTotalContacts(data.meta.total);
+                    } else if (typeof data.total === 'number') {
+                        setTotalContacts(data.total); // Some API versions returns 'total' at root
+                    }
+                }
+
+            } catch (e) { console.error("Failed to fetch Plunk metadata", e); }
+        }
+        fetchMetadata();
+    }, []);
+
 
     const generateEmail = async () => {
         setLoading(true);
         setError("");
         try {
-            // 1. Fetch template
             const templateRes = await fetch("/newsletter-template.html");
-            if (!templateRes.ok) throw new Error("Could not load template file. Make sure it is in public/");
+            if (!templateRes.ok) throw new Error("Could not load template file.");
             const template = await templateRes.text();
 
-            // 2. Convert Markdown to HTML
             const file = await unified()
                 .use(remarkParse)
                 .use(remarkRehype)
@@ -154,48 +207,43 @@ function NewsletterGenerator({ post }: { post: Post }) {
                 .process(post.source);
 
             const contentHtml = String(file);
-
-            // 3. Inject into template
             const filledTemplate = template
                 .replace("{{title}}", post.metadata.title)
                 .replace("{{content}}", contentHtml)
-                .replace("{{unsubscribe_url}}", "#");
+                .replace("{{unsubscribe_url}}", "{{unsubscribe_link}}"); // Plunk replacement tag
 
-            // 4. Inline CSS
             try {
                 const inlined = juice(filledTemplate);
                 setHtml(inlined);
             } catch (e) {
-                console.warn("Juice inlining failed, using raw HTML", e);
                 setHtml(filledTemplate);
             }
 
         } catch (err: any) {
-            console.error(err);
             setError(err.message || "Failed to generate email");
         } finally {
             setLoading(false);
         }
     };
 
-    const sendTest = async () => {
+    const handleSend = async () => {
         setSending(true);
         setStatus("");
         setError("");
 
-        const plunkKey = localStorage.getItem("plunk_secret_key");
-        const adminEmail = localStorage.getItem("admin_email");
-        const senderEmail = localStorage.getItem("sender_email");
+        const plunkKey = localStorage.getItem("plunk_secret_key") || process.env.NEXT_PUBLIC_PLUNK_SECRET_KEY;
+        const adminEmail = localStorage.getItem("admin_email") || process.env.NEXT_PUBLIC_ADMIN_EMAIL;
+        const senderEmail = localStorage.getItem("sender_email") || process.env.NEXT_PUBLIC_SENDER_EMAIL;
 
-        if (!plunkKey || !adminEmail || !senderEmail) {
-            setError("Configure Plunk keys and Sender Email in Settings first.");
+        if (!plunkKey || !senderEmail) {
+            setError("Missing Configuration. Check Settings.");
             setSending(false);
             return;
         }
 
         try {
-            // Calculate delay if scheduled
-            let delay = undefined;
+            // 1. Calculate Delay (if scheduled)
+            let delay: number | undefined = undefined;
             if (showSchedule && scheduleTime) {
                 const targetTime = new Date(scheduleTime).getTime();
                 const now = Date.now();
@@ -209,42 +257,88 @@ function NewsletterGenerator({ post }: { post: Post }) {
                 delay = diffSeconds;
             }
 
-            const res = await fetch("https://next-api.useplunk.com/v1/send", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${plunkKey}`
-                },
-                body: JSON.stringify({
-                    to: adminEmail,
-                    from: senderEmail,
-                    subject: `[${delay ? "Scheduled" : "Test"}] ${post.metadata.title}`,
-                    body: html,
-                    ...(delay ? { delay } : {})
-                })
-            });
-
-            if (!res.ok) {
-                // Try to parse JSON error first, fallback to text
-                try {
-                    const errData = await res.json();
-                    throw new Error(errData.message || JSON.stringify(errData));
-                } catch (e: any) {
-                    if (e.message && e.message !== "Unexpected end of JSON input") throw e;
-                    const errText = await res.text();
-                    throw new Error(errText || res.statusText);
+            if (mode === "test") {
+                // Transactional Test Send
+                if (!adminEmail) {
+                    setError("Admin Email missing in Settings.");
+                    setSending(false);
+                    return;
                 }
+                const res = await fetch("https://next-api.useplunk.com/v1/send", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${plunkKey}`
+                    },
+                    body: JSON.stringify({
+                        to: adminEmail,
+                        from: senderEmail,
+                        subject: `[TEST] ${post.metadata.title}`,
+                        body: html,
+                        ...(delay ? { delay } : {})
+                    })
+                });
+                if (!res.ok) throw await getError(res);
+                setStatus("Test Email Sent!");
+
+            } else {
+                // Burst / Campaign Mode
+                // 1. Create Campaign
+                const createRes = await fetch("/api/plunk/campaigns", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${plunkKey}`
+                    },
+                    body: JSON.stringify({
+                        subject: post.metadata.title,
+                        body: html,
+                        from: senderEmail,
+                        segments: selectedSegment ? [selectedSegment] : undefined, // Empty = All Contacts
+                    })
+                });
+
+                if (!createRes.ok) throw await getError(createRes);
+                const campaign = await createRes.json();
+
+                // 2. Send/Schedule Campaign (using the new ID)
+                const campaignId = campaign.id || (campaign.data && campaign.data.id);
+
+                if (!campaignId) throw new Error("Could not create campaign ID");
+
+                const sendRes = await fetch(`/api/plunk/campaigns/${campaignId}/send`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${plunkKey}`
+                    },
+                    body: JSON.stringify({
+                        ...(delay ? { delay } : {}) // Send immediately if no delay
+                    })
+                });
+
+                if (!sendRes.ok) throw await getError(sendRes);
+                setStatus(delay ? "Campaign Scheduled!" : "Campaign Sent!");
             }
 
-            setStatus(delay ? `Scheduled for ${new Date(scheduleTime).toLocaleString()}` : "Sent!");
             if (!delay) setTimeout(() => setStatus(""), 3000);
+
         } catch (err: any) {
             console.error(err);
-            setError("Send failed: " + err.message);
+            setError(err.message);
         } finally {
             setSending(false);
         }
     };
+
+    const getError = async (res: Response) => {
+        try {
+            const json = await res.json();
+            return new Error(json.message || json.error?.message || "API Error");
+        } catch {
+            return new Error(res.statusText);
+        }
+    }
 
     return (
         <div className="h-full flex flex-col gap-4">
@@ -271,47 +365,94 @@ function NewsletterGenerator({ post }: { post: Post }) {
                 </div>
             ) : (
                 <div className="flex flex-col h-full gap-4">
-                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                        <h3 className="font-medium text-sm">Preview</h3>
-                        <div className="flex items-center gap-2 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0">
-                            {error && <span className="text-xs text-red-500 mr-2 whitespace-nowrap">{error}</span>}
-                            {status && <span className="text-xs text-green-500 font-medium mr-2 whitespace-nowrap">{status}</span>}
+                    {/* Toolbar */}
+                    <div className="flex flex-col gap-3 p-3 bg-muted/20 border border-border rounded-lg">
+                        <div className="flex items-center justify-between">
+                            <h3 className="font-semibold text-sm">Send Configuration</h3>
+                            <div className="flex gap-1">
+                                <button
+                                    onClick={() => setMode("test")}
+                                    className={cn("px-3 py-1 text-xs rounded-md transition-colors font-medium border", mode === "test" ? "bg-white border-border shadow-sm text-foreground" : "border-transparent text-muted-foreground hover:bg-muted")}
+                                >
+                                    Test
+                                </button>
+                                <button
+                                    onClick={() => setMode("burst")}
+                                    className={cn("px-3 py-1 text-xs rounded-md transition-colors font-medium border flex items-center gap-1", mode === "burst" ? "bg-blue-50 border-blue-100 text-blue-600 shadow-sm" : "border-transparent text-muted-foreground hover:bg-muted")}
+                                >
+                                    <Rocket className="h-3 w-3" /> Burst
+                                </button>
+                            </div>
+                        </div>
 
-                            <button onClick={() => setHtml("")} className="text-xs text-muted-foreground hover:text-foreground whitespace-nowrap">
-                                Reset
-                            </button>
-
+                        <div className="flex flex-wrap items-center gap-3">
                             {/* Schedule Toggle */}
-                            <button
-                                onClick={() => setShowSchedule(!showSchedule)}
-                                className={cn(
-                                    "p-1.5 rounded-md text-muted-foreground hover:text-foreground transition-colors",
-                                    showSchedule && "bg-secondary text-foreground"
+                            <div className="flex items-center gap-2">
+                                <button
+                                    onClick={() => setShowSchedule(!showSchedule)}
+                                    className={cn(
+                                        "p-1.5 rounded-md text-muted-foreground hover:text-foreground transition-colors border border-transparent",
+                                        showSchedule && "bg-white border-border shadow-sm text-foreground"
+                                    )}
+                                    title="Schedule Send"
+                                >
+                                    <Clock className="h-4 w-4" />
+                                </button>
+                                {showSchedule && (
+                                    <>
+                                        <input
+                                            type="datetime-local"
+                                            className="px-2 py-1.5 text-xs border rounded-md"
+                                            value={scheduleTime}
+                                            onChange={(e) => setScheduleTime(e.target.value)}
+                                        />
+                                        <div className="relative">
+                                            <Globe className="h-3 w-3 absolute left-2 top-2 text-muted-foreground" />
+                                            <select
+                                                className="pl-6 pr-2 py-1.5 text-xs border rounded-md bg-transparent max-w-[100px]"
+                                                value={timezone}
+                                                onChange={(e) => setTimezone(e.target.value)}
+                                            >
+                                                {TIMEZONES.map(tz => <option key={tz} value={tz}>{tz}</option>)}
+                                            </select>
+                                        </div>
+                                    </>
                                 )}
-                                title="Schedule Send"
-                            >
-                                <Calendar className="h-4 w-4" />
-                            </button>
+                            </div>
 
-                            {showSchedule && (
-                                <input
-                                    type="datetime-local"
-                                    className="px-2 py-1 text-xs border rounded-md"
-                                    value={scheduleTime}
-                                    onChange={(e) => setScheduleTime(e.target.value)}
-                                />
+                            {mode === "burst" && (
+                                <div className="flex items-center gap-2 border-l pl-3 border-border">
+                                    <Users className="h-4 w-4 text-muted-foreground" />
+                                    <select
+                                        className="text-xs border rounded-md px-2 py-1.5 bg-background min-w-[160px]"
+                                        value={selectedSegment}
+                                        onChange={(e) => setSelectedSegment(e.target.value)}
+                                    >
+                                        <option value="">All Contacts {totalContacts !== null ? `(${totalContacts})` : ''}</option>
+                                        {segments.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
+                                    </select>
+                                </div>
                             )}
 
-                            <button
-                                onClick={sendTest}
-                                disabled={sending}
-                                className="bg-primary text-primary-foreground px-3 py-1.5 rounded-md text-xs font-medium flex items-center gap-2 disabled:opacity-50 shadow-sm whitespace-nowrap"
-                            >
-                                {sending ? <div className="h-3 w-3 animate-spin rounded-full border-2 border-current border-t-transparent" /> : (showSchedule ? <Clock className="h-3 w-3" /> : <Send className="h-3 w-3" />)}
-                                {showSchedule ? "Schedule" : "Send Test"}
-                            </button>
+                            <div className="ml-auto flex items-center gap-2">
+                                {error && <span className="text-xs text-red-500 font-medium">{error}</span>}
+                                {status && <span className="text-xs text-green-600 font-medium">{status}</span>}
+
+                                <button
+                                    onClick={handleSend}
+                                    disabled={sending}
+                                    className={cn(
+                                        "px-4 py-1.5 rounded-md text-xs font-semibold flex items-center gap-2 disabled:opacity-50 shadow-sm whitespace-nowrap text-white transition-all",
+                                        mode === "test" ? "bg-zinc-800 hover:bg-zinc-700" : "bg-blue-600 hover:bg-blue-500"
+                                    )}
+                                >
+                                    {sending ? <div className="h-3 w-3 animate-spin rounded-full border-2 border-current border-t-transparent" /> : (showSchedule ? <Calendar className="h-3 w-3" /> : <Send className="h-3 w-3" />)}
+                                    {showSchedule ? "Schedule" : (mode === "burst" ? "Send Burst" : "Send Test")}
+                                </button>
+                            </div>
                         </div>
                     </div>
+
                     <div className="flex-1 border border-border rounded-lg bg-white overflow-hidden relative shadow-sm">
                         <iframe
                             srcDoc={html}

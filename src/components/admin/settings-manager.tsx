@@ -23,12 +23,12 @@ export function SettingsManager() {
 
     useEffect(() => {
         // Load from localStorage on mount
-        setPlunkKey(localStorage.getItem("plunk_secret_key") || "");
-        setAdminEmail(localStorage.getItem("admin_email") || "");
-        setSenderEmail(localStorage.getItem("sender_email") || "");
-        setLlmBaseUrl(localStorage.getItem("llm_base_url") || "https://api.openai.com/v1");
-        setLlmApiKey(localStorage.getItem("llm_api_key") || "");
-        setLlmModelId(localStorage.getItem("llm_model_id") || "gpt-4o");
+        setPlunkKey(localStorage.getItem("plunk_secret_key") || process.env.NEXT_PUBLIC_PLUNK_SECRET_KEY || "");
+        setAdminEmail(localStorage.getItem("admin_email") || process.env.NEXT_PUBLIC_ADMIN_EMAIL || "");
+        setSenderEmail(localStorage.getItem("sender_email") || process.env.NEXT_PUBLIC_SENDER_EMAIL || "");
+        setLlmBaseUrl(localStorage.getItem("llm_base_url") || process.env.NEXT_PUBLIC_LLM_BASE_URL || "https://api.openai.com/v1");
+        setLlmApiKey(localStorage.getItem("llm_api_key") || process.env.NEXT_PUBLIC_LLM_API_KEY || "");
+        setLlmModelId(localStorage.getItem("llm_model_id") || process.env.NEXT_PUBLIC_LLM_MODEL_ID || "gpt-4o");
     }, []);
 
     const handleSave = () => {
