@@ -355,7 +355,7 @@ function NewsletterGenerator({ post }: { post: Post }) {
                     <div>
                         <h3 className="text-lg font-medium">Generate Email Draft</h3>
                         <p className="text-sm text-muted-foreground max-w-sm mx-auto mt-2">
-                            Convert "{post.metadata.title}" into an email-ready HTML draft.
+                            Convert &quot;{post.metadata.title}&quot; into an email-ready HTML draft.
                         </p>
                     </div>
                     {error && <p className="text-xs text-red-500">{error}</p>}

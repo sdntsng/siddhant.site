@@ -12,5 +12,5 @@ export default async function AdminContentPage() {
         return 1;
     });
 
-    return <ContentManager posts={sortedPosts} />;
+    return <ContentManager posts={sortedPosts as any} />;
 }
