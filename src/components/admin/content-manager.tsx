@@ -269,7 +269,7 @@ function NewsletterGenerator({ post }: { post: Post }) {
                     setSending(false);
                     return;
                 }
-                const res = await fetch("https://next-api.useplunk.com/v1/send", {
+                const res = await fetch("/api/plunk/v1/send", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
