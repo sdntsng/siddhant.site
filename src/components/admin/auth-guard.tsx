@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Lock } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "admin123";
+const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD;
 
 export function AuthGuard({ children }: { children: React.ReactNode }) {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
