@@ -19,7 +19,7 @@ function getMDXFiles(dir: string) {
 
 export async function getPost(slug: string) {
   const filePath = path.join("content", `${slug}.mdx`);
-  let source = fs.readFileSync(filePath, "utf-8");
+  let source = await fs.promises.readFile(filePath, "utf-8");
   let { content: rawContent, data: metadata } = matter(source);
 
   // Remove HTML comments as they break MDX compilation
@@ -48,5 +48,10 @@ async function getAllPosts(dir: string) {
 }
 
 export async function getBlogPosts() {
-  return getAllPosts(path.join(process.cwd(), "content"));
+  const posts = await getAllPosts(path.join(process.cwd(), "content"));
+  // Optimization: Remove source content for the list view to reduce payload size
+  return posts.map(post => ({
+    ...post,
+    source: "" // Clear source as it's not needed for the list
+  }));
 }
