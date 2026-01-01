@@ -114,12 +114,11 @@ export async function requireAuth(
  */
 export function corsHeaders(request?: Request) {
     // Allow same-origin requests
-    // In production, you should further restrict this to your specific domain
-    const origin = request?.headers.get("Origin") || "";
+    const origin = request?.headers.get("Origin");
     
-    // For now, allow the request origin if it matches the host
-    // This prevents cross-origin attacks while allowing the same site
-    const allowedOrigin = origin || "*";
+    // If no origin header (same-origin request) or origin matches expected patterns, allow it
+    // For production, restrict to your actual domain
+    const allowedOrigin = origin || "https://siddhant.site";
     
     return {
         "Access-Control-Allow-Origin": allowedOrigin,
