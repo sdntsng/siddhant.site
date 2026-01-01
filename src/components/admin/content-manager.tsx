@@ -152,7 +152,7 @@ function NewsletterGenerator({ post }: { post: Post }) {
     const [timezone, setTimezone] = useState(Intl.DateTimeFormat().resolvedOptions().timeZone);
 
     // Segments & Counts
-    const [segments, setSegments] = useState<{ id: string, name: string }[]>([]);
+    const [segments, setSegments] = useState<{ id: string, name: string, memberCount?: number }[]>([]);
     const [selectedSegment, setSelectedSegment] = useState<string>("");
     const [totalContacts, setTotalContacts] = useState<number | null>(null);
 
@@ -190,6 +190,7 @@ function NewsletterGenerator({ post }: { post: Post }) {
         }
         fetchMetadata();
     }, []);
+
 
 
     const generateEmail = async () => {
@@ -295,7 +296,8 @@ function NewsletterGenerator({ post }: { post: Post }) {
                         subject: post.metadata.title,
                         body: html,
                         from: senderEmail,
-                        segments: selectedSegment ? [selectedSegment] : undefined, // Empty = All Contacts
+                        audienceType: selectedSegment ? "SEGMENT" : "ALL",
+                        segmentId: selectedSegment ? selectedSegment : undefined,
                     })
                 });
 
@@ -335,7 +337,9 @@ function NewsletterGenerator({ post }: { post: Post }) {
     const getError = async (res: Response) => {
         try {
             const json = await res.json();
-            return new Error(json.message || json.error?.message || "API Error");
+            const errorMsg = json.message || json.error?.message || "API Error";
+            const details = json.error?.errors?.map((e: any) => `${e.field}: ${e.message}`).join(", ");
+            return new Error(details ? `${errorMsg} (${details})` : errorMsg);
         } catch {
             return new Error(res.statusText);
         }
@@ -430,7 +434,7 @@ function NewsletterGenerator({ post }: { post: Post }) {
                                         onChange={(e) => setSelectedSegment(e.target.value)}
                                     >
                                         <option value="">All Contacts {totalContacts !== null ? `(${totalContacts})` : ''}</option>
-                                        {segments.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
+                                        {segments.map(s => <option key={s.id} value={s.id}>{s.name} {s.memberCount !== undefined ? `(${s.memberCount})` : ''}</option>)}
                                     </select>
                                 </div>
                             )}
