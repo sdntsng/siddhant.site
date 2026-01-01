@@ -131,7 +131,7 @@ export function NewsletterPopup() {
                                     <Check size={20} />
                                 </div>
                                 <div>
-                                    <h3 className="font-medium">you're on the list.</h3>
+                                    <h3 className="font-medium">you&apos;re on the list.</h3>
                                     <p className="text-xs text-muted-foreground mt-1">talk soon.</p>
                                 </div>
                             </div>
