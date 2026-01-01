@@ -1,3 +1,7 @@
+# Proxy Plunk API requests to bypass CORS
+/api/plunk/*  https://next-api.useplunk.com/:splat  200
+
+# Short links and social media redirects
 /meet https://calendar.app.google/2NFbAy4kHjsXmwPR6 302
 /wa https://chat.whatsapp.com/KWXcQb0oUMR7rqDMR4BERb 302
 /resume https://drive.google.com/file/d/10s8OzQP12PJVdWOIrd0M6_H67nzHk1bo/view?usp=drive_link 302

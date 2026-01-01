@@ -1,0 +1,98 @@
+---
+title: Docker Deployment
+description: Deploy with Docker Compose
+---
+
+## Quick Start
+
+1. Download [docker-compose.yml](https://raw.githubusercontent.com/useplunk/plunk/next/docker-compose.yml)
+2. Configure environment variables
+3. Run `docker compose up -d`
+
+## Minimal .env
+
+```bash
+# Required
+JWT_SECRET="$(openssl rand -base64 32)"
+DB_PASSWORD="your-secure-password"
+
+# Domains (point these to your server)
+API_DOMAIN="api.yourdomain.com"
+DASHBOARD_DOMAIN="app.yourdomain.com"
+LANDING_DOMAIN="www.yourdomain.com"
+WIKI_DOMAIN="docs.yourdomain.com"
+USE_HTTPS="true"
+
+# AWS SES
+AWS_SES_REGION="us-east-1"
+AWS_SES_ACCESS_KEY_ID="your-key"
+AWS_SES_SECRET_ACCESS_KEY="your-secret"
+SES_CONFIGURATION_SET="plunk-tracking"
+```
+
+See [Environment Variables](/self-hosting/environment-variables) for all options.
+
+## Services
+
+| Service | Purpose |
+|---------|---------|
+| `plunk` | All apps + nginx (API, Web, Landing, Wiki, SMTP) |
+| `postgres` | PostgreSQL 16 database |
+| `redis` | Redis 7 queue |
+| `minio` | S3-compatible storage |
+| `ntfy` | Notifications |
+
+## Ports
+
+| Port | Service |
+|------|---------|
+| 80 | Nginx (HTTP) |
+| 465 | SMTP (implicit TLS) |
+| 587 | SMTP (STARTTLS) |
+| 9000 | Minio API |
+
+## Running Individual Services
+
+Set `SERVICE` environment variable:
+
+```bash
+SERVICE=api    # API only
+SERVICE=worker # Worker only
+SERVICE=web    # Dashboard only
+SERVICE=all    # Everything (default)
+```
+
+## SMTP TLS Certificates
+
+For TLS on ports 465/587, provide certificates via one of these methods:
+
+### Traefik acme.json (Dokploy, Coolify)
+
+Mount the `acme.json` file and set `SMTP_DOMAIN`:
+
+```yaml
+environment:
+  SMTP_DOMAIN: "smtp.yourdomain.com"
+volumes:
+  - /path/to/acme.json:/certs/acme.json:ro
+```
+
+Plunk automatically extracts the certificate for `SMTP_DOMAIN` from acme.json.
+
+### PEM Files
+
+Mount certificate files directly:
+
+```yaml
+volumes:
+  - /path/to/privkey.pem:/certs/privkey.pem:ro
+  - /path/to/fullchain.pem:/certs/fullchain.pem:ro
+```
+
+If no certificates are mounted, SMTP runs without TLS.
+
+## Building from Source
+
+```bash
+docker build -t plunk:custom .
+```

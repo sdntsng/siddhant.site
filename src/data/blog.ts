@@ -55,3 +55,7 @@ export async function getBlogPosts() {
     source: "" // Clear source as it's not needed for the list
   }));
 }
+
+export async function getPostsWithContent() {
+  return await getAllPosts(path.join(process.cwd(), "content"));
+}
