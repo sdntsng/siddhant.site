@@ -1,5 +1,5 @@
-# Proxy Plunk API requests to bypass CORS
-/api/plunk/*  https://next-api.useplunk.com/:splat  200
+# Cloudflare Pages will automatically route /api/* to functions/api/*
+# No redirects needed for API routes
 
 # Short links and social media redirects
 /meet https://calendar.app.google/2NFbAy4kHjsXmwPR6 302

@@ -159,13 +159,10 @@ function NewsletterGenerator({ post }: { post: Post }) {
     useEffect(() => {
         // Fetch segments on mount
         const fetchMetadata = async () => {
-            const plunkKey = localStorage.getItem("plunk_secret_key") || process.env.NEXT_PUBLIC_PLUNK_SECRET_KEY;
-            if (!plunkKey) return;
-
             try {
                 // 1. Fetch Segments
-                const segRes = await fetch("/api/plunk/segments", {
-                    headers: { "Authorization": `Bearer ${plunkKey}` }
+                const segRes = await fetch("/api/admin/plunk/segments", {
+                    credentials: "include",
                 });
                 if (segRes.ok) {
                     const data = await segRes.json();
@@ -174,8 +171,8 @@ function NewsletterGenerator({ post }: { post: Post }) {
                 }
 
                 // 2. Fetch Total Contacts Count
-                const contactsRes = await fetch("/api/plunk/contacts?limit=1", {
-                    headers: { "Authorization": `Bearer ${plunkKey}` }
+                const contactsRes = await fetch("/api/admin/plunk/contacts?limit=1", {
+                    credentials: "include",
                 });
                 if (contactsRes.ok) {
                     const data = await contactsRes.json();
@@ -232,11 +229,10 @@ function NewsletterGenerator({ post }: { post: Post }) {
         setStatus("");
         setError("");
 
-        const plunkKey = localStorage.getItem("plunk_secret_key") || process.env.NEXT_PUBLIC_PLUNK_SECRET_KEY;
         const adminEmail = localStorage.getItem("admin_email") || process.env.NEXT_PUBLIC_ADMIN_EMAIL;
         const senderEmail = localStorage.getItem("sender_email") || process.env.NEXT_PUBLIC_SENDER_EMAIL;
 
-        if (!plunkKey || !senderEmail) {
+        if (!senderEmail) {
             setError("Missing Configuration. Check Settings.");
             setSending(false);
             return;
@@ -273,8 +269,8 @@ function NewsletterGenerator({ post }: { post: Post }) {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
-                        "Authorization": `Bearer ${plunkKey}`
                     },
+                    credentials: "include",
                     body: JSON.stringify({
                         to: adminEmail,
                         from: senderEmail,
@@ -289,12 +285,12 @@ function NewsletterGenerator({ post }: { post: Post }) {
             } else {
                 // Burst / Campaign Mode
                 // 1. Create Campaign
-                const createRes = await fetch("/api/plunk/campaigns", {
+                const createRes = await fetch("/api/admin/plunk/campaigns", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
-                        "Authorization": `Bearer ${plunkKey}`
                     },
+                    credentials: "include",
                     body: JSON.stringify({
                         name: post.metadata.title,
                         subject: post.metadata.title,
@@ -313,12 +309,12 @@ function NewsletterGenerator({ post }: { post: Post }) {
 
                 if (!campaignId) throw new Error("Could not create campaign ID");
 
-                const sendRes = await fetch(`/api/plunk/campaigns/${campaignId}/send`, {
+                const sendRes = await fetch(`/api/admin/plunk/campaigns/${campaignId}/send`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
-                        "Authorization": `Bearer ${plunkKey}`
                     },
+                    credentials: "include",
                     body: JSON.stringify({
                         ...(delay ? { delay } : {}) // Send immediately if no delay
                     })
