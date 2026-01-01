@@ -21,8 +21,8 @@ tags: ["tag1", "tag2"]
 - **Use Markdown**: Prefer standard Markdown over HTML tags where possible.
   - `## Heading 2` instead of `<h2>Heading 2</h2>`
   - `**Bold**` instead of `<strong>Bold</strong>`
-  - `- List item` instead of `<ul><li>List item</li></ul>`
-  - `[Link](url)` instead of `<a href="url">Link</a>`
+  - `- List item` instead of `<ul><li>List item</li></ul>`. **NEVER mix HTML list tags with Markdown content**.
+  - `[Link](url)` instead of `<a href="url\">Link</a>`
 - **Paragraphs**: specific `<p>` tags are not usually needed in MDX. Just use blank lines between paragraphs.
 
 ## 3. HTML & JSX
