@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { format } from "date-fns";
-import { formatInTimeZone } from "date-fns-tz";
+import { formatInTimeZone, toZonedTime } from "date-fns-tz";
 import { FileText, Mail, Share2, Sparkles, Send, Calendar, Clock, Users, Globe, Rocket, RefreshCw } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { unified } from "unified";
@@ -246,7 +246,11 @@ function NewsletterGenerator({ post }: { post: Post }) {
             // 1. Calculate Delay (if scheduled)
             let delay: number | undefined = undefined;
             if (showSchedule && scheduleTime) {
-                const targetTime = new Date(scheduleTime).getTime();
+                // Parse the datetime-local value as if it's in the selected timezone
+                // datetime-local returns a string like "2024-01-15T14:30" without timezone info
+                // We need to interpret this as being in the selected timezone, not the browser's local timezone
+                const zonedDate = toZonedTime(scheduleTime, timezone);
+                const targetTime = zonedDate.getTime();
                 const now = Date.now();
                 const diffSeconds = Math.floor((targetTime - now) / 1000);
 
