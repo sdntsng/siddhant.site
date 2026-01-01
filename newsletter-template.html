@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #171717;
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            text-transform: lowercase;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            text-transform: lowercase;
+        }
+
+        p {
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        a {
+            color: #171717;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 16px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e5e5;
+            font-size: 14px;
+            color: #737373;
+        }
+
+        .footer a {
+            color: #737373;
+        }
+
+        blockquote {
+            border-left: 2px solid #e5e5e5;
+            padding-left: 16px;
+            margin-left: 0;
+            margin-right: 0;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>{{title}}</h1>
+
+        {{content}}
+
+        <div class="footer">
+            <p>
+                <a target="_blank" rel="noopener noreferrer" href="https://siddhant.site">siddhant.site</a><br>
+                <a target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/singhsiddhant">linkedin</a> /
+                <a target="_blank" rel="noopener noreferrer" href="https://x.com/sdntsng">x</a>
+            </p>
+            <p>
+                <a target="_blank" rel="noopener noreferrer" href="{{unsubscribe_url}}">unsubscribe</a> if this isn't
+                for you.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
