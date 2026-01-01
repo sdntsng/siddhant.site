@@ -30,14 +30,33 @@ export function NewsletterPopup() {
     const [isOpen, setIsOpen] = useState(false);
     const [state, formAction] = useFormState(subscribeToNewsletter, initialState);
 
-    // Show popup after a delay, checking localStorage
+    // Exposy a way to open the popup globally
     useEffect(() => {
-        const isDismissed = localStorage.getItem("newsletter-dismissed");
+        const handleOpen = () => setIsOpen(true);
+        window.addEventListener("open-newsletter", handleOpen);
+        return () => window.removeEventListener("open-newsletter", handleOpen);
+    }, []);
+
+    // Show popup after a delay, checking localStorage with expiration
+    useEffect(() => {
+        const dismissedAt = localStorage.getItem("newsletter-dismissed");
         const isSubscribed = localStorage.getItem("newsletter-subscribed");
 
-        // Only show if the user hasn't successfully subscribed in this session (via state)
-        // and hasn't invalidating local storage flags
-        if (!isDismissed && !isSubscribed && !state.success) {
+        // Check if dismissal is expired (older than 30 days)
+        let isDismissedExpired = false;
+        if (dismissedAt) {
+            const dismissedDate = parseInt(dismissedAt, 10);
+            const thirtyDaysInMs = 30 * 24 * 60 * 60 * 1000;
+            if (Date.now() - dismissedDate > thirtyDaysInMs) {
+                isDismissedExpired = true;
+            }
+        }
+
+        // Only show if:
+        // 1. Not subscribed
+        // 2. Not dismissed OR dismissed but expired
+        // 3. Not successfully subscribed in current session
+        if ((!dismissedAt || isDismissedExpired) && !isSubscribed && !state.success) {
             const timer = setTimeout(() => {
                 setIsOpen(true);
             }, 3000);
@@ -58,20 +77,20 @@ export function NewsletterPopup() {
 
     const handleDismiss = () => {
         setIsOpen(false);
-        localStorage.setItem("newsletter-dismissed", "true");
+        localStorage.setItem("newsletter-dismissed", Date.now().toString());
     };
 
     return (
         <AnimatePresence>
             {isOpen && (
                 <motion.div
-                    initial={{ y: 100, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: 100, opacity: 0 }}
+                    initial={{ y: 50, opacity: 0, x: "-50%" }}
+                    animate={{ y: 0, opacity: 1, x: "-50%" }}
+                    exit={{ y: 50, opacity: 0, x: "-50%" }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    className="fixed bottom-4 right-4 z-50 w-full max-w-sm"
+                    className="fixed bottom-[15%] left-1/2 z-50 w-full max-w-sm -translate-x-1/2"
                 >
-                    <div className="bg-background/80 backdrop-blur-md border border-border shadow-lg rounded-xl p-6 m-4 relative overflow-hidden">
+                    <div className="bg-background/80 backdrop-blur-md border border-border shadow-2xl rounded-xl p-6 relative overflow-hidden ring-1 ring-black/5 dark:ring-white/10">
                         {/* Close button */}
                         <button
                             onClick={handleDismiss}
@@ -82,10 +101,10 @@ export function NewsletterPopup() {
 
                         {!state.success ? (
                             <div className="space-y-4">
-                                <div className="space-y-2">
-                                    <h3 className="font-semibold text-lg tracking-tight">Stay in the loop</h3>
+                                <div className="space-y-2 text-center">
+                                    <h3 className="font-semibold text-lg tracking-tight">join the list</h3>
                                     <p className="text-sm text-muted-foreground leading-relaxed">
-                                        Get updates on my latest thoughts on AI, design, and tech. No spam, just signal.
+                                        thoughtful notes on ai, design, and engineering. no spam, just signal.
                                     </p>
                                 </div>
 
@@ -103,7 +122,7 @@ export function NewsletterPopup() {
                                     <SubmitButton />
                                 </form>
                                 {state.message && !state.success && (
-                                    <p className="text-xs text-red-500">{state.message}</p>
+                                    <p className="text-xs text-red-500 text-center">{state.message}</p>
                                 )}
                             </div>
                         ) : (
@@ -112,8 +131,8 @@ export function NewsletterPopup() {
                                     <Check size={20} />
                                 </div>
                                 <div>
-                                    <h3 className="font-medium">You're on the list!</h3>
-                                    <p className="text-xs text-muted-foreground mt-1">Keep an eye on your inbox.</p>
+                                    <h3 className="font-medium">you're on the list.</h3>
+                                    <p className="text-xs text-muted-foreground mt-1">talk soon.</p>
                                 </div>
                             </div>
                         )}

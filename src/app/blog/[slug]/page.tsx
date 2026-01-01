@@ -8,6 +8,7 @@ import { Breadcrumb } from "@/components/breadcrumb";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Tweet } from "react-tweet";
 import rehypePrettyCode from "rehype-pretty-code";
+import { NewsletterTrigger } from "@/components/newsletter-trigger";
 
 import remarkGfm from "remark-gfm";
 
@@ -110,9 +111,12 @@ export default async function Blog({
       </h1>
       <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
         <Suspense fallback={<p className="h-5" />}>
-          <p className="text-sm text-neutral-600 dark:text-neutral-400">
-            {formatDate(post.metadata.publishedAt)}
-          </p>
+          <div className="flex items-center gap-2">
+            <p className="text-sm text-neutral-600 dark:text-neutral-400">
+              {formatDate(post.metadata.publishedAt)}
+            </p>
+            <NewsletterTrigger />
+          </div>
         </Suspense>
       </div>
       <article className="prose dark:prose-invert">
