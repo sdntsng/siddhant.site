@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "index",
+    "---Docs---",
+    "concepts",
+    "guides",
+    "---API Reference---",
+    "api-reference",
+    "---Self-Hosting---",
+    "self-hosting"
+  ]
+}
