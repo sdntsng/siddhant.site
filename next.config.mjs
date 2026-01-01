@@ -1,16 +1,8 @@
 const nextConfig = {
   reactStrictMode: true,
-  output: 'export',
+  // output: 'export', // dynamic mode for Cloudflare
   images: {
     unoptimized: true,
-  },
-  async rewrites() {
-    return [
-      {
-        source: "/api/plunk/:path*",
-        destination: "https://next-api.useplunk.com/:path*",
-      },
-    ];
   },
 };
 
