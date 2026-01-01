@@ -24,6 +24,52 @@ export function SettingsManager() {
         setTimeout(() => setSaved(false), 2000);
     };
 
+    const fetchModels = async () => {
+        if (!llmBaseUrl || !llmApiKey) {
+            setStatusMessage("Base URL and API Key are required.");
+            setConnectionStatus("error");
+            return;
+        }
+
+        setFetchingModels(true);
+        setConnectionStatus("idle");
+        setStatusMessage("");
+
+        try {
+            // Construct standard OpenAI compatible /models endpoint
+            // Handle trailing slash if present
+            const baseUrl = llmBaseUrl.replace(/\/+$/, "");
+            const res = await fetch(`${baseUrl}/models`, {
+                headers: {
+                    "Authorization": `Bearer ${llmApiKey}`,
+                    "Content-Type": "application/json"
+                }
+            });
+
+            if (!res.ok) {
+                throw new Error(`Failed to fetch models: ${res.statusText}`);
+            }
+
+            const data = await res.json();
+            const models = Array.isArray(data.data) ? data.data.map((m: any) => m.id) : [];
+
+            if (models.length > 0) {
+                setAvailableModels(models.sort());
+                setConnectionStatus("success");
+                setStatusMessage(`Successfully fetched ${models.length} models.`);
+            } else {
+                setConnectionStatus("error");
+                setStatusMessage("Connected, but no models found.");
+            }
+        } catch (err: any) {
+            setConnectionStatus("error");
+            setStatusMessage(err.message || "Connection failed.");
+            console.error(err);
+        } finally {
+            setFetchingModels(false);
+        }
+    };
+
     return (
         <div className="max-w-2xl mx-auto space-y-8 pb-12">
             <div>
