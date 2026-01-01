@@ -31,7 +31,7 @@ async function sendDraft() {
     console.log(`Sending draft "${title}" to ${adminEmail}...`);
 
     try {
-        const response = await fetch('https://api.useplunk.com/v1/transactional', {
+        const response = await fetch('https://next-api.useplunk.com/v1/transactional', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

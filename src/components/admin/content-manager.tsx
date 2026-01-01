@@ -291,6 +291,7 @@ function NewsletterGenerator({ post }: { post: Post }) {
                         "Authorization": `Bearer ${plunkKey}`
                     },
                     body: JSON.stringify({
+                        name: post.metadata.title,
                         subject: post.metadata.title,
                         body: html,
                         from: senderEmail,
