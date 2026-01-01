@@ -4,14 +4,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  async rewrites() {
-    return [
-      {
-        source: "/api/plunk/:path*",
-        destination: "https://next-api.useplunk.com/:path*",
-      },
-    ];
-  },
 };
 
 
