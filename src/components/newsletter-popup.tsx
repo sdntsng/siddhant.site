@@ -3,34 +3,20 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Mail, Check, Loader2 } from "lucide-react";
-import { subscribeToNewsletter } from "@/app/actions";
-import { useFormState, useFormStatus } from "react-dom";
+import { z } from "zod";
 
-// Submit Button Component to handle pending state
-function SubmitButton() {
-    const { pending } = useFormStatus();
-
-    return (
-        <button
-            type="submit"
-            disabled={pending}
-            className="bg-primary text-primary-foreground px-4 py-2 text-sm font-medium rounded-md hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center gap-2"
-        >
-            {pending ? <Loader2 className="h-4 w-4 animate-spin" /> : "Join"}
-        </button>
-    );
-}
-
-const initialState = {
-    success: false,
-    message: "",
-};
+const subscribeSchema = z.object({
+    email: z.string().email(),
+});
 
 export function NewsletterPopup() {
     const [isOpen, setIsOpen] = useState(false);
-    const [state, formAction] = useFormState(subscribeToNewsletter, initialState);
+    const [email, setEmail] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [message, setMessage] = useState("");
 
-    // Exposy a way to open the popup globally
+    // Expose a way to open the popup globally
     useEffect(() => {
         const handleOpen = () => setIsOpen(true);
         window.addEventListener("open-newsletter", handleOpen);
@@ -56,28 +42,72 @@ export function NewsletterPopup() {
         // 1. Not subscribed
         // 2. Not dismissed OR dismissed but expired
         // 3. Not successfully subscribed in current session
-        if ((!dismissedAt || isDismissedExpired) && !isSubscribed && !state.success) {
+        if ((!dismissedAt || isDismissedExpired) && !isSubscribed && !success) {
             const timer = setTimeout(() => {
                 setIsOpen(true);
             }, 3000);
             return () => clearTimeout(timer);
         }
-    }, [state.success]);
+    }, [success]);
 
     // Handle success state
     useEffect(() => {
-        if (state.success) {
+        if (success) {
             localStorage.setItem("newsletter-subscribed", "true");
             const timer = setTimeout(() => {
                 setIsOpen(false);
             }, 3000);
             return () => clearTimeout(timer);
         }
-    }, [state.success]);
+    }, [success]);
 
     const handleDismiss = () => {
         setIsOpen(false);
         localStorage.setItem("newsletter-dismissed", Date.now().toString());
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setLoading(true);
+        setMessage("");
+
+        const result = subscribeSchema.safeParse({ email });
+
+        if (!result.success) {
+            setMessage("Invalid email address");
+            setLoading(false);
+            return;
+        }
+
+        try {
+            const response = await fetch("https://next-api.useplunk.com/v1/track", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${process.env.NEXT_PUBLIC_PLUNK_PUBLIC_KEY}`,
+                },
+                body: JSON.stringify({
+                    event: "newsletter-subscribe",
+                    email: result.data.email,
+                }),
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                console.error("Plunk API Error:", errorData);
+                setMessage("Failed to subscribe. Please try again.");
+                setLoading(false);
+                return;
+            }
+
+            setSuccess(true);
+            setMessage("Subscribed successfully!");
+        } catch (error) {
+            console.error("Subscription error:", error);
+            setMessage("Something went wrong. Please try again.");
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -99,7 +129,7 @@ export function NewsletterPopup() {
                             <X size={18} />
                         </button>
 
-                        {!state.success ? (
+                        {!success ? (
                             <div className="space-y-4">
                                 <div className="space-y-2 text-center">
                                     <h3 className="font-semibold text-lg tracking-tight">join the list</h3>
@@ -108,21 +138,29 @@ export function NewsletterPopup() {
                                     </p>
                                 </div>
 
-                                <form action={formAction} className="flex gap-2">
+                                <form onSubmit={handleSubmit} className="flex gap-2">
                                     <div className="relative flex-1">
                                         <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground h-4 w-4" />
                                         <input
                                             type="email"
                                             name="email"
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
                                             required
                                             placeholder="siddhant@example.com"
                                             className="w-full pl-9 pr-3 py-2 text-sm bg-secondary/50 border border-transparent focus:border-primary rounded-md outline-none transition-all placeholder:text-muted-foreground/70"
                                         />
                                     </div>
-                                    <SubmitButton />
+                                    <button
+                                        type="submit"
+                                        disabled={loading}
+                                        className="bg-primary text-primary-foreground px-4 py-2 text-sm font-medium rounded-md hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center gap-2"
+                                    >
+                                        {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Join"}
+                                    </button>
                                 </form>
-                                {state.message && !state.success && (
-                                    <p className="text-xs text-red-500 text-center">{state.message}</p>
+                                {message && !success && (
+                                    <p className="text-xs text-red-500 text-center">{message}</p>
                                 )}
                             </div>
                         ) : (
