@@ -104,7 +104,7 @@ export function NewsletterPopup() {
                                 <div className="space-y-2 text-center">
                                     <h3 className="font-semibold text-lg tracking-tight">join the list</h3>
                                     <p className="text-sm text-muted-foreground leading-relaxed">
-                                        thoughtful notes on ai, design, and engineering. no spam, just signal.
+                                        Get updates whenever I write something new
                                     </p>
                                 </div>
 
