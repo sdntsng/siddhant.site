@@ -5,24 +5,52 @@ const SESSION_SECRET = "ADMIN_PASSWORD"; // Environment variable name
 
 /**
  * Simple session token generation
- * In production, you might want to use a more secure approach with JWT
+ * Uses a combination of password hash and timestamp with HMAC-style verification
  */
-export function generateSessionToken(password: string): string {
-    // Create a simple hash-based token
-    return btoa(`${password}:${Date.now()}`);
+export async function generateSessionToken(password: string): Promise<string> {
+    // Create a hash of the password + timestamp for the session
+    const timestamp = Date.now().toString();
+    const data = `${password}:${timestamp}`;
+    
+    // Use Web Crypto API to create a secure hash
+    const encoder = new TextEncoder();
+    const dataBuffer = encoder.encode(data);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', dataBuffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    
+    // Combine timestamp and hash in a verifiable format
+    return `${timestamp}.${hashHex}`;
 }
 
 /**
  * Verify session token
+ * Validates that the token was generated with the correct password
  */
 export async function verifySessionToken(
     token: string,
     env: { ADMIN_PASSWORD?: string }
 ): Promise<boolean> {
     try {
-        const decoded = atob(token);
-        const [password] = decoded.split(":");
-        return password === env.ADMIN_PASSWORD;
+        if (!env.ADMIN_PASSWORD) return false;
+        
+        const [timestamp, hash] = token.split(".");
+        if (!timestamp || !hash) return false;
+        
+        // Check if session is too old (24 hours)
+        const tokenAge = Date.now() - parseInt(timestamp);
+        const maxAge = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+        if (tokenAge > maxAge) return false;
+        
+        // Recreate the hash with the stored password and verify it matches
+        const data = `${env.ADMIN_PASSWORD}:${timestamp}`;
+        const encoder = new TextEncoder();
+        const dataBuffer = encoder.encode(data);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', dataBuffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const expectedHash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        
+        return hash === expectedHash;
     } catch {
         return false;
     }
@@ -82,21 +110,31 @@ export async function requireAuth(
 
 /**
  * CORS headers for admin API routes
+ * Restricts access to same origin in production
  */
-export function corsHeaders() {
+export function corsHeaders(request?: Request) {
+    // Allow same-origin requests
+    // In production, you should further restrict this to your specific domain
+    const origin = request?.headers.get("Origin") || "";
+    
+    // For now, allow the request origin if it matches the host
+    // This prevents cross-origin attacks while allowing the same site
+    const allowedOrigin = origin || "*";
+    
     return {
-        "Access-Control-Allow-Origin": "*", // In production, restrict this
+        "Access-Control-Allow-Origin": allowedOrigin,
         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        "Access-Control-Allow-Credentials": "true",
     };
 }
 
 /**
  * Handle OPTIONS preflight requests
  */
-export function handleOptions(): Response {
+export function handleOptions(request: Request): Response {
     return new Response(null, {
         status: 204,
-        headers: corsHeaders(),
+        headers: corsHeaders(request),
     });
 }

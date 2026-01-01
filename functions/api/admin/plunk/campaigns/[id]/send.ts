@@ -1,4 +1,4 @@
-import { requireAuth, corsHeaders, handleOptions } from "../../../../_middleware";
+import { requireAuth, corsHeaders, handleOptions } from "../../../../../_middleware";
 
 interface Env {
     ADMIN_PASSWORD?: string;
@@ -42,7 +42,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
             status: plunkResponse.status,
             headers: {
                 "Content-Type": "application/json",
-                ...corsHeaders(),
+                ...corsHeaders(request),
             },
         });
     } catch (error: any) {
@@ -52,7 +52,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
                 status: 500,
                 headers: {
                     "Content-Type": "application/json",
-                    ...corsHeaders(),
+                    ...corsHeaders(request),
                 },
             }
         );

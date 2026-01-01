@@ -14,7 +14,7 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
 
     // Handle OPTIONS preflight
     if (request.method === "OPTIONS") {
-        return handleOptions();
+        return handleOptions(request);
     }
 
     const token = getSessionToken(request);
@@ -26,7 +26,7 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
                 status: 200,
                 headers: {
                     "Content-Type": "application/json",
-                    ...corsHeaders(),
+                    ...corsHeaders(request),
                 },
             }
         );
@@ -40,7 +40,7 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
             status: 200,
             headers: {
                 "Content-Type": "application/json",
-                ...corsHeaders(),
+                ...corsHeaders(request),
             },
         }
     );

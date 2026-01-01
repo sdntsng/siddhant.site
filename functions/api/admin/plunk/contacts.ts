@@ -10,7 +10,7 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
 
     // Handle OPTIONS preflight
     if (request.method === "OPTIONS") {
-        return handleOptions();
+        return handleOptions(request);
     }
 
     // Check authentication

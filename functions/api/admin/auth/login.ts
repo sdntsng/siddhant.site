@@ -14,7 +14,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 
     // Handle OPTIONS preflight
     if (request.method === "OPTIONS") {
-        return handleOptions();
+        return handleOptions(request);
     }
 
     try {
@@ -22,7 +22,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 
         // Verify password against environment variable
         if (password === env.ADMIN_PASSWORD) {
-            const token = generateSessionToken(password);
+            const token = await generateSessionToken(password);
             const cookie = createSessionCookie(token);
 
             return new Response(
@@ -32,7 +32,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
                     headers: {
                         "Content-Type": "application/json",
                         "Set-Cookie": cookie,
-                        ...corsHeaders(),
+                        ...corsHeaders(request),
                     },
                 }
             );
@@ -43,7 +43,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
                     status: 401,
                     headers: {
                         "Content-Type": "application/json",
-                        ...corsHeaders(),
+                        ...corsHeaders(request),
                     },
                 }
             );
@@ -55,7 +55,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
                 status: 400,
                 headers: {
                     "Content-Type": "application/json",
-                    ...corsHeaders(),
+                    ...corsHeaders(request),
                 },
             }
         );

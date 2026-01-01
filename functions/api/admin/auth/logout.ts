@@ -5,7 +5,7 @@ export const onRequestPost: PagesFunction = async (context) => {
 
     // Handle OPTIONS preflight
     if (request.method === "OPTIONS") {
-        return handleOptions();
+        return handleOptions(request);
     }
 
     const cookie = deleteSessionCookie();
@@ -17,7 +17,7 @@ export const onRequestPost: PagesFunction = async (context) => {
             headers: {
                 "Content-Type": "application/json",
                 "Set-Cookie": cookie,
-                ...corsHeaders(),
+                ...corsHeaders(request),
             },
         }
     );

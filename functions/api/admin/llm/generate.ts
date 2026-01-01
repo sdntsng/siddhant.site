@@ -13,7 +13,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 
     // Handle OPTIONS preflight
     if (request.method === "OPTIONS") {
-        return handleOptions();
+        return handleOptions(request);
     }
 
     // Check authentication
@@ -40,7 +40,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
             status: llmResponse.status,
             headers: {
                 "Content-Type": "application/json",
-                ...corsHeaders(),
+                ...corsHeaders(request),
             },
         });
     } catch (error: any) {
@@ -50,7 +50,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
                 status: 500,
                 headers: {
                     "Content-Type": "application/json",
-                    ...corsHeaders(),
+                    ...corsHeaders(request),
                 },
             }
         );
