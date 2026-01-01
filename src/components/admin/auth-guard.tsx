@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 import { Lock } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD;
-
 export function AuthGuard({ children }: { children: React.ReactNode }) {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
@@ -13,22 +11,49 @@ export function AuthGuard({ children }: { children: React.ReactNode }) {
     const [error, setError] = useState("");
 
     useEffect(() => {
-        // Check if previously authenticated
-        const storedAuth = localStorage.getItem("admin_authenticated");
-        if (storedAuth === "true") {
-            setIsAuthenticated(true);
-        }
-        setIsLoading(false);
+        // Verify session with server
+        const verifySession = async () => {
+            try {
+                const res = await fetch("/api/admin/auth/verify", {
+                    credentials: "include",
+                });
+                const data = await res.json();
+                if (data.authenticated) {
+                    setIsAuthenticated(true);
+                }
+            } catch (err) {
+                console.error("Failed to verify session", err);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+        verifySession();
     }, []);
 
-    const handleLogin = (e: React.FormEvent) => {
+    const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (password === ADMIN_PASSWORD) {
-            localStorage.setItem("admin_authenticated", "true");
-            setIsAuthenticated(true);
-        } else {
-            setError("Incorrect password");
-            // Shake animation trigger could go here
+        setError("");
+
+        try {
+            const res = await fetch("/api/admin/auth/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ password }),
+                credentials: "include",
+            });
+
+            const data = await res.json();
+
+            if (data.success) {
+                setIsAuthenticated(true);
+            } else {
+                setError(data.error || "Incorrect password");
+            }
+        } catch (err) {
+            setError("Failed to authenticate");
+            console.error("Login error", err);
         }
     };
 
