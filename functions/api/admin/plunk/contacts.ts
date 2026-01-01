@@ -39,7 +39,7 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
             status: plunkResponse.status,
             headers: {
                 "Content-Type": "application/json",
-                ...corsHeaders(),
+                ...corsHeaders(request),
             },
         });
     } catch (error: any) {
@@ -49,7 +49,7 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
                 status: 500,
                 headers: {
                     "Content-Type": "application/json",
-                    ...corsHeaders(),
+                    ...corsHeaders(request),
                 },
             }
         );
