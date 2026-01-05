@@ -1,5 +1,6 @@
 name = "siddhant-site"
 compatibility_date = "2024-06-20"
+compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = ".vercel/output/static"
 
 # Bindings
