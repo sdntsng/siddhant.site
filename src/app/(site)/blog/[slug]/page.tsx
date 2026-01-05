@@ -58,9 +58,11 @@ export async function generateMetadata({
   };
 }
 
+import { globalComponents } from "@/components/mdx";
 import { Callout } from "@/components/callout";
 
 const components = {
+  ...globalComponents,
   Tweet,
   Callout,
 };
