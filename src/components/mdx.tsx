@@ -43,7 +43,20 @@ function CustomLink(props: any) {
 }
 
 function RoundedImage(props: any) {
-  return <Image alt={props.alt} className="rounded-lg" {...props} />;
+  return (
+    <figure className="my-8 flex flex-col items-center">
+      <Image
+        alt={props.alt}
+        className="rounded-xl shadow-md transition-all hover:scale-[1.01]"
+        {...props}
+      />
+      {props.alt && (
+        <figcaption className="text-center text-sm text-neutral-500 dark:text-neutral-400 mt-3 italic font-medium px-4 max-w-2xl mx-auto">
+          {props.alt}
+        </figcaption>
+      )}
+    </figure>
+  );
 }
 
 // This replaces rehype-slug
@@ -78,6 +91,28 @@ function createHeading(level: number) {
   return Heading;
 }
 
+function StyledImg(props: any) {
+  return (
+    <img
+      {...props}
+      className="rounded-xl shadow-md transition-all hover:scale-[1.01]"
+    />
+  );
+}
+
+function StyledFigure(props: any) {
+  return <figure className="my-8 flex flex-col items-center" {...props} />;
+}
+
+function StyledFigcaption(props: any) {
+  return (
+    <figcaption
+      className="text-center text-sm text-neutral-500 dark:text-neutral-400 mt-3 italic font-medium px-4 max-w-2xl mx-auto"
+      {...props}
+    />
+  );
+}
+
 export const globalComponents = {
   h1: createHeading(1),
   h2: createHeading(2),
@@ -86,6 +121,9 @@ export const globalComponents = {
   h5: createHeading(5),
   h6: createHeading(6),
   Image: RoundedImage,
+  img: StyledImg,
+  figure: StyledFigure,
+  figcaption: StyledFigcaption,
   a: CustomLink,
   Table,
 };
