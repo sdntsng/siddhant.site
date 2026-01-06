@@ -147,7 +147,7 @@ export const DATA = {
     {
       title: "Vinci",
       href: "https://tryvinci.com",
-      dates: "2023 - Present",
+      dates: "2024 - Present",
       active: true,
       description:
         "AI agents for brands. Context-aware creative generation for marketing teams.",
@@ -166,6 +166,30 @@ export const DATA = {
         },
       ],
       image: "/vinci.gif",
+      video: "",
+    },
+    {
+      title: "Artimech",
+      href: "https://artimech.com",
+      dates: "2023 - Present",
+      active: true,
+      description:
+        "Intelligent engineering studio. We build AI/ML systems that work. Clean, efficient, and purpose-built for modern problems.",
+      technologies: [
+        "AI Strategy",
+        "MLOps",
+        "LLMs",
+        "Data Engineering",
+        "Agentic Systems",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://artimech.com",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "/artimech.png",
       video: "",
     },
   ],
