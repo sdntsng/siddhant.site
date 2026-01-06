@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { TerminalProvider } from "@/context/terminal";
+import GlobalTerminalWrapper from "@/components/global-terminal-wrapper";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -65,9 +66,11 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="light">
           <TerminalProvider>
-            <TooltipProvider delayDuration={0}>
-              {children}
-            </TooltipProvider>
+            <GlobalTerminalWrapper>
+              <TooltipProvider delayDuration={0}>
+                {children}
+              </TooltipProvider>
+            </GlobalTerminalWrapper>
           </TerminalProvider>
         </ThemeProvider>
       </body>

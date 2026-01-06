@@ -14,14 +14,11 @@ import { Card } from "@/components/ui/card";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
-import { useTerminal } from "@/context/terminal";
-import TerminalView from "@/components/terminal-view";
 import GithubActivity from "@/components/github-activity";
 
 const BLUR_FADE_DELAY = 0.04;
 
 export default function HomePageContent({ posts }: { posts: any[] }) {
-    const { mode } = useTerminal();
     const [autoFlipped, setAutoFlipped] = useState(false);
     const [isHovering, setIsHovering] = useState(false);
 
@@ -33,11 +30,9 @@ export default function HomePageContent({ posts }: { posts: any[] }) {
         return () => clearInterval(interval);
     }, []);
 
-    const showAlt = autoFlipped !== isHovering;
 
-    if (mode === "terminal") {
-        return <TerminalView />;
-    }
+
+    const showAlt = autoFlipped !== isHovering;
 
     return (
         <main className="flex flex-col min-h-[100dvh] space-y-10">

@@ -6,7 +6,7 @@ This document guides the formatting and structure of MDX blog posts in `content/
 ## 1. Frontmatter
 Every file must start with YAML frontmatter:
 
-```yaml
+```
 ---
 title: "Article Title"
 publishedAt: "YYYY-MM-DD"
@@ -15,6 +15,22 @@ image: "/blog/images/..."
 tags: ["tag1", "tag2"]
 ---
 ```
+
+### 1.1 Allowed Tags
+**Strict Rule**: Do not create new tags. Only use tags from the approved list below. To add a new tag, you must first update this document and get approval.
+
+**Allowed Tags**:
+- `ai`
+- `data`
+- `defi`
+- `design`
+- `life`
+- `misc`
+- `product`
+- `reflection`
+- `startups`
+- `travel`
+- `vc`
 
 ## 2. General Formatting
 - **No WP Comments**: Remove all `<!-- wp:... -->` comments.
