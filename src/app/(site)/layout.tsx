@@ -7,7 +7,7 @@ export default function SiteLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div className="max-w-2xl mx-auto py-12 sm:py-24 px-6 min-h-screen">
+        <div className="max-w-2xl mx-auto py-12 sm:py-24 px-6 min-h-screen pb-20">
             {children}
             <Navbar />
         </div>
