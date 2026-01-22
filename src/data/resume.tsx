@@ -147,7 +147,6 @@ export const DATA = {
     {
       title: "Vinci",
       href: "https://tryvinci.com",
-      dates: "2024 - Present",
       active: true,
       description:
         "AI agents for brands. Context-aware creative generation for marketing teams.",
@@ -171,7 +170,6 @@ export const DATA = {
     {
       title: "Artimech",
       href: "https://artimech.com",
-      dates: "2023 - Present",
       active: true,
       description:
         "Intelligent engineering studio. We build AI/ML systems that work. Clean, efficient, and purpose-built for modern problems.",
@@ -190,6 +188,65 @@ export const DATA = {
         },
       ],
       image: "/artimech.png",
+      video: "",
+    },
+    {
+      title: "Open Mool",
+      href: "https://openmool.org",
+      active: true,
+      description:
+        "Public infra for preserving cultural heritage. Capturing, coding, and immortalizing Himalayan culture.",
+      technologies: [
+        "Next.js",
+        "Cloudflare Workers",
+        "D1",
+        "R2",
+        "Workers AI",
+        "Typescript",
+        "TailwindCSS",
+        "Shadcn UI",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://openmool.org",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/open-mool/open-mool",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/openmool-cover.png",
+      video: "",
+    },
+    {
+      title: "Sheety CRM",
+      href: "https://sheety.it",
+      active: true,
+      description:
+        "A stateless, open-source CRM built on Google Sheets. Own your data, no vendor lock-in.",
+      technologies: [
+        "Next.js",
+        "FastAPI",
+        "Google Sheets API",
+        "Typescript",
+        "TailwindCSS",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://sheety.it",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/sdntsng/sheety-crm",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/sheety-cover.png",
       video: "",
     },
   ],

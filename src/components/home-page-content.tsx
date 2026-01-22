@@ -168,7 +168,6 @@ export default function HomePageContent({ posts }: { posts: any[] }) {
                                     key={project.title}
                                     title={project.title}
                                     description={project.description}
-                                    dates={project.dates}
                                     tags={project.technologies}
                                     image={project.image}
                                     video={project.video}
