@@ -13,7 +13,7 @@ const nextConfig = {
       },
       {
         source: '/wa',
-        destination: 'https://chat.whatsapp.com/KWXcQb0oUMR7rqDMR4BERb',
+        destination: 'https://wa.me/+919522565616',
         permanent: false,
       },
       {
