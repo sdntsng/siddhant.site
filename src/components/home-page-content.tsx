@@ -232,7 +232,7 @@ export default function HomePageContent({ posts }: { posts: any[] }) {
                         <h2 className="text-xl font-bold lowercase">contact</h2>
                     </BlurFade>
                     <BlurFade delay={BLUR_FADE_DELAY * 17}>
-                        <div className="flex flex-col md:flex-row gap-4">
+                        <div className="flex flex-col md:flex-row flex-wrap gap-4">
                             <Link href={DATA.contact.social.X.url} className={cn(buttonVariants({ variant: "ghost", size: "lg" }), "gap-2 rounded-xl px-8 text-base shadow-sm border bg-background hover:bg-zinc-50 dark:hover:bg-zinc-800")}>
                                 <DATA.contact.social.X.icon className="size-4" />
                                 <span>DM on X</span>
@@ -241,6 +241,10 @@ export default function HomePageContent({ posts }: { posts: any[] }) {
                                 <span className="text-lg">📅</span>
                                 <span>Book a Session</span>
                             </Link>
+                            <div className={cn(buttonVariants({ variant: "ghost", size: "lg" }), "gap-2 rounded-xl px-8 text-base shadow-sm border bg-background hover:bg-zinc-50 dark:hover:bg-zinc-800 cursor-default")}>
+                                <span className="text-lg">✉️</span>
+                                <span>s (at) siddhant.site</span>
+                            </div>
                         </div>
                     </BlurFade>
                 </div>
