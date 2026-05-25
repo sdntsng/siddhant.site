@@ -51,6 +51,16 @@ const nextConfig = {
         destination: 'https://forms.gle/gZnRdbdVoLf27WU78',
         permanent: false,
       },
+      {
+        source: '/polit',
+        destination: '/polit/uttarakhand-report.html',
+        permanent: false,
+      },
+      {
+        source: '/polit/',
+        destination: '/polit/uttarakhand-report.html',
+        permanent: false,
+      },
     ];
   },
 };
