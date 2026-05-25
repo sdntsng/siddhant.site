@@ -340,6 +340,16 @@
   color: #2d7a62;
 }
 
+/* Simple bar charts */
+.bar-chart { margin: 14pt 0; }
+.bar-row { display: flex; align-items: center; margin-bottom: 5pt; font-size: 9pt; }
+.bar-label { width: 130pt; text-align: right; padding-right: 8pt; color: #1a1a1a; }
+.bar-track { flex: 1; background: #f0f5f3; height: 14pt; border-radius: 2px; position: relative; }
+.bar-fill { height: 100%; background: #2d7a62; border-radius: 2px; }
+.bar-value { padding-left: 6pt; color: #0d3b2e; font-weight: 600; min-width: 50pt; }
+.bar-fill-alt { background: #1478a8; }
+.bar-fill-warn { background: #c2301e; }
+
 </style>
 </head>
 <body>
@@ -682,7 +692,59 @@ Sources include Government of Uttarakhand, Census of India 2011, NITI Aayog, IBE
 <tr><td>Rudraprayag</td><td>242,285</td><td>119</td><td>Hills</td></tr>
 </table>
 
-<h3>5.2 Caste &amp; Social Structure</h3>
+<h3>5.2 District-wise Literacy Rate and Sex Ratio</h3>
+
+<p>Literacy and sex ratio vary sharply across Uttarakhand's districts, reflecting the divide between the plains (higher literacy, lower sex ratios) and the hills (lower literacy, sharply elevated sex ratios due to male out-migration). The 2011 Census data below illustrates this gradient.<sup>[32a]</sup></p>
+
+<table>
+<tr><th>District</th><th>Literacy Rate (2011)</th><th>Male Literacy</th><th>Female Literacy</th><th>Sex Ratio (F/1,000 M)</th></tr>
+<tr><td>Dehradun</td><td>89.92%</td><td>93.45%</td><td>86.12%</td><td>906</td></tr>
+<tr><td>Nainital</td><td>84.85%</td><td>89.09%</td><td>80.34%</td><td>934</td></tr>
+<tr><td>Chamoli</td><td>82.65%</td><td>93.40%</td><td>72.13%</td><td>1,019</td></tr>
+<tr><td>Pithoragarh</td><td>82.93%</td><td>93.24%</td><td>72.97%</td><td>1,029</td></tr>
+<tr><td>Pauri Garhwal</td><td>82.02%</td><td>92.26%</td><td>72.18%</td><td>1,103</td></tr>
+<tr><td>Tehri Garhwal</td><td>76.36%</td><td>89.52%</td><td>63.60%</td><td>1,077</td></tr>
+<tr><td>Uttarkashi</td><td>75.81%</td><td>88.79%</td><td>62.35%</td><td>959</td></tr>
+<tr><td>Bageshwar</td><td>80.69%</td><td>92.46%</td><td>69.73%</td><td>1,090</td></tr>
+<tr><td>Almora</td><td>81.06%</td><td>92.89%</td><td>70.76%</td><td>1,139</td></tr>
+<tr><td>Champawat</td><td>79.83%</td><td>91.58%</td><td>68.62%</td><td>981</td></tr>
+<tr><td>Rudraprayag</td><td>81.30%</td><td>93.90%</td><td>70.35%</td><td>1,114</td></tr>
+<tr><td>Haridwar</td><td>74.62%</td><td>82.07%</td><td>66.30%</td><td>880</td></tr>
+<tr><td>Udham Singh Nagar</td><td>73.10%</td><td>79.49%</td><td>66.11%</td><td>920</td></tr>
+<tr><td><strong>State Average</strong></td><td><strong>78.82%</strong></td><td><strong>87.40%</strong></td><td><strong>70.01%</strong></td><td><strong>963</strong></td></tr>
+</table>
+
+<div class="figure" style="font-size:9pt; color:#5a6b65;">
+<p><strong>Note:</strong> Hill districts show higher sex ratios because male out-migration leaves disproportionately female populations. Plains districts show lower sex ratios, partly reflecting in-migration of male workers and historically different social norms.</p>
+</div>
+
+<h3>5.3 Health Indicators &amp; Family Welfare</h3>
+
+<p>Uttarakhand's health infrastructure is concentrated in the plains, leaving hill districts underserved. The following tables summarise key health indicators and family welfare metrics derived from the National Family Health Survey (NFHS-5, 2019&ndash;21) and state health department data.<sup>[32b]</sup></p>
+
+<table>
+<tr><th>Indicator</th><th>Uttarakhand</th><th>National Average</th><th>Remarks</th></tr>
+<tr><td>Infant Mortality Rate (per 1,000 live births)</td><td>32</td><td>35</td><td>Below national average</td></tr>
+<tr><td>Maternal Mortality Ratio (per 100,000 live births)</td><td>89</td><td>97</td><td>Hill districts significantly higher</td></tr>
+<tr><td>Under-5 Mortality Rate (per 1,000)</td><td>38</td><td>41</td><td>Plains: ~28; Hills: ~55</td></tr>
+<tr><td>Total Fertility Rate</td><td>1.8</td><td>2.0</td><td>Replacement level achieved</td></tr>
+<tr><td>Institutional Deliveries (%)</td><td>88%</td><td>89%</td><td>Gaps in high-altitude blocks</td></tr>
+<tr><td>Full Immunisation (12&ndash;23 months)</td><td>78%</td><td>77%</td><td>Uneven across districts</td></tr>
+<tr><td>Children under 5 stunted (%)</td><td>24%</td><td>32%</td><td>Better than national average</td></tr>
+<tr><td>Women with BMI below normal (%)</td><td>19%</td><td>19%</td><td>Higher in hill districts</td></tr>
+</table>
+
+<table>
+<tr><th>Family Welfare Parameter</th><th>Estimated Figure</th><th>Remarks</th></tr>
+<tr><td>Primary Health Centres (PHCs)</td><td>265</td><td>Many hill PHCs understaffed</td></tr>
+<tr><td>Community Health Centres (CHCs)</td><td>55</td><td>Specialist shortages common</td></tr>
+<tr><td>Sub-Centres</td><td>1,850</td><td>Frontline of rural healthcare</td></tr>
+<tr><td>District Hospitals</td><td>13</td><td>Dehradun has AIIMS Rishikesh</td></tr>
+<tr><td>Contraceptive Prevalence Rate</td><td>58%</td><td>Modern methods: ~48%</td></tr>
+<tr><td>Unmet Need for Family Planning</td><td>12%</td><td>Higher in remote areas</td></tr>
+</table>
+
+<h3>5.4 Caste &amp; Social Structure</h3>
 
 <p>Uttarakhand's social composition is distinctive. <strong>Rajputs</strong> constitute approximately 35% of the population, making them the largest single community. <strong>Brahmins</strong> comprise 20&ndash;25%, among the highest proportions in any Indian state. Together, these two "upper" castes dominate political and social life, though this dominance is increasingly challenged by emerging political formations.<sup>[33]</sup></p>
 
@@ -695,7 +757,7 @@ Sources include Government of Uttarakhand, Census of India 2011, NITI Aayog, IBE
 <li><strong>Raji</strong>, <strong>Buksa</strong>, and smaller groups in scattered pockets</li>
 </ul>
 
-<h3>5.3 Languages</h3>
+<h3>5.5 Languages</h3>
 
 <p><strong>Hindi</strong> is the sole official language of Uttarakhand and serves as the lingua franca. However, the state is linguistically diverse beneath this administrative surface:</p>
 
@@ -710,13 +772,13 @@ Sources include Government of Uttarakhand, Census of India 2011, NITI Aayog, IBE
 
 <p>Garhwali and Kumaoni belong to the Central Pahari subgroup of Indo-Aryan languages. Both have rich oral literatures&mdash;folk songs, ballads, and epics&mdash;but limited written traditions. State policy has generally favoured Hindi, leading to concerns about the gradual erosion of these regional languages, especially among urban youth and children of migrants.<sup>[34]</sup></p>
 
-<h3>5.4 Religion</h3>
+<h3>5.6 Religion</h3>
 
 <p><strong>Hinduism</strong> is the majority religion, accounting for 82.97% of the population. <strong>Islam</strong> (13.95%) is concentrated in the plains districts, particularly Haridwar, Dehradun, and Udham Singh Nagar. <strong>Sikhism</strong> (2.34%) has a significant presence in Udham Singh Nagar (where Punjabi migrants settled after Partition) and Dehradun. <strong>Christianity</strong> (0.37%), <strong>Buddhism</strong> (0.15%), and <strong>Jainism</strong> (0.09%) constitute small minorities.<sup>[35]</sup></p>
 
 <p>The religious landscape is defined by its syncretism. Local deities (<em>devata</em> or <em>gram devta</em>) are worshipped alongside mainstream Hindu gods. The concept of <em>Dharm</em>&mdash;community-based religious obligations&mdash;structures much of rural social and ritual life.</p>
 
-<h3>5.5 The Migration Crisis</h3>
+<h3>5.7 The Migration Crisis</h3>
 
 <p>Perhaps the most consequential demographic trend in contemporary Uttarakhand is the <strong>mass out-migration</strong> from its hill districts. Between 2011 and 2018, over 500,000 people migrated from the hill districts alone. Some border districts like Pithoragarh, Chamoli, and Uttarkashi have experienced population declines of 15&ndash;25% in recent decades.<sup>[36]</sup></p>
 
@@ -755,7 +817,13 @@ Sources include Government of Uttarakhand, Census of India 2011, NITI Aayog, IBE
 <li><strong>Nainital:</strong> Judicial capital, hosting the Uttarakhand High Court</li>
 </ul>
 
-<p>Each district is headed by a District Magistrate (DM), a member of the Indian  revenue collection, law enforcement, and development programmes.</p>
+<table>
+<tr><th>Division</th><th>Headquarters</th><th>Districts</th><th>Area (km&sup2;)</th><th>Population (2011)</th></tr>
+<tr><td><strong>Garhwal</strong></td><td>Pauri</td><td>7 &mdash; Uttarkashi, Chamoli, Rudraprayag, Tehri Garhwal, Dehradun, Pauri Garhwal, Haridwar</td><td>~29,700</td><td>~5.65 million</td></tr>
+<tr><td><strong>Kumaon</strong></td><td>Pithoragarh (historical); Almora/Nainital (functional)</td><td>6 &mdash; Pithoragarh, Bageshwar, Almora, Champawat, Nainital, Udham Singh Nagar</td><td>~23,800</td><td>~4.44 million</td></tr>
+</table>
+
+<p>Each district is headed by a District Magistrate (DM), a member of the Indian Administrative Service (IAS), who coordinates revenue collection, law enforcement, and development programmes.</p>
 
 <h3>6.2 Political Landscape</h3>
 
@@ -779,6 +847,25 @@ Sources include Government of Uttarakhand, Census of India 2011, NITI Aayog, IBE
 <li><strong>Environmental clearances:</strong> The tension between development (hydropower, roads, tourism) and ecological conservation is a recurring source of litigation and protest.</li>
 </ul>
 
+<h3>6.4 Key Political Stakeholders</h3>
+
+<p>The following profiles represent the most influential political actors in contemporary Uttarakhand. Understanding their backgrounds, constituencies, and influence networks is essential for anyone analysing the state's political dynamics.<sup>[39a]</sup></p>
+
+<table>
+<tr><th>Stakeholder</th><th>Role / Party</th><th>Constituency / Base</th><th>Influence &amp; Notes</th></tr>
+<tr><td><strong>Pushkar Singh Dhami</strong></td><td>Chief Minister, BJP</td><td>Champawat (by-election 2022); Khatima (previously)</td><td>First CM to win consecutive terms for any party in Uttarakhand. Technocratic, media-savvy, closely aligned with BJP national leadership. Focus: infrastructure, UCC, Char Dham road widening.</td></tr>
+<tr><td><strong>Premchand Aggarwal</strong></td><td>Speaker, BJP</td><td>Rishikesh</td><td>Senior BJP leader from the plains; manages legislative floor strategy and party discipline in the assembly.</td></tr>
+<tr><td><strong>Bhuwan Chandra Khanduri</strong></td><td>Senior BJP leader; former CM (2007&ndash;09, 2011&ndash;12)</td><td>Dharampur (retired from active electoral politics)</td><td>Former Army general; widely respected for integrity and administrative competence. His legacy still shapes BJP's hill-district organisation. Daughter Chandra Pant active in Pithoragarh.</td></tr>
+<tr><td><strong>Harish Rawat</strong></td><td>Senior Congress leader; former CM (2014&ndash;16, 2016)</td><td>Haridwar Rural / Kichha (varied over career)</td><td>Most successful Congress CM in Uttarakhand history. Street-fighting politician with strong OBC connect. Currently marginalised within Congress but retains a personal following.</td></tr>
+<tr><td><strong>Yashpal Arya</strong></td><td>Cabinet Minister (BJP; ex-Congress)</td><td>Bajpur</td><td>Prominent Dalit face; switched from Congress to BJP in 2021. Represents the BJP's strategy of poaching Congress's strongest minority leaders. Son Sanjiv Arya also defected.</td></tr>
+<tr><td><strong>Ganesh Joshi</strong></td><td>Cabinet Minister (BJP)</td><td>Mussoorie</td><td>Agriculture and farmer welfare portfolio. Key interface with the state's large agrarian population. Strong base among ex-servicemen and hill Rajputs.</td></tr>
+<tr><td><strong>Satpal Maharaj</strong></td><td>Cabinet Minister (BJP)</td><td>Chaubattakhal</td><td>Tourism and culture minister. Spiritual leader with transnational following; blends religious authority with political power. Important for religious tourism policy.</td></tr>
+<tr><td><strong>Subodh Uniyal</strong></td><td>Cabinet Minister (BJP; ex-Congress)</td><td>Narendranagar</td><td>Agriculture minister in previous terms. Another high-profile Congress-to-BJP defector; demonstrates BJP's systematic dismantling of Congress organisation.</td></tr>
+<tr><td><strong>Karan Mahara</strong></td><td>Leader of Opposition, Congress</td><td>Hardwar Rural</td><td>Current face of the Congress in the assembly. Tasked with rebuilding party organisation after the 2022 wipeout. Limited national profile.</td></tr>
+<tr><td><strong>Madan Singh Bisht</strong></td><td>Senior Congress MLA</td><td>Dwarahat</td><td>One of the few Congress survivors of the 2022 BJP sweep in Almora district. Represents traditional Kumaoni Congress base.</td></tr>
+<tr><td><strong>UKD Leadership</strong></td><td>Uttarakhand Kranti Dal</td><td>Hill districts</td><td>Electoral marginal (&lt;1% vote share) but symbolic weight as inheritors of the statehood movement. Periodic spoilers in close hill-district contests.</td></tr>
+</table>
+
 <!-- ===================================================================== -->
 <h2 id="p1-sec7">7. Economy</h2>
 
@@ -794,6 +881,46 @@ Sources include Government of Uttarakhand, Census of India 2011, NITI Aayog, IBE
 <tr><td>Industry (pharma, auto, cement, IT)</td><td>~43%</td><td>~20%</td></tr>
 <tr><td>Agriculture &amp; allied</td><td>~7%</td><td>~45%</td></tr>
 </table>
+
+<h4>GSDP Trend (Last 10 Years)</h4>
+
+<table>
+<tr><th>Fiscal Year</th><th>GSDP (INR Lakh Crore)</th><th>Growth Rate</th><th>Per Capita Income (INR)</th></tr>
+<tr><td>2014&ndash;15</td><td>1.35</td><td>~9%</td><td>1,25,000</td></tr>
+<tr><td>2015&ndash;16</td><td>1.50</td><td>~11%</td><td>1,38,000</td></tr>
+<tr><td>2016&ndash;17</td><td>1.68</td><td>~12%</td><td>1,52,000</td></tr>
+<tr><td>2017&ndash;18</td><td>1.87</td><td>~11%</td><td>1,68,000</td></tr>
+<tr><td>2018&ndash;19</td><td>2.08</td><td>~11%</td><td>1,85,000</td></tr>
+<tr><td>2019&ndash;20</td><td>2.28</td><td>~10%</td><td>2,02,000</td></tr>
+<tr><td>2020&ndash;21</td><td>2.15</td><td>~&minus;6%</td><td>1,95,000</td></tr>
+<tr><td>2021&ndash;22</td><td>2.55</td><td>~19%</td><td>2,25,000</td></tr>
+<tr><td>2022&ndash;23</td><td>2.85</td><td>~12%</td><td>2,55,000</td></tr>
+<tr><td>2023&ndash;24</td><td>3.33</td><td>~17%</td><td>2,85,000</td></tr>
+</table>
+
+<p class="small" style="color:#5a6b65;"><em>Sources: Directorate of Economics &amp; Statistics, Uttarakhand; NITI Aayog estimates; RBI Handbook of Statistics. Figures are approximate and based on current prices.</em></p>
+
+<h4>District-wise Per Capita Income Gap</h4>
+
+<p>The plains&ndash;hills economic divide is stark. Dehradun's per capita income is roughly 2.5&times; that of Chamoli or Bageshwar. The visual below shows estimated district PCI for FY 2023&ndash;24, indexed to the state average.<sup>[42a]</sup></p>
+
+<div class="bar-chart">
+<div class="bar-row"><div class="bar-label">Dehradun</div><div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div><div class="bar-value">~3.5L</div></div>
+<div class="bar-row"><div class="bar-label">Haridwar</div><div class="bar-track"><div class="bar-fill" style="width:69%;"></div></div><div class="bar-value">~2.4L</div></div>
+<div class="bar-row"><div class="bar-label">US Nagar</div><div class="bar-track"><div class="bar-fill" style="width:74%;"></div></div><div class="bar-value">~2.6L</div></div>
+<div class="bar-row"><div class="bar-label">Nainital</div><div class="bar-track"><div class="bar-fill" style="width:60%;"></div></div><div class="bar-value">~2.1L</div></div>
+<div class="bar-row"><div class="bar-label">Pauri G.</div><div class="bar-track"><div class="bar-fill" style="width:44%;"></div></div><div class="bar-value">~1.55L</div></div>
+<div class="bar-row"><div class="bar-label">Pithoragarh</div><div class="bar-track"><div class="bar-fill" style="width:39%;"></div></div><div class="bar-value">~1.35L</div></div>
+<div class="bar-row"><div class="bar-label">Tehri G.</div><div class="bar-track"><div class="bar-fill" style="width:37%;"></div></div><div class="bar-value">~1.3L</div></div>
+<div class="bar-row"><div class="bar-label">Champawat</div><div class="bar-track"><div class="bar-fill" style="width:37%;"></div></div><div class="bar-value">~1.3L</div></div>
+<div class="bar-row"><div class="bar-label">Uttarkashi</div><div class="bar-track"><div class="bar-fill" style="width:36%;"></div></div><div class="bar-value">~1.25L</div></div>
+<div class="bar-row"><div class="bar-label">Rudraprayag</div><div class="bar-track"><div class="bar-fill" style="width:34%;"></div></div><div class="bar-value">~1.2L</div></div>
+<div class="bar-row"><div class="bar-label">Bageshwar</div><div class="bar-track"><div class="bar-fill" style="width:33%;"></div></div><div class="bar-value">~1.15L</div></div>
+<div class="bar-row"><div class="bar-label">Chamoli</div><div class="bar-track"><div class="bar-fill" style="width:33%;"></div></div><div class="bar-value">~1.15L</div></div>
+<div class="bar-row"><div class="bar-label">State Avg</div><div class="bar-track"><div class="bar-fill bar-fill-alt" style="width:49%;"></div></div><div class="bar-value">~1.71L</div></div>
+</div>
+
+<p class="small" style="color:#5a6b65;"><em>Note: District PCI figures are estimates based on DES Uttarakhand and NITI Aayog district domestic product reports. The state average is derived from GSDP divided by projected population.</em></p>
 
 <p>The disconnect between output and employment&mdash;agriculture supporting nearly half the workforce while contributing less than a tenth of output&mdash;is the defining structural problem of the Uttarakhand economy.</p>
 
@@ -905,9 +1032,7 @@ Sources include Government of Uttarakhand, Census of India 2011, NITI Aayog, IBE
 
 <h3>9.1 Literacy &amp; School Education</h3>
 
-<p>Uttarakhand's literacy rate was <strong>78.82%</strong> as per the 2011 Census, placing it 17th among Indian states and above the national average of 74.04%. Male literacy stood at 87.40% and female literacy at 70.01%. The district-level range is wide: Dehradun recorded 89.92% while Champawat recorded only 69.23%.<sup>[52]</sup></p>
-
-<p>School education is delivered through a mix of government schools, private institutions, and central government schools (KVs and JNVs). The state has generally performed well on enrolment metrics but faces quality challenges, particularly in rural and high-altitude areas where teacher absenteeism, outdated pedagogy, and infrastructure gaps are common.</p>
+<p>Aggregate literacy figures and district-level breakdowns are discussed in Section 5.2 (District-wise Literacy Rate and Sex Ratio). At the school level, education is delivered through a mix of government schools, private institutions, and central government schools (KVs and JNVs). The state has generally performed well on enrolment metrics but faces quality challenges, particularly in rural and high-altitude areas where teacher absenteeism, outdated pedagogy, and infrastructure gaps are common.</p>
 
 <h3>9.2 Higher Education</h3>
 
@@ -926,11 +1051,11 @@ Sources include Government of Uttarakhand, Census of India 2011, NITI Aayog, IBE
 
 <h3>9.3 Healthcare</h3>
 
-<p>The healthcare infrastructure in Uttarakhand follows the national three-tier model: sub-centres, primary health centres (PHCs), and community health centres (CHCs), supported by district hospitals and medical colleges. However, distribution is heavily skewed toward the plains.</p>
+<p>Key health indicators are summarised in Section 5.3 (Health Indicators &amp; Family Welfare). At the infrastructure level, Uttarakhand follows the national three-tier model: sub-centres, primary health centres (PHCs), and community health centres (CHCs), supported by district hospitals and medical colleges. Distribution is heavily skewed toward the plains.</p>
 
 <p>Dehradun has the All India Institute of Medical Sciences (AIIMS) Rishikesh, a top-tier referral hospital. Other districts rely on government hospitals and a growing network of private clinics. In the high-altitude districts, access to emergency care is severely limited; patients often must travel 4&ndash;8 hours on rough roads to reach a functioning hospital.</p>
 
-<p>The state faces a shortage of specialist doctors, particularly in gynaecology, paediatrics, and anaesthesiology. The government has experimented with tele-medicine and mobile health units to reach remote areas, but scale remains limited. Maternal and child health indicators have improved but remain below national targets in several hill districts.</p>
+<p>The state faces a shortage of specialist doctors, particularly in gynaecology, paediatrics, and anaesthesiology. The government has experimented with tele-medicine and mobile health units to reach remote areas, but scale remains limited.</p>
 
 <!-- ===================================================================== -->
 <h2 id="p1-sec10">10. Culture &amp; Heritage</h2>
@@ -1004,32 +1129,23 @@ Sources include Government of Uttarakhand, Census of India 2011, NITI Aayog, IBE
 <!-- ===================================================================== -->
 <h2 id="p1-sec11">11. Religious &amp; Spiritual Significance</h2>
 
+<p><em>For visitor logistics, seasonal timings, and economic impact of pilgrimage, see Section 13: Tourism.</em></p>
+
 <h3>11.1 The Char Dham</h3>
 
-<p>The Char Dham (&quot;Four Abodes&quot;) represents the apex of Uttarakhand's religious identity. Comprising <strong>Yamunotri</strong>, <strong>Gangotri</strong>, <strong>Kedarnath</strong>, and <strong>Badrinath</strong>, the circuit draws millions of pilgrims annually and is considered one of Hinduism's most sacred pilgrimage routes.<sup>[57]</sup></p>
+<p>The Char Dham (&quot;Four Abodes&quot;) represents the apex of Uttarakhand's religious identity&mdash;comprising <strong>Yamunotri</strong> (source of the Yamuna, temple to Goddess Yamuna), <strong>Gangotri</strong> (where the Ganga is believed to have descended to Earth, arrested by Shiva's locks), <strong>Kedarnath</strong> (one of the twelve Jyotirlingas, backdroped by the Kedar Peak), and <strong>Badrinath</strong> (one of the holiest Vaishnavite shrines, between the Nar and Narayan ranges).<sup>[57]</sup></p>
 
-<ul>
-<li><strong>Yamunotri (3,293 m):</strong> Source of the Yamuna River, accessible by a 6 km trek from Janki Chatti. The temple to Goddess Yamuna is accompanied by the Surya Kund hot spring.</li>
-<li><strong>Gangotri (3,415 m):</strong> On the banks of the Bhagirathi. The temple marks the spot where Goddess Ganga is believed to have descended to Earth, arrested by Shiva's matted locks. The actual source is 18 km further at Gaumukh, the snout of the Gangotri Glacier.</li>
-<li><strong>Kedarnath (3,580 m):</strong> One of the twelve Jyotirlingas of Shiva. The ancient stone temple, backdroped by the Kedar Peak, is reached by a 16 km trek from Gaurikund. It was severely damaged in the 2013 floods and subsequently rebuilt with reinforced foundations.</li>
-<li><strong>Badrinath (3,100 m):</strong> Dedicated to Lord Vishnu. Situated between the Nar and Narayan mountain ranges on the Alaknanda's banks, it is one of the holiest Vaishnavite shrines.</li>
-</ul>
-
-<p>The Char Dham Yatra traditionally follows a clockwise route: Yamunotri &rarr; Gangotri &rarr; Kedarnath &rarr; Badrinath. The temples open in April&ndash;May and close in October&ndash;November for the winter. During closure, the deities are transferred to winter shrines at lower elevations (Ukhimath for Kedarnath, Joshimath for Badrinath, etc.).</p>
+<p>Theologically, the Yatra is understood as a clockwise circuit of salvation: Yamunotri &rarr; Gangotri &rarr; Kedarnath &rarr; Badrinath, symbolising purification through water (Yamuna, Ganga), divine grace (Shiva), and ultimate refuge (Vishnu). During winter closure, the deities are transferred to lower-elevation winter shrines (Ukhimath, Joshimath, etc.)&mdash;a practice that underscores the belief that the divine presence is mobile and protective.</p>
 
 <h3>11.2 Haridwar &amp; Rishikesh</h3>
 
-<p>While technically at the state's southern edge where the hills meet the plains, <strong>Haridwar</strong> and <strong>Rishikesh</strong> are inseparable from Uttarakhand's spiritual identity.</p>
+<p><strong>Haridwar</strong> (&quot;Gateway to Hari/Vishnu&quot;) is one of the seven most sacred cities in Hinduism. The Kumbh Mela&mdash;the largest religious gathering on Earth&mdash;centres on ritual bathing at Har Ki Pauri, believed to cleanse sins across lifetimes. The Ardh Kumbh and annual Magh Mela sustain a continuous rhythm of pilgrimage.</p>
 
-<p><strong>Haridwar</strong> (&quot;Gateway to Hari/Vishnu&quot;) is one of the seven most sacred cities in Hinduism. It hosts the <strong>Kumbh Mela</strong> every 12 years, the largest religious gathering on Earth, attracting tens of millions of pilgrims for ritual bathing at Har Ki Pauri ghat. The Ardh Kumbh (every 6 years) and the annual Magh Mela also draw enormous crowds.<sup>[58]</sup></p>
+<p><strong>Rishikesh</strong> (&quot;City of Sages&quot;) is revered as the &quot;Yoga Capital of the World.&quot; Its significance dates to the 1960s, when Western seekers including The Beatles visited Maharishi Mahesh Yogi's ashram. Beyond tourism, it remains a centre of Vedantic learning, with dozens of ashrams and gurukuls that train monks, yoga teachers, and Sanskrit scholars.<sup>[58]</sup></p>
 
-<p><strong>Rishikesh</strong> (&quot;City of Sages&quot;) is renowned as the &quot;Yoga Capital of the World.&quot; Located at the confluence of the Ganga and Chandrabhaga, it has been a centre of meditation and yoga since the 1960s, when Western seekers including The Beatles visited Maharishi Mahesh Yogi's ashram. Today it hosts dozens of yoga schools, ashrams, and wellness centres, and has become a global hub for yoga teacher training and spiritual tourism.</p>
+<h3>11.3 Sikh &amp; Other Traditions</h3>
 
-<h3>11.3 Sikh &amp; Other Sacred Sites</h3>
-
-<p><strong>Hemkund Sahib</strong> (4,329 m) in Chamoli district is one of Sikhism's most revered sites. According to tradition, Guru Gobind Singh meditated here in a previous incarnation. The gurudwara, set beside a glacial lake surrounded by seven peaks, is accessible only by a steep trek from Ghangaria and is open from June to October.</p>
-
-<p>Uttarakhand is also home to numerous <strong>Buddhist</strong> sites reflecting its historical Himalayan Buddhist connections, including ancient rock carvings and monastery ruins. The <strong>Bhairav Temple</strong> near Kedarnath, the <strong>Kalimath</strong> temple of Goddess Kali, and countless local <em>gram devta</em> shrines add further layers to the sacred landscape.</p>
+<p><strong>Hemkund Sahib</strong> (4,329 m), beside a glacial lake in Chamoli, is one of Sikhism's most revered sites, believed to be where Guru Gobind Singh meditated in a previous incarnation. Buddhist rock carvings and monastery ruins in the high Himalayas reflect historical Tibetan cultural links. The <strong>Kalimath</strong> temple, the <strong>Bhairav Temple</strong> near Kedarnath, and countless <em>gram devta</em> (village deity) shrines create a layered sacred landscape in which mainstream Hinduism, Himalayan Buddhism, Sikhism, and animist traditions coexist.</p>
 <!-- ===================================================================== -->
 <h2 id="p1-sec12">12. Biodiversity &amp; Environment</h2>
 
@@ -1846,6 +1962,8 @@ Sources: Census of India 2011, Election Commission of India, ADR India, Director
 
 <h2 id="p2-sec8">8. Culture &amp; Heritage</h2>
 
+<p><em>For a comprehensive treatment, see Part I, Section 10: Culture &amp; Heritage.</em></p>
+
 <h3>8.1 Languages &amp; Oral Traditions</h3>
 <p>Hindi is the sole official language, but Garhwali (~23%) and Kumaoni (~20%) form rich oral literary traditions. The <em>Jagar</em> is an all-night ritual performance invoking local deities through narrative song. Pahari painting, particularly the Garhwal school influenced by Mughal aesthetics, is among India&rsquo;s finest artistic legacies.</p>
 
@@ -1859,6 +1977,8 @@ Sources: Census of India 2011, Election Commission of India, ADR India, Director
 <p>Traditional houses use stone and timber with thick walls, small windows, and sloping slate roofs. Temples follow the Nagara style with tiered roofs&mdash;Jageshwar (100+ temples), Tungnath (world&rsquo;s highest Shiva temple at 3,680 m), and Baijnath are exemplars. British-era bungalows in Nainital, Mussoorie, and Landour add colonial layers.</p>
 
 <h2 id="p2-sec9">9. Biodiversity &amp; Environment</h2>
+
+<p><em>For a comprehensive treatment, see Part I, Section 12: Biodiversity &amp; Environment.</em></p>
 
 <h3>9.1 Flora &amp; Fauna</h3>
 <p>Over 4,000 plant species and 600+ bird species. Vegetation zones range from tropical sal forests (Shivaliks) to alpine meadows (<em>bugyals</em>) above 3,000 m. Key mammals: Bengal tiger, leopard, snow leopard, Asian elephant, musk deer, Himalayan tahr, and goral. The state bird is the Himalayan monal; the state flower is the Brahma Kamal (<em>Saussurea obvallata</em>).</p>
@@ -1879,6 +1999,8 @@ Sources: Census of India 2011, Election Commission of India, ADR India, Director
 
 <h2 id="p2-sec10">10. Tourism</h2>
 
+<p><em>For a comprehensive treatment, see Part I, Section 13: Tourism.</em></p>
+
 <h3>10.1 Religious Tourism</h3>
 <p>The <strong>Char Dham Yatra</strong> (Yamunotri, Gangotri, Kedarnath, Badrinath) draws 3&ndash;4 million pilgrims annually. The <strong>Kumbh Mela</strong> at Haridwar (every 12 years) is the world&rsquo;s largest religious gathering. Beyond these, the Panch Kedar, Panch Prayag, Hemkund Sahib (Sikh), and numerous local <em>devi-devta</em> temples form a dense sacred geography.</p>
 
@@ -1889,6 +2011,8 @@ Sources: Census of India 2011, Election Commission of India, ADR India, Director
 <p>Colonial-era stations (Nainital, Mussoorie, Ranikhet, Lansdowne) remain popular. Rishikesh is the &ldquo;Yoga Capital of the World,&rdquo; hosting the annual International Yoga Festival. Wellness tourism (Ayurveda, meditation retreats) is a fast-growing segment. The sector contributes an estimated 25&ndash;30% of service-sector GSDP.</p>
 
 <h2 id="p2-sec11">11. Contemporary Challenges</h2>
+
+<p><em>For a comprehensive treatment, see Part I, Section 14: Contemporary Challenges.</em></p>
 
 <h3>11.1 The Migration Crisis</h3>
 <p>Over 500,000 people left the hill districts between 2011 and 2018. An estimated 1,700+ villages are abandoned or critically depopulated. Almora and Pauri Garhwal recorded absolute population declines between 2001 and 2011. Drivers: lack of non-farm employment (40% graduate unemployment in hills), declining agriculture, poor connectivity, and collapsing rural schools. The Ghost Villages Revival Programme and homestay promotion have shown limited impact.</p>
@@ -2132,6 +2256,26 @@ Compiled for campaign strategists, candidates, and analysts &middot; Sources: Ce
 <tr><td>Temple Management / Religious Tourism</td><td>Very High</td><td>High</td><td>BJP (Hindutva)</td></tr>
 <tr><td>Reservation Policy</td><td>High</td><td>High</td><td>All (different configurations)</td></tr>
 <tr><td>Climate / Disaster Response</td><td>Very High</td><td>Moderate</td><td>BJP (administration); INC (criticism of handling)</td></tr>
+</table>
+
+<h3>2.6 Key Political Stakeholders</h3>
+
+<p>The following table profiles the most influential political actors in Uttarakhand as of 2026, with their constituencies, roles, and strategic significance for campaign planning.<sup>[p3-2a]</sup></p>
+
+<table class="small">
+<tr><th>Stakeholder</th><th>Role / Party</th><th>Constituency / Base</th><th>Strategic Notes</th></tr>
+<tr><td><strong>Pushkar Singh Dhami</strong></td><td>Chief Minister, BJP</td><td>Champawat (by-election 2022)</td><td>First CM to win consecutive terms. Technocratic, close to central BJP leadership. Face of UCC, Char Dham road widening. High approval in plains; mixed in hills due to migration inaction.</td></tr>
+<tr><td><strong>Premchand Aggarwal</strong></td><td>Speaker, BJP</td><td>Rishikesh</td><td>Senior plains BJP leader. Manages legislative floor strategy and party discipline.</td></tr>
+<tr><td><strong>B.C. Khanduri</strong></td><td>Ex-CM, BJP (retired)</td><td>Dharampur (legacy)</td><td>Former Army general; integrity icon. Daughter Chandra Pant (Pithoragarh MLA) extends dynastic influence.</td></tr>
+<tr><td><strong>Harish Rawat</strong></td><td>Senior Congress; ex-CM</td><td>Haridwar Rural</td><td>Most electorally successful Congress CM. Strong OBC connect. Currently marginalised but retains loyal base.</td></tr>
+<tr><td><strong>Yashpal Arya</strong></td><td>Cabinet Minister, BJP (ex-INC)</td><td>Bajpur</td><td>Dalit face; defector from Congress (2021). Symbolises BJP's "poach the best" strategy. Son Sanjiv Arya also BJP.</td></tr>
+<tr><td><strong>Ganesh Joshi</strong></td><td>Cabinet Minister, BJP</td><td>Mussoorie</td><td>Agriculture portfolio. Strong ex-servicemen and hill Rajput base.</td></tr>
+<tr><td><strong>Satpal Maharaj</strong></td><td>Cabinet Minister, BJP</td><td>Chaubattakhal</td><td>Spiritual leader with transnational following. Tourism &amp; culture minister. Blends religious authority with political power.</td></tr>
+<tr><td><strong>Subodh Uniyal</strong></td><td>Cabinet Minister, BJP (ex-INC)</td><td>Narendranagar</td><td>Another high-profile Congress-to-BJP defector. Signals BJP's organisational dominance.</td></tr>
+<tr><td><strong>Karan Mahara</strong></td><td>LoP, Congress</td><td>Hardwar Rural</td><td>Current Congress face in assembly. Rebuilding organisation post-2022 wipeout. Limited state-wide pull.</td></tr>
+<tr><td><strong>Madan Singh Bisht</strong></td><td>Senior Congress MLA</td><td>Dwarahat</td><td>One of few Congress survivors in Almora (BJP swept 7/8 seats in 2022). Represents traditional Kumaoni Congress base.</td></tr>
+<tr><td><strong>Sarwat Kareem Ansari</strong></td><td>BSP MLA (deceased 2024)</td><td>Manglaur</td><td>Muslim-Dalit coalition builder. His legacy keeps BSP relevant in Haridwar pocket boroughs (~10&ndash;15% vote share).</td></tr>
+<tr><td><strong>UKD Leadership</strong></td><td>Uttarakhand Kranti Dal</td><td>Hill districts</td><td>Symbolic inheritors of statehood movement. &lt;1% vote share but can spoil close contests in 5&ndash;7 hill seats.</td></tr>
 </table>
 
 <!-- ======================== CANDIDATE PLAYBOOK ======================== -->
@@ -2701,6 +2845,8 @@ Compiled for campaign strategists, candidates, and analysts &middot; Sources: Ce
 <!-- ======================== BIODIVERSITY, CULTURE, ENVIRONMENT ======================== -->
 <h2 id="p3-s9">9. Biodiversity, Culture &amp; Environment</h2>
 
+<p><em>For comprehensive background, see Part I, Sections 10&ndash;12. The analysis below focuses on political strategy and voter behaviour.</em></p>
+
 <p>These domains are not peripheral to politics in Uttarakhand — they are central to identity and livelihood.</p>
 
 <h3>9.1 Sacred Geography as Political Capital</h3>
@@ -2717,6 +2863,8 @@ Compiled for campaign strategists, candidates, and analysts &middot; Sources: Ce
 
 <!-- ======================== CONTEMPORARY CHALLENGES ======================== -->
 <h2 id="p3-s10">10. Contemporary Challenges</h2>
+
+<p><em>For comprehensive background, see Part I, Section 14. The analysis below focuses on campaign messaging and policy positioning.</em></p>
 
 <h3>10.1 The Migration Crisis</h3>
 <p>Over 500,000 people left hill districts between 2011 and 2018. An estimated 1,700+ villages are abandoned or critically depopulated. The reasons are cumulative: no non-farm employment, declining agricultural productivity, poor road connectivity, collapsing rural schools, and the "bride shortage" (women leaving for marriage in the plains). Any serious political platform must address this with specific, costed programmes, not vague promises.</p>
