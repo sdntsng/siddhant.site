@@ -6,7 +6,11 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { Tweet } from "react-tweet";
+// Tweet component disabled for static generation compatibility
+// import { Tweet } from "react-tweet";
+const Tweet = ({ id }: { id: string }) => (
+  <p className="text-sm text-neutral-500">[Tweet: <a href={`https://twitter.com/i/web/status/${id}`} target="_blank" rel="noopener noreferrer">view on Twitter</a>]</p>
+);
 import rehypePrettyCode from "rehype-pretty-code";
 import { NewsletterTrigger } from "@/components/newsletter-trigger";
 
