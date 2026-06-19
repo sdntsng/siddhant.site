@@ -146,9 +146,14 @@ code[data-line-numbers-max-digits="3"]>[data-line]::before {
 }
 
 pre.mermaid {
-  @apply my-8 flex justify-center bg-transparent p-0 overflow-visible;
+  @apply my-8 overflow-hidden rounded-lg bg-muted/40 text-transparent;
+  min-height: 8rem;
 }
 
-pre.mermaid > code {
-  @apply !text-base !leading-normal;
+.mermaid-diagram {
+  @apply my-8 flex justify-center overflow-x-auto;
+}
+
+.mermaid-diagram svg {
+  @apply h-auto max-w-full;
 }
