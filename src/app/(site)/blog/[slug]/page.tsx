@@ -15,6 +15,7 @@ import rehypePrettyCode from "rehype-pretty-code";
 import { NewsletterTrigger } from "@/components/newsletter-trigger";
 
 import remarkGfm from "remark-gfm";
+import { rehypeMermaid } from "@/lib/rehype-mermaid";
 
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
@@ -136,6 +137,7 @@ export default async function Blog({
             mdxOptions: {
               remarkPlugins: [remarkGfm],
               rehypePlugins: [
+                rehypeMermaid,
                 [
                   rehypePrettyCode,
                   {

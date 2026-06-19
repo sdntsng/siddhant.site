@@ -144,3 +144,11 @@ code[data-line-numbers-max-digits="2"]>[data-line]::before {
 code[data-line-numbers-max-digits="3"]>[data-line]::before {
   width: 3rem;
 }
+
+pre.mermaid {
+  @apply my-8 flex justify-center bg-transparent p-0 overflow-visible;
+}
+
+pre.mermaid > code {
+  @apply !text-base !leading-normal;
+}
