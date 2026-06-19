@@ -145,9 +145,8 @@ code[data-line-numbers-max-digits="3"]>[data-line]::before {
   width: 3rem;
 }
 
-pre.mermaid {
-  @apply my-8 overflow-hidden rounded-lg bg-muted/40 text-transparent;
-  min-height: 8rem;
+pre.mermaid.mermaid-error {
+  @apply my-8 overflow-x-auto rounded-lg border border-destructive/40 bg-muted/20 p-4 text-sm text-foreground;
 }
 
 .mermaid-diagram {
@@ -156,4 +155,9 @@ pre.mermaid {
 
 .mermaid-diagram svg {
   @apply h-auto max-w-full;
+  color-scheme: light;
+}
+
+.dark .mermaid-diagram svg {
+  color-scheme: dark;
 }

@@ -134,7 +134,8 @@ flowchart TB
   prompt --> classifier
   classifier --> model
   model --> policy
-  policy -->|allowed| sandbox --> tools
+  policy -->|allowed| sandbox
+  sandbox --> tools
   policy -->|blocked| audit
   tools --> audit
 ```
