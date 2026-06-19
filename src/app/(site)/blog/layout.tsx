@@ -1,5 +1,5 @@
 import { NewsletterPopup } from "@/components/newsletter-popup";
-import { MermaidScript } from "@/components/mermaid-script";
+import { MermaidRenderer } from "@/components/mermaid-renderer";
 
 export default function BlogLayout({
     children,
@@ -10,7 +10,7 @@ export default function BlogLayout({
         <>
             {children}
             <NewsletterPopup />
-            <MermaidScript />
+            <MermaidRenderer />
         </>
     );
 }
