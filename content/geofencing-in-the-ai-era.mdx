@@ -134,7 +134,8 @@ flowchart TB
   prompt --> classifier
   classifier --> model
   model --> policy
-  policy -->|allowed| sandbox --> tools
+  policy -->|allowed| sandbox
+  sandbox --> tools
   policy -->|blocked| audit
   tools --> audit
 ```
@@ -246,29 +247,13 @@ that means:
 this is less satisfying than a clean country block. it is also closer to reality.
 
 ## the missing primitive: capability provenance
-current ai infrastructure mostly tracks access.
+most ai infrastructure still logs access the way a normal api does: account id, key id, region, timestamp, maybe request metadata. that is enough to answer billing questions and basic abuse detection. it is not enough to answer where a capability went after inference.
 
-who called the api? from which account? from which region? at what time?
+what you actually need is a record of the output itself and what happened next. which model version produced it, under what policy, with which tools enabled. whether it was written to memory, exported to a file, fed into a fine-tune job, copied into another prompt, or surfaced through a workflow other users can hit. without that, a geofence at the gateway tells you someone in the allowed region made a call. it does not tell you the call became a persistent artifact somewhere else.
 
-that is useful, but thin.
+this is closer to supply chain security than to classic access control. in production software, you stopped assuming dependencies were fine because they passed a download check. you started asking where binaries came from, who signed them, what they could touch at runtime, and what else they pulled in. ai systems need the same habit applied to model outputs, not just model weights.
 
-we need to track capability flow.
-
-which model produced this output? what policy applied? what tools were available? was the output stored? was it used for training? did it enter another model? did it become part of a workflow exposed to other users?
-
-this starts to look less like geofencing and more like supply chain security.
-
-software learned this the hard way. you cannot secure production by trusting that every dependency is fine. you need provenance, signing, dependency tracking, review, permissions, and runtime monitoring.
-
-ai needs the same shift.
-
-not just model access.
-
-model lineage.
-
-not just user geography.
-
-capability geography.
+the useful distinction is between access geography and capability geography. access geography is where the request originated. capability geography is where the behavior can still be exercised after the response leaves the model. policy and engineering have to track the second one, or geofencing stays a login-screen fiction.
 
 ## what a real ai geofence might look like
 a more realistic stack would have layers.

@@ -23,11 +23,12 @@ async function renderDiagrams(theme: string | undefined) {
     try {
       const { svg } = await mermaid.render(id, code);
       const wrapper = document.createElement("div");
-      wrapper.className = "mermaid-diagram";
+      wrapper.className = "mermaid-diagram not-prose";
       wrapper.innerHTML = svg;
       node.replaceWith(wrapper);
     } catch (error) {
       console.error("Mermaid render failed:", error);
+      node.classList.add("mermaid-error");
     }
   }
 }
