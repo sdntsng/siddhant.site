@@ -1,0 +1,16 @@
+observation_date,metric,value,unit,basis,comparability_note
+2025-06-30,LinkedIn GTM Engineer search/posting count,1400,approx postings/results,Published secondary analysis citing LinkedIn Jobs,Comparable only with Jan 2026 LinkedIn figure
+2026-01-31,LinkedIn GTM Engineer search/posting count,3000,approx postings/results,Published secondary analysis citing LinkedIn Jobs,Comparable only with mid-2025 LinkedIn figure
+2026-07-20,Cargo verified open GTM Engineer positions,711,open positions,Cargo/TheirStack corpus,Not directly comparable with LinkedIn search-result counts
+2026-07-16,Cargo deduplicated offers in Apr17-Jul16 corpus,1154,offers,Cargo/TheirStack corpus,Three-month cumulative corpus
+2026-07-16,Cargo JDs mentioning AI or LLM workflows,70,percent,1350 analyzed full-text JDs,Full Apr17-Jul16 corpus
+2026-07-16,Cargo latest-month JDs naming Claude or Claude Code,38,percent,Most recent month of Cargo corpus,Different time basis from full-corpus percentages
+2026-07-09,Independent corpus total postings,739,postings,Mateusz Sekta analysis,Snapshot corpus
+2026-07-09,Independent corpus full descriptions,584,job descriptions,Mateusz Sekta analysis,Denominator for skill/tool shares below
+2026-07-09,JDs requiring AI or LLM skills,86,percent,584 full job descriptions,Same corpus as rows below
+2026-07-09,JDs explicitly asking to build AI agents,50,percent,584 full job descriptions,Same corpus as rows below
+2026-07-09,JDs naming Clay,60,percent,584 full job descriptions,Same corpus as rows below
+2026-07-09,JDs naming HubSpot,52,percent,584 full job descriptions,Same corpus as rows below
+2026-07-09,JDs naming Salesforce,48,percent,584 full job descriptions,Same corpus as rows below
+2026-07-09,JDs naming Claude,33,percent,584 full job descriptions,Same corpus as rows below
+2026-07-09,JDs naming GPT/OpenAI,22,percent,584 full job descriptions,Same corpus as rows below
