@@ -9,21 +9,13 @@ import { ProjectsCarousel } from "./projects-carousel";
 import { RecentBlogList } from "./recent-blog-list";
 import { CompactPlacesAndEducation } from "./compact-places-and-education";
 import { ContactSection } from "./contact-section";
-import { EmbeddedMenuBar } from "./embedded-menu-bar";
+import { LiquidNavPill } from "./liquid-nav-pill";
 
-/**
- * Direction 3: Flow (Projects First + Left-to-Right Carousel + Inset Menu)
- * - Move everything upwards and start with featured projects right below identity
- * - Interactive left-to-right magnetic project carousel with video/gif hover cards
- * - Recent thoughts & essays in the spotlight
- * - Reduced prominence for work & education (compact ledger at bottom)
- * - Embedded inset card navigation rather than a floating screen dock
- */
 export function VariantFlow({ posts }: { posts: any[] }) {
   return (
-    <div className="max-w-2xl mx-auto py-8 sm:py-14 px-4 sm:px-6 min-h-screen text-foreground font-sans space-y-12">
-      {/* Inset Embedded Header Menu */}
-      <EmbeddedMenuBar />
+    <div className="max-w-2xl mx-auto py-4 sm:py-10 px-4 sm:px-6 min-h-screen text-foreground font-sans space-y-12">
+      {/* Morphing Liquid Nav Pill */}
+      <LiquidNavPill />
 
       <main className="space-y-12">
         {/* Hero Identity */}
@@ -31,20 +23,7 @@ export function VariantFlow({ posts }: { posts: any[] }) {
           <HeroIdentity />
         </section>
 
-        {/* 1. Featured Projects Carousel (Moved Upwards) */}
-        <section id="projects" className="space-y-3">
-          <div className="flex items-center justify-between">
-            <h2 className="text-sm font-semibold tracking-tight text-foreground lowercase flex items-center gap-2">
-              featured projects
-              <span className="text-[11px] font-mono font-normal text-muted-foreground bg-muted px-1.5 py-0.2 rounded-full">
-                {DATA.projects.length}
-              </span>
-            </h2>
-          </div>
-          <ProjectsCarousel projects={DATA.projects} />
-        </section>
-
-        {/* 2. About / Thesis */}
+        {/* 1. About / Thesis (Moved above Projects) */}
         <section id="about" className="space-y-3 pt-2">
           <h2 className="text-sm font-semibold tracking-tight text-foreground lowercase">
             about
@@ -64,6 +43,19 @@ export function VariantFlow({ posts }: { posts: any[] }) {
           </div>
         </section>
 
+        {/* 2. Projects I'm lately working on (Carousel) */}
+        <section id="projects" className="space-y-3 pt-2">
+          <div className="flex items-center justify-between">
+            <h2 className="text-sm font-semibold tracking-tight text-foreground lowercase flex items-center gap-2">
+              projects i&apos;m lately working on
+              <span className="text-[11px] font-mono font-normal text-muted-foreground bg-muted px-1.5 py-0.2 rounded-full">
+                {DATA.projects.length}
+              </span>
+            </h2>
+          </div>
+          <ProjectsCarousel projects={DATA.projects} />
+        </section>
+
         {/* 3. Recent Thoughts & Writing */}
         <section id="posts" className="space-y-4 pt-4 border-t border-border/40">
           <div className="flex items-center justify-between">
@@ -80,7 +72,7 @@ export function VariantFlow({ posts }: { posts: any[] }) {
           <RecentBlogList posts={posts} showSummary limit={4} />
         </section>
 
-        {/* 4. Compact Places Worked & Education (De-emphasized, concise) */}
+        {/* 4. Compact Places Worked & Education */}
         <section id="background">
           <CompactPlacesAndEducation />
         </section>
