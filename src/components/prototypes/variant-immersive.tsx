@@ -8,17 +8,18 @@ import { HeroIdentity } from "./hero-identity";
 import { ProjectsCarousel } from "./projects-carousel";
 import { RecentBlogList } from "./recent-blog-list";
 import { CompactPlacesAndEducation } from "./compact-places-and-education";
-import { ContactSection } from "./contact-section";
 import { MorphingInsetNav, FooterInsetDock } from "./morphing-inset-nav";
 
 /**
- * 2. Immersive Card Deck (Refined & Tactile)
- * - Inset/Embedded Menu Style with 3-state morphing:
- *     1. At top: Sits nestled in the header inside the card deck.
- *     2. On scroll: Glides into a floating inset tile near the bottom of viewport.
- *     3. At bottom: Seamlessly docks into the footer inside the card deck.
- * - Profile avatar placed cleanly next to name on all screen sizes.
- * - Sequence: Hero -> 01 About -> 02 Projects I'm lately working on (Carousel) -> 03 Recent thoughts -> 04 Places worked / Education -> 05 Activity -> 06 Contact -> Inset Footer Dock.
+ * 2. Immersive Card Deck (Clutter-Free, Pure Tactile Design)
+ * - Section titles without numbers or noise: `about`, `projects i'm lately working on`, `recent thoughts`, etc.
+ * - No hashtags under About.
+ * - No arrow / count subtitle clutter above carousel.
+ * - Sleek work/education ledger with company & college logos, IIM Indore listed once.
+ * - 3-State Morphing Inset Menu:
+ *     1. Header: clean, minimal nav (no social icons).
+ *     2. On Scroll: lifts into a floating inset tile (social icons revealed).
+ *     3. At Bottom: smoothly merges into the 2-line expanded footer dock with rich icon palette & direct actions.
  */
 export function VariantImmersive({ posts }: { posts: any[] }) {
   return (
@@ -35,44 +36,31 @@ export function VariantImmersive({ posts }: { posts: any[] }) {
           <HeroIdentity />
         </section>
 
-        {/* 1. About / Summary (Moved above Projects) */}
-        <section id="about" className="space-y-3.5 pt-2 border-t border-border/40">
+        {/* About / Summary (Clean, no hashtags, no section numbering) */}
+        <section id="about" className="space-y-3 pt-2 border-t border-border/40">
           <h2 className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
-            01 / about
+            about
           </h2>
           <Markdown className="prose max-w-full text-pretty font-sans text-sm sm:text-[15px] text-foreground/90 dark:prose-invert leading-relaxed">
             {DATA.summary}
           </Markdown>
-          <div className="flex flex-wrap gap-1.5 pt-1">
-            {DATA.Interests.map((interest) => (
-              <span
-                key={interest}
-                className="text-[11px] text-muted-foreground/80 bg-muted/60 border border-border/40 px-2 py-0.5 rounded-md font-mono"
-              >
-                #{interest}
-              </span>
-            ))}
-          </div>
         </section>
 
-        {/* 2. Projects I'm Lately Working On (Left-to-Right Carousel) */}
+        {/* Projects I'm Lately Working On (Left-to-Right Carousel, no clutter copy) */}
         <section id="projects" className="space-y-3 pt-2 border-t border-border/40">
           <div className="flex items-center justify-between">
             <h2 className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
-              02 / projects i&apos;m lately working on
+              projects i&apos;m lately working on
             </h2>
-            <span className="text-[11px] font-mono text-muted-foreground/60">
-              {DATA.projects.length} builds
-            </span>
           </div>
           <ProjectsCarousel projects={DATA.projects} />
         </section>
 
-        {/* 3. Recent Writing & Thoughts */}
+        {/* Recent Thoughts & Writing */}
         <section id="writing" className="space-y-4 pt-4 border-t border-border/40">
           <div className="flex items-center justify-between">
             <h2 className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
-              03 / recent thoughts &amp; writing
+              recent thoughts &amp; writing
             </h2>
             <Link
               href="/blog"
@@ -84,16 +72,16 @@ export function VariantImmersive({ posts }: { posts: any[] }) {
           <RecentBlogList posts={posts} showSummary limit={4} />
         </section>
 
-        {/* 4. Places Worked & Education (De-emphasized compact ledger) */}
+        {/* Places Worked & Education (Sleek logo grid, IIM Indore once) */}
         <section id="background">
           <CompactPlacesAndEducation />
         </section>
 
-        {/* 5. Commit Activity */}
+        {/* Commit Activity */}
         <section id="activity" className="space-y-3 pt-6 border-t border-border/40">
           <div className="flex items-center justify-between">
             <h2 className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
-              05 / activity
+              activity
             </h2>
             <Link
               href={DATA.contact.social.GitHub.url}
@@ -106,16 +94,8 @@ export function VariantImmersive({ posts }: { posts: any[] }) {
           <GithubActivity />
         </section>
 
-        {/* 6. Contact & Reach Out */}
-        <section id="contact" className="space-y-3 pt-6 border-t border-border/40">
-          <h2 className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
-            06 / connect
-          </h2>
-          <ContactSection />
-        </section>
-
-        {/* Inset Footer Dock (Seamless final docking position) */}
-        <section id="nav-footer" className="pt-2 border-t border-border/40">
+        {/* Expanded 2-Line Footer Dock (Seamless final docking position with rich actions) */}
+        <section id="nav-footer" className="pt-4 border-t border-border/40">
           <FooterInsetDock />
         </section>
       </div>

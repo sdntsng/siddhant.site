@@ -39,11 +39,8 @@ export function ProjectsCarousel({ projects }: { projects: readonly ProjectItem[
 
   return (
     <div className="relative w-full group/carousel space-y-3">
-      {/* Header controls for carousel */}
-      <div className="flex items-center justify-between">
-        <span className="text-[11px] font-mono text-muted-foreground/70 tracking-tight">
-          ← scroll / drag to explore →
-        </span>
+      {/* Header arrows control */}
+      <div className="flex items-center justify-end">
         <div className="flex items-center gap-1.5">
           <button
             onClick={() => scroll("left")}
