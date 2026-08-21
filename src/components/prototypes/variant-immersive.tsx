@@ -9,23 +9,27 @@ import { ProjectsCarousel } from "./projects-carousel";
 import { RecentBlogList } from "./recent-blog-list";
 import { CompactPlacesAndEducation } from "./compact-places-and-education";
 import { ContactSection } from "./contact-section";
-import { LiquidNavPill } from "./liquid-nav-pill";
+import { MorphingInsetNav, FooterInsetDock } from "./morphing-inset-nav";
 
 /**
- * 2. Immersive Card Deck (Refined & Evolved)
+ * 2. Immersive Card Deck (Refined & Tactile)
+ * - Inset/Embedded Menu Style with 3-state morphing:
+ *     1. At top: Sits nestled in the header inside the card deck.
+ *     2. On scroll: Glides into a floating inset tile near the bottom of viewport.
+ *     3. At bottom: Seamlessly docks into the footer inside the card deck.
  * - Profile avatar placed cleanly next to name on all screen sizes.
- * - Liquid Nav Pill: starts nestled in header, seamlessly morphs into floating bottom pill upon scroll.
- * - Sequence: Hero -> About -> Projects I'm lately working on (Carousel) -> Recent Thoughts -> Places worked / Education -> Activity -> Contact.
- * - Crisp typography, authentic blog styling, zero template clutter.
+ * - Sequence: Hero -> 01 About -> 02 Projects I'm lately working on (Carousel) -> 03 Recent thoughts -> 04 Places worked / Education -> 05 Activity -> 06 Contact -> Inset Footer Dock.
  */
 export function VariantImmersive({ posts }: { posts: any[] }) {
   return (
     <div className="max-w-3xl mx-auto py-4 sm:py-10 px-3 sm:px-6 min-h-screen">
-      {/* Morphing Liquid Nav Pill (starts at top, floats to bottom upon scroll) */}
-      <LiquidNavPill />
-
       {/* Immersive Canvas Container */}
-      <div className="rounded-3xl border border-border/70 bg-card/70 shadow-xl p-5 sm:p-10 space-y-12 backdrop-blur-md mt-3">
+      <div className="rounded-3xl border border-border/70 bg-card/70 shadow-xl p-5 sm:p-10 space-y-12 backdrop-blur-md">
+        {/* Inset Morphing Header Menu */}
+        <section id="nav-header">
+          <MorphingInsetNav />
+        </section>
+
         {/* Hero Identity (Profile picture next to name on all screens) */}
         <section id="hero">
           <HeroIdentity />
@@ -108,6 +112,11 @@ export function VariantImmersive({ posts }: { posts: any[] }) {
             06 / connect
           </h2>
           <ContactSection />
+        </section>
+
+        {/* Inset Footer Dock (Seamless final docking position) */}
+        <section id="nav-footer" className="pt-2 border-t border-border/40">
+          <FooterInsetDock />
         </section>
       </div>
     </div>
