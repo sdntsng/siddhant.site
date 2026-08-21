@@ -1,10 +1,17 @@
 import { getBlogPosts } from "@/data/blog";
 import { VariantLedger } from "@/components/prototypes/variant-ledger";
 import { VariantSynthesis } from "@/components/prototypes/variant-synthesis";
+import { VariantFlow } from "@/components/prototypes/variant-flow";
+import { VariantImmersive } from "@/components/prototypes/variant-immersive";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
-  return [{ variant: "ledger" }, { variant: "synthesis" }];
+  return [
+    { variant: "flow" },
+    { variant: "immersive" },
+    { variant: "ledger" },
+    { variant: "synthesis" },
+  ];
 }
 
 export async function generateMetadata({
@@ -13,6 +20,8 @@ export async function generateMetadata({
   params: { variant: string };
 }) {
   const titles: Record<string, string> = {
+    flow: "Flow Prototype (Projects First + Carousel)",
+    immersive: "Immersive Frame Prototype",
     ledger: "Ledger Prototype",
     synthesis: "Synthesis Prototype",
   };
@@ -34,6 +43,14 @@ export default async function PrototypeVariantPage({
     }
     return 1;
   });
+
+  if (params.variant === "flow") {
+    return <VariantFlow posts={sortedPosts} />;
+  }
+
+  if (params.variant === "immersive") {
+    return <VariantImmersive posts={sortedPosts} />;
+  }
 
   if (params.variant === "ledger") {
     return <VariantLedger posts={sortedPosts} />;
