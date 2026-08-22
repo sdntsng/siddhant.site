@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useRef } from "react";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import GithubActivity from "@/components/github-activity";
@@ -16,10 +17,12 @@ import { HeaderInsetMenu, FloatingInsetMenu, ExpandedFooterDock } from "./morphi
  * - Floating menu always rendered fixed at bottom-6 when scrolled
  */
 export function VariantImmersive({ posts }: { posts: any[] }) {
+  const footerRef = useRef<HTMLDivElement>(null);
+
   return (
     <div className="relative max-w-3xl mx-auto py-4 sm:py-8 px-3 sm:px-6 min-h-screen">
-      {/* Mid-Scroll Floating Inset Menu (Fixed at viewport bottom when scrolled past header) */}
-      <FloatingInsetMenu />
+      {/* Mid-Scroll Floating Inset Menu (Fixed at viewport bottom when scrolled past header, hides before footer) */}
+      <FloatingInsetMenu footerRef={footerRef} />
 
       {/* Immersive Canvas Container */}
       <div className="rounded-3xl border border-border/70 bg-card/70 shadow-xl p-5 sm:p-8 space-y-10 backdrop-blur-md">
@@ -91,7 +94,7 @@ export function VariantImmersive({ posts }: { posts: any[] }) {
 
         {/* Expanded 2-Line Footer Dock */}
         <section id="nav-footer" className="pt-4 border-t border-border/40">
-          <ExpandedFooterDock />
+          <ExpandedFooterDock footerRef={footerRef} />
         </section>
       </div>
     </div>

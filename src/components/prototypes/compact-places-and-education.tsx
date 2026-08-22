@@ -51,9 +51,6 @@ export function CompactPlacesAndEducation() {
         <h3 className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
           experience &amp; background
         </h3>
-        <span className="text-[11px] font-mono text-muted-foreground/60">
-          hover for highlights
-        </span>
       </div>
 
       <div className="space-y-2">

@@ -82,7 +82,7 @@ export const DATA = {
       badges: [],
       location: "San Francisco Bay Area · Remote",
       title: "Co-Founder & CTO",
-      logoUrl: "/vinci.png",
+      logoUrl: "/engram.svg",
       start: "Feb 2026",
       end: "Present",
       description:

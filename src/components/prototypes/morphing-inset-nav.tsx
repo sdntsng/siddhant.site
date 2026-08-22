@@ -1,16 +1,15 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ModeToggle } from "@/components/mode-toggle";
 import { DATA } from "@/data/resume";
 import { Mail, Calendar } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 /**
  * Header Inset Menu:
  * Clean, lightweight navigation (home / blog / theme).
- * Intentionally uncluttered with NO social icons in the top header and NO terminal/CLI button.
+ * Intentionally uncluttered with NO social icons in the top header.
  */
 export function HeaderInsetMenu() {
   return (
@@ -38,96 +37,20 @@ export function HeaderInsetMenu() {
 }
 
 /**
- * Mid-Scroll Floating Inset Tile:
- * Sleek, tactile floating dock with navigation + social channels (GitHub, X, LinkedIn) + theme toggle.
- * Positioned fixed at bottom-6 on viewport, appears smoothly when scrollY > 80.
- */
-export function FloatingInsetMenu() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
-      setIsVisible(scrollY > 80);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  return (
-    <div
-      aria-hidden={!isVisible}
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? "translateY(0px)" : "translateY(16px)",
-        pointerEvents: isVisible ? "auto" : "none",
-      }}
-      className="fixed bottom-6 inset-x-0 mx-auto z-[9999] flex justify-center px-4 transition-all duration-300 ease-out"
-    >
-      <div className="w-full max-w-md flex items-center justify-between p-1.5 rounded-2xl bg-background/95 dark:bg-zinc-900/95 border border-border/90 shadow-2xl backdrop-blur-xl ring-1 ring-border/20">
-        {/* Primary Links */}
-        <div className="flex items-center gap-1">
-          <Link
-            href="/"
-            className="px-3 py-1.5 rounded-xl text-xs font-medium text-foreground hover:bg-muted/80 transition-all lowercase"
-          >
-            home
-          </Link>
-          <Link
-            href="/blog"
-            className="px-3 py-1.5 rounded-xl text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-all lowercase"
-          >
-            blog
-          </Link>
-
-          <div className="h-4 w-px bg-border/60 mx-1" />
-
-          {/* Social Icons revealed on scroll */}
-          <Link
-            href={DATA.contact.social.GitHub.url}
-            target="_blank"
-            className="p-1.5 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-all"
-            title="GitHub"
-          >
-            <DATA.contact.social.GitHub.icon className="size-3.5" />
-          </Link>
-          <Link
-            href={DATA.contact.social.X.url}
-            target="_blank"
-            className="p-1.5 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-all"
-            title="X (Twitter)"
-          >
-            <DATA.contact.social.X.icon className="size-3.5" />
-          </Link>
-          <Link
-            href={DATA.contact.social.LinkedIn.url}
-            target="_blank"
-            className="p-1.5 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-all"
-            title="LinkedIn"
-          >
-            <DATA.contact.social.LinkedIn.icon className="size-3.5" />
-          </Link>
-        </div>
-
-        {/* Theme toggle */}
-        <div className="flex items-center gap-1 pl-1 border-l border-border/40 scale-90 origin-center">
-          <ModeToggle />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/**
  * 2-Line Expanded Inset Footer Dock:
  * Clean 2-row layout providing quick navigation, calendar session action, direct email,
  * and social channels (GitHub, X, LinkedIn, Instagram).
  */
-export function ExpandedFooterDock() {
+export function ExpandedFooterDock({
+  footerRef,
+}: {
+  footerRef?: React.RefObject<HTMLDivElement>;
+}) {
   return (
-    <div className="w-full p-4 rounded-3xl bg-muted/30 border border-border/70 shadow-inner space-y-3 backdrop-blur-sm">
+    <div
+      ref={footerRef}
+      className="w-full p-4 rounded-3xl bg-muted/30 border border-border/70 shadow-inner space-y-3 backdrop-blur-sm"
+    >
       {/* Top Line: Navigation & Direct Actions */}
       <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-border/40">
         <div className="flex items-center gap-1.5">
@@ -200,6 +123,111 @@ export function ExpandedFooterDock() {
         </div>
 
         <div className="flex items-center gap-1.5 bg-background/80 p-1 rounded-xl border border-border/60 shadow-2xs shrink-0 scale-90 origin-right">
+          <ModeToggle />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Mid-Scroll Floating Inset Tile:
+ * - Appears as soon as user scrolls past header (scrollY > 70).
+ * - Smoothly hides when approaching the footer dock (using IntersectionObserver or distance calculation)
+ *   so it seamlessly merges into the in-flow footer dock without overlapping or awkward double-docking.
+ */
+export function FloatingInsetMenu({
+  footerRef,
+}: {
+  footerRef?: React.RefObject<HTMLDivElement>;
+}) {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
+      
+      let isNearFooter = false;
+      if (footerRef?.current) {
+        const rect = footerRef.current.getBoundingClientRect();
+        // If footer is visible in the bottom portion of the viewport (within 120px of bottom)
+        isNearFooter = rect.top <= window.innerHeight - 30;
+      } else {
+        const windowHeight = window.innerHeight || 0;
+        const docHeight = Math.max(
+          document.body.scrollHeight,
+          document.documentElement.scrollHeight
+        );
+        const distanceFromBottom = docHeight - (scrollY + windowHeight);
+        isNearFooter = distanceFromBottom < 220;
+      }
+
+      // Visible only during mid-scroll: past header (> 70px) AND before reaching the footer
+      setIsVisible(scrollY > 70 && !isNearFooter);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [footerRef]);
+
+  return (
+    <div
+      aria-hidden={!isVisible}
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? "translateY(0px) scale(1)" : "translateY(20px) scale(0.94)",
+        pointerEvents: isVisible ? "auto" : "none",
+      }}
+      className="fixed bottom-6 inset-x-0 mx-auto z-[9999] flex justify-center px-4 transition-all duration-300 ease-out"
+    >
+      <div className="w-full max-w-md flex items-center justify-between p-1.5 rounded-2xl bg-background/95 dark:bg-zinc-900/95 border border-border/90 shadow-2xl backdrop-blur-xl ring-1 ring-border/20">
+        {/* Primary Links */}
+        <div className="flex items-center gap-1">
+          <Link
+            href="/"
+            className="px-3 py-1.5 rounded-xl text-xs font-medium text-foreground hover:bg-muted/80 transition-all lowercase"
+          >
+            home
+          </Link>
+          <Link
+            href="/blog"
+            className="px-3 py-1.5 rounded-xl text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-all lowercase"
+          >
+            blog
+          </Link>
+
+          <div className="h-4 w-px bg-border/60 mx-1" />
+
+          {/* Social Icons revealed on scroll */}
+          <Link
+            href={DATA.contact.social.GitHub.url}
+            target="_blank"
+            className="p-1.5 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-all"
+            title="GitHub"
+          >
+            <DATA.contact.social.GitHub.icon className="size-3.5" />
+          </Link>
+          <Link
+            href={DATA.contact.social.X.url}
+            target="_blank"
+            className="p-1.5 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-all"
+            title="X (Twitter)"
+          >
+            <DATA.contact.social.X.icon className="size-3.5" />
+          </Link>
+          <Link
+            href={DATA.contact.social.LinkedIn.url}
+            target="_blank"
+            className="p-1.5 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-all"
+            title="LinkedIn"
+          >
+            <DATA.contact.social.LinkedIn.icon className="size-3.5" />
+          </Link>
+        </div>
+
+        {/* Theme toggle */}
+        <div className="flex items-center gap-1 pl-1 border-l border-border/40 scale-90 origin-center">
           <ModeToggle />
         </div>
       </div>
