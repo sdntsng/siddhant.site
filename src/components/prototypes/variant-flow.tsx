@@ -31,29 +31,14 @@ export function VariantFlow({ posts }: { posts: any[] }) {
           <Markdown className="prose max-w-full text-pretty font-sans text-sm text-foreground/80 dark:prose-invert leading-relaxed">
             {DATA.summary}
           </Markdown>
-          <div className="flex flex-wrap gap-1.5 pt-1">
-            {DATA.Interests.map((interest) => (
-              <span
-                key={interest}
-                className="text-xs text-muted-foreground bg-muted/40 border border-border/40 px-2 py-0.5 rounded-md font-mono"
-              >
-                #{interest}
-              </span>
-            ))}
-          </div>
         </section>
 
-        {/* 2. Projects I'm lately working on (Carousel) */}
-        <section id="projects" className="space-y-3 pt-2">
-          <div className="flex items-center justify-between">
-            <h2 className="text-sm font-semibold tracking-tight text-foreground lowercase flex items-center gap-2">
-              projects i&apos;m lately working on
-              <span className="text-[11px] font-mono font-normal text-muted-foreground bg-muted px-1.5 py-0.2 rounded-full">
-                {DATA.projects.length}
-              </span>
-            </h2>
-          </div>
-          <ProjectsCarousel projects={DATA.projects} />
+        {/* 2. Projects I'm lately working on (Carousel with single row header) */}
+        <section id="projects" className="pt-2 border-t border-border/40">
+          <ProjectsCarousel
+            projects={DATA.projects}
+            title="projects i'm lately working on"
+          />
         </section>
 
         {/* 3. Recent Thoughts & Writing */}

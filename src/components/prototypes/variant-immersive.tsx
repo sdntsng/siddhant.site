@@ -13,12 +13,12 @@ import { MorphingInsetNav, FooterInsetDock } from "./morphing-inset-nav";
 /**
  * 2. Immersive Card Deck (Clutter-Free, Pure Tactile Design)
  * - Section titles without numbers or noise: `about`, `projects i'm lately working on`, `recent thoughts`, etc.
+ * - Project title + arrow controls in the exact same single row.
  * - No hashtags under About.
- * - No arrow / count subtitle clutter above carousel.
- * - Sleek work/education ledger with company & college logos, IIM Indore listed once.
+ * - Sleek work/education ledger with company & college logos, IIM Indore listed once as "ipm", full names visible.
  * - 3-State Morphing Inset Menu:
  *     1. Header: clean, minimal nav (no social icons).
- *     2. On Scroll: lifts into a floating inset tile (social icons revealed).
+ *     2. On Scroll: lifts into a floating inset tile (GitHub, X, LinkedIn revealed).
  *     3. At Bottom: smoothly merges into the 2-line expanded footer dock with rich icon palette & direct actions.
  */
 export function VariantImmersive({ posts }: { posts: any[] }) {
@@ -46,17 +46,15 @@ export function VariantImmersive({ posts }: { posts: any[] }) {
           </Markdown>
         </section>
 
-        {/* Projects I'm Lately Working On (Left-to-Right Carousel, no clutter copy) */}
-        <section id="projects" className="space-y-3 pt-2 border-t border-border/40">
-          <div className="flex items-center justify-between">
-            <h2 className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
-              projects i&apos;m lately working on
-            </h2>
-          </div>
-          <ProjectsCarousel projects={DATA.projects} />
+        {/* Projects I'm Lately Working On (Carousel with Title + Arrows in single row) */}
+        <section id="projects" className="pt-2 border-t border-border/40">
+          <ProjectsCarousel
+            projects={DATA.projects}
+            title="projects i'm lately working on"
+          />
         </section>
 
-        {/* Recent Thoughts & Writing */}
+        {/* Recent Thoughts & Writing (Relative time, full wrapping 2-line summaries) */}
         <section id="writing" className="space-y-4 pt-4 border-t border-border/40">
           <div className="flex items-center justify-between">
             <h2 className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
@@ -72,7 +70,7 @@ export function VariantImmersive({ posts }: { posts: any[] }) {
           <RecentBlogList posts={posts} showSummary limit={4} />
         </section>
 
-        {/* Places Worked & Education (Sleek logo grid, IIM Indore once) */}
+        {/* Places Worked & Education (Full company names visible, IIM Indore listed once with 'ipm') */}
         <section id="background">
           <CompactPlacesAndEducation />
         </section>

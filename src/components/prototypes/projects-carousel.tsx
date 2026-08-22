@@ -24,7 +24,13 @@ export interface ProjectItem {
   video?: string;
 }
 
-export function ProjectsCarousel({ projects }: { projects: readonly ProjectItem[] }) {
+export function ProjectsCarousel({
+  projects,
+  title = "projects i'm lately working on",
+}: {
+  projects: readonly ProjectItem[];
+  title?: string;
+}) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: "left" | "right") => {
@@ -39,8 +45,11 @@ export function ProjectsCarousel({ projects }: { projects: readonly ProjectItem[
 
   return (
     <div className="relative w-full group/carousel space-y-3">
-      {/* Header arrows control */}
-      <div className="flex items-center justify-end">
+      {/* Header with Title + Arrow Controls in the exact same single row */}
+      <div className="flex items-center justify-between">
+        <h2 className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+          {title}
+        </h2>
         <div className="flex items-center gap-1.5">
           <button
             onClick={() => scroll("left")}

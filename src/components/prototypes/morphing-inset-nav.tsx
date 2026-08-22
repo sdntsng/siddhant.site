@@ -6,13 +6,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ModeToggle } from "@/components/mode-toggle";
 import { useTerminal } from "@/context/terminal";
 import { DATA } from "@/data/resume";
-import { Terminal, Mail, Calendar, Sparkles } from "lucide-react";
+import { Terminal, Mail, Calendar } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 /**
  * Header Inset Menu:
  * Clean, lightweight navigation (home / blog / terminal / theme).
- * Intentionally uncluttered with NO social icons at the top.
+ * Intentionally uncluttered with NO social icons in the top header.
  */
 export function HeaderInsetMenu() {
   const { toggleMode } = useTerminal();
@@ -53,13 +53,13 @@ export function HeaderInsetMenu() {
 
 /**
  * Mid-Scroll Floating Inset Tile:
- * Sleek, tactile floating dock with navigation + social channels + utilities.
+ * Sleek, tactile floating dock with navigation + social channels (GitHub, X, LinkedIn) + utilities.
  */
 export function FloatingInsetMenu() {
   const { toggleMode } = useTerminal();
 
   return (
-    <div className="flex items-center justify-between p-1.5 rounded-2xl bg-background/90 dark:bg-zinc-900/90 border border-border/90 shadow-2xl backdrop-blur-xl ring-1 ring-border/20">
+    <div className="flex items-center justify-between p-1.5 rounded-2xl bg-background/95 dark:bg-zinc-900/95 border border-border/90 shadow-2xl backdrop-blur-xl ring-1 ring-border/20">
       {/* Primary Links */}
       <div className="flex items-center gap-1">
         <Link
@@ -124,8 +124,8 @@ export function FloatingInsetMenu() {
 
 /**
  * 2-Line Expanded Inset Footer Dock:
- * Fattened, sleek 2-row layout providing rich navigation, all social presences,
- * direct action buttons (Email, Meet, WhatsApp, Resume), and system controls.
+ * Clean 2-row layout providing quick navigation, calendar session action, direct email,
+ * social channels (GitHub, X, LinkedIn, Instagram — WhatsApp & Resume removed), and terminal/theme.
  */
 export function ExpandedFooterDock() {
   const { toggleMode } = useTerminal();
@@ -166,7 +166,7 @@ export function ExpandedFooterDock() {
         </a>
       </div>
 
-      {/* Bottom Line: Rich Social Icon Grid + Terminal/Theme */}
+      {/* Bottom Line: Social Icon Palette + Terminal/Theme */}
       <div className="flex items-center justify-between gap-2">
         <div className="flex items-center gap-1.5 flex-wrap">
           <Link
@@ -201,21 +201,6 @@ export function ExpandedFooterDock() {
           >
             <DATA.contact.social.Instagram.icon className="size-4" />
           </Link>
-          <Link
-            href={DATA.contact.social.WhatsApp.url}
-            target="_blank"
-            className="p-2 rounded-xl text-muted-foreground hover:text-foreground hover:bg-background/80 border border-transparent hover:border-border/60 transition-all shadow-2xs"
-            title="WhatsApp"
-          >
-            <DATA.contact.social.WhatsApp.icon className="size-4" />
-          </Link>
-          <Link
-            href="/resume"
-            className="p-2 rounded-xl text-muted-foreground hover:text-foreground hover:bg-background/80 border border-transparent hover:border-border/60 transition-all shadow-2xs"
-            title="Resume"
-          >
-            <DATA.contact.social.Resume.icon className="size-4" />
-          </Link>
         </div>
 
         <div className="flex items-center gap-1.5 bg-background/80 p-1 rounded-xl border border-border/60 shadow-2xs shrink-0">
@@ -238,13 +223,13 @@ export function ExpandedFooterDock() {
 
 /**
  * 3-State Master Navigation Controller
- * Tracks window scroll position and smoothly transitions across the 3 states:
- *   1. 'top' -> Embeds HeaderInsetMenu (No social icons)
- *   2. 'floating' -> Renders FloatingInsetMenu with liquid physics
- *   3. 'bottom' -> Integrates with ExpandedFooterDock
+ * Reliably tracks scroll position and shows:
+ *   1. Header state when near top (scrollY < 50)
+ *   2. Floating mid-scroll state throughout the page
+ *   3. Docks into footer when within 80px of bottom
  */
 export function MorphingInsetNav() {
-  const [scrollState, setScrollState] = useState<"top" | "floating" | "bottom">("top");
+  const [showFloating, setShowFloating] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -253,12 +238,11 @@ export function MorphingInsetNav() {
       const docHeight = document.documentElement.scrollHeight;
       const distanceFromBottom = docHeight - (scrollY + windowHeight);
 
-      if (scrollY < 60) {
-        setScrollState("top");
-      } else if (distanceFromBottom < 180) {
-        setScrollState("bottom");
+      // Show floating when scrolled down past header (> 50px) and not yet touching the footer (< 80px)
+      if (scrollY > 50 && distanceFromBottom > 80) {
+        setShowFloating(true);
       } else {
-        setScrollState("floating");
+        setShowFloating(false);
       }
     };
 
@@ -269,29 +253,21 @@ export function MorphingInsetNav() {
 
   return (
     <>
-      {/* 1. Top Header State (Fades smoothly if scrolled) */}
+      {/* 1. Header Position (Embedded at top) */}
       <div className="w-full">
-        <motion.div
-          animate={{
-            opacity: scrollState === "top" ? 1 : 0.15,
-            scale: scrollState === "top" ? 1 : 0.98,
-          }}
-          transition={{ duration: 0.25, ease: "easeInOut" }}
-        >
-          <HeaderInsetMenu />
-        </motion.div>
+        <HeaderInsetMenu />
       </div>
 
-      {/* 2. Mid-Scroll Floating Inset Tile */}
+      {/* 2. Floating Inset Menu in Mid-Scroll */}
       <AnimatePresence>
-        {scrollState === "floating" && (
+        {showFloating && (
           <motion.div
-            initial={{ opacity: 0, y: 35, scale: 0.92 }}
+            initial={{ opacity: 0, y: 30, scale: 0.92 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 25, scale: 0.94 }}
+            exit={{ opacity: 0, y: 20, scale: 0.94 }}
             transition={{
               type: "spring",
-              stiffness: 320,
+              stiffness: 340,
               damping: 24,
               mass: 0.5,
             }}
@@ -309,37 +285,11 @@ export function MorphingInsetNav() {
 
 /**
  * Footer Inset Dock Container
- * Smoothly activates when the user scrolls near the bottom.
  */
 export function FooterInsetDock() {
-  const [isAtBottom, setIsAtBottom] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const docHeight = document.documentElement.scrollHeight;
-      const distanceFromBottom = docHeight - (scrollY + windowHeight);
-
-      setIsAtBottom(distanceFromBottom < 180);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <div className="w-full pt-4">
-      <motion.div
-        animate={{
-          opacity: isAtBottom ? 1 : 0.45,
-          scale: isAtBottom ? 1 : 0.98,
-        }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-      >
-        <ExpandedFooterDock />
-      </motion.div>
+      <ExpandedFooterDock />
     </div>
   );
 }
