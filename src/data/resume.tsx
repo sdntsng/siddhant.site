@@ -77,12 +77,12 @@ export const DATA = {
 
   work: [
     {
-      company: "Engram",
+      company: "Thundercat",
       href: "https://www.linkedin.com/company/110910576/",
       badges: [],
       location: "San Francisco Bay Area · Remote",
       title: "Co-Founder & CTO",
-      logoUrl: "/engram.png",
+      logoUrl: "/thundercat-icon.svg",
       start: "Feb 2026",
       end: "Present",
       description:
@@ -157,7 +157,7 @@ export const DATA = {
   ],
   projects: [
     {
-      title: "Engram",
+      title: "Thundercat",
       href: "https://www.linkedin.com/company/110910576/",
       active: true,
       description:
@@ -176,7 +176,7 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "/engram.png",
+      image: "/thundercat-cover.svg",
       video: "",
     },
     {

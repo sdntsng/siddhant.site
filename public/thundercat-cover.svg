@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 480" width="1024" height="480">
+  <!-- Terracotta / Rust background -->
+  <rect width="1024" height="480" fill="#c04226"/>
+
+  <!-- Warm cream / beige moon circle -->
+  <circle cx="400" cy="240" r="135" fill="#f5ede3"/>
+
+  <!-- Black Cat Silhouette -->
+  <!-- Cat Head & Ears -->
+  <path d="M 330 120 
+           L 360 175 
+           C 385 168, 415 168, 440 175 
+           L 470 120 
+           L 476 185 
+           C 510 200, 510 240, 485 240 
+           L 315 240 
+           C 290 240, 290 200, 324 185 
+           Z" 
+        fill="#0a0a0a"/>
+
+  <!-- Cat Eyes (White with black pupils) -->
+  <ellipse cx="378" cy="202" rx="14" ry="14" fill="#ffffff"/>
+  <ellipse cx="378" cy="202" rx="8" ry="8" fill="#0a0a0a"/>
+  <circle cx="374" cy="198" r="3.5" fill="#ffffff"/>
+
+  <ellipse cx="428" cy="202" rx="14" ry="14" fill="#ffffff"/>
+  <ellipse cx="428" cy="202" rx="8" ry="8" fill="#0a0a0a"/>
+  <circle cx="424" cy="198" r="3.5" fill="#ffffff"/>
+
+  <!-- Whiskers Left -->
+  <path d="M 335 210 Q 305 208 285 215" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 330 218 Q 300 220 280 232" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 335 226 Q 305 235 285 250" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Whiskers Right -->
+  <path d="M 470 210 Q 500 208 520 215" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 475 218 Q 505 220 525 232" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 470 226 Q 500 235 520 250" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Bold Typography: THUNDERCAT with triangular geometric A -->
+  <g fill="#0a0a0a">
+    <!-- T -->
+    <path d="M 285 240 L 325 240 L 325 264 L 312 264 L 312 355 L 298 355 L 298 264 L 285 264 Z"/>
+    <!-- H -->
+    <path d="M 333 240 L 347 240 L 347 288 L 368 288 L 368 240 L 382 240 L 382 355 L 368 355 L 368 305 L 347 305 L 347 355 L 333 355 Z"/>
+    <!-- U -->
+    <path d="M 390 240 L 404 240 L 404 335 C 404 345, 410 355, 420 355 C 430 355, 436 345, 436 335 L 436 240 L 450 240 L 450 335 C 450 355, 436 368, 420 368 C 404 368, 390 355, 390 335 Z"/>
+    <!-- N -->
+    <path d="M 458 240 L 473 240 L 498 325 L 498 240 L 512 240 L 512 355 L 497 355 L 472 270 L 472 355 L 458 355 Z"/>
+    <!-- D -->
+    <path d="M 520 240 L 546 240 C 564 240, 576 255, 576 297 C 576 340, 564 355, 546 355 L 520 355 Z M 534 257 L 534 338 L 544 338 C 555 338, 562 328, 562 297 C 562 267, 555 257, 544 257 Z"/>
+    <!-- E -->
+    <path d="M 584 240 L 620 240 L 620 257 L 598 257 L 598 288 L 617 288 L 617 305 L 598 305 L 598 338 L 620 338 L 620 355 L 584 355 Z"/>
+    <!-- R -->
+    <path d="M 628 240 L 656 240 C 670 240, 680 250, 680 273 C 680 292, 672 301, 660 304 L 682 355 L 667 355 L 647 307 L 642 307 L 642 355 L 628 355 Z M 642 257 L 642 292 L 654 292 C 662 292, 666 286, 666 274 C 666 263, 662 257, 654 257 Z"/>
+    <!-- C -->
+    <path d="M 718 255 C 712 245, 702 240, 690 240 C 672 240, 662 258, 662 297 C 662 337, 672 355, 690 355 C 702 355, 712 350, 718 340 L 728 351 C 718 364, 705 368, 690 368 C 660 368, 646 342, 646 297 C 646 253, 660 227, 690 227 C 705 227, 718 231, 728 244 Z" transform="translate(25, 0)"/>
+    <!-- Geometric A (Caret shape) -->
+    <path d="M 752 355 L 766 240 L 780 240 L 794 355 L 778 355 L 773 300 L 773 300 L 768 355 Z"/>
+    <!-- T -->
+    <path d="M 802 240 L 842 240 L 842 264 L 829 264 L 829 355 L 815 355 L 815 264 L 802 264 Z"/>
+  </g>
+</svg>
