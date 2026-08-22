@@ -222,7 +222,7 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "/openmool-cover.png",
+      image: "/openoutreach-cover.svg",
       video: "",
     },
     {
@@ -245,7 +245,7 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "/sheety-cover.png",
+      image: "/sutrana-cover.svg",
       video: "",
     },
     {

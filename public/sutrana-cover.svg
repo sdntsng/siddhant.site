@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="sutranaBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5f3ff"/>
+      <stop offset="50%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#eff6ff"/>
+    </linearGradient>
+
+    <linearGradient id="laptopBody" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+
+    <radialGradient id="brainGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#818cf8" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#c084fc" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="beamGrad" x1="50%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.8"/>
+      <stop offset="70%" stop-color="#818cf8" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#60a5fa" stop-opacity="0.1"/>
+    </linearGradient>
+
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="675" rx="32" fill="url(#sutranaBg)"/>
+
+  <!-- Glowing Brain Aura -->
+  <circle cx="560" cy="270" r="240" fill="url(#brainGlow)"/>
+
+  <!-- Beam Emitter from Laptop to Brain -->
+  <polygon points="560,490 470,290 650,290" fill="url(#beamGrad)" opacity="0.4"/>
+  <line x1="560" y1="490" x2="560" y2="290" stroke="#c084fc" stroke-width="2.5" stroke-dasharray="4 4" opacity="0.8"/>
+
+  <!-- Laptop Base & Screen (Half-Open Perspective) -->
+  <!-- Laptop Lower Base -->
+  <path d="M160,540 L960,540 L930,560 L190,560 Z" fill="#1e293b"/>
+  <rect x="180" y="535" width="760" height="10" rx="3" fill="#334155"/>
+  <rect x="520" y="538" width="80" height="4" rx="2" fill="#64748b"/>
+  <!-- Trackpad glow area -->
+  <rect x="470" y="515" width="180" height="18" rx="4" fill="#a855f7" opacity="0.25" filter="url(#glow)"/>
+
+  <!-- Laptop Display Lid (Tilted back) -->
+  <polygon points="160,535 960,535 940,390 180,390" fill="url(#laptopBody)" stroke="#475569" stroke-width="2"/>
+  <polygon points="180,530 940,530 922,405 198,405" fill="#090d16"/>
+  <!-- Subtle screen light reflection -->
+  <polygon points="220,525 900,525 885,415 235,415" fill="#a855f7" opacity="0.08"/>
+
+  <!-- Hypergraph / Neural Brain Mesh -->
+  <g transform="translate(380, 140)" filter="url(#glow)">
+    <!-- Brain Silhouette Outer Shell with Node Links -->
+    <!-- Synaptic Network Lines -->
+    <path d="M60,160 L110,90 L180,60 L260,60 L320,90 L360,150 L340,220 L280,260 L200,280 L140,260 L80,220 Z" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.4"/>
+    <path d="M110,90 L200,120 L280,120 L320,90" fill="none" stroke="#818cf8" stroke-width="1.5" opacity="0.5"/>
+    <path d="M60,160 L130,170 L200,170 L280,180 L360,150" fill="none" stroke="#818cf8" stroke-width="1.5" opacity="0.6"/>
+    <path d="M80,220 L160,210 L230,220 L300,200 L340,220" fill="none" stroke="#818cf8" stroke-width="1.5" opacity="0.5"/>
+    <path d="M180,60 L200,120 L200,170 L160,210 L200,280" fill="none" stroke="#c084fc" stroke-width="1.5" opacity="0.6"/>
+    <path d="M260,60 L280,120 L280,180 L230,220" fill="none" stroke="#c084fc" stroke-width="1.5" opacity="0.6"/>
+
+    <!-- Additional Internal Links -->
+    <line x1="110" y1="90" x2="130" y2="170" stroke="#818cf8" stroke-width="1.2" opacity="0.4"/>
+    <line x1="130" y1="170" x2="160" y2="210" stroke="#818cf8" stroke-width="1.2" opacity="0.4"/>
+    <line x1="200" y1="120" x2="230" y2="220" stroke="#818cf8" stroke-width="1.2" opacity="0.4"/>
+    <line x1="320" y1="90" x2="280" y2="180" stroke="#818cf8" stroke-width="1.2" opacity="0.4"/>
+
+    <!-- Neural Center Core -->
+    <circle cx="200" cy="170" r="14" fill="#ffffff" filter="url(#glow)"/>
+    <circle cx="200" cy="170" r="22" fill="#818cf8" opacity="0.3" filter="url(#glow)"/>
+
+    <!-- Synaptic Nodes -->
+    <circle cx="60" cy="160" r="5" fill="#ffffff"/>
+    <circle cx="110" cy="90" r="6" fill="#ffffff"/>
+    <circle cx="180" cy="60" r="5" fill="#ffffff"/>
+    <circle cx="260" cy="60" r="6" fill="#ffffff"/>
+    <circle cx="320" cy="90" r="5" fill="#ffffff"/>
+    <circle cx="360" cy="150" r="6" fill="#ffffff"/>
+    <circle cx="340" cy="220" r="5" fill="#ffffff"/>
+    <circle cx="280" cy="260" r="6" fill="#ffffff"/>
+    <circle cx="200" cy="280" r="5" fill="#ffffff"/>
+    <circle cx="140" cy="260" r="6" fill="#ffffff"/>
+    <circle cx="80" cy="220" r="5" fill="#ffffff"/>
+
+    <circle cx="200" cy="120" r="6" fill="#ffffff"/>
+    <circle cx="280" cy="120" r="5" fill="#ffffff"/>
+    <circle cx="130" cy="170" r="5" fill="#ffffff"/>
+    <circle cx="280" cy="180" r="6" fill="#ffffff"/>
+    <circle cx="160" cy="210" r="5" fill="#ffffff"/>
+    <circle cx="230" cy="220" r="6" fill="#ffffff"/>
+  </g>
+
+  <!-- Top Right: Menu Bar Status Capsule & Connecting Stream -->
+  <!-- Connecting Data Stream Line -->
+  <path d="M680, 240 C 780, 220 800, 180 800, 120" fill="none" stroke="#c084fc" stroke-width="2.5" stroke-dasharray="4 4" opacity="0.7"/>
+  <path d="M740, 290 C 840, 270 840, 200 840, 120" fill="none" stroke="#818cf8" stroke-width="2.5" stroke-dasharray="4 4" opacity="0.7"/>
+  <path d="M720, 340 C 880, 310 880, 200 880, 120" fill="none" stroke="#a855f7" stroke-width="2.5" stroke-dasharray="4 4" opacity="0.7"/>
+
+  <!-- Status Menu Capsule -->
+  <g transform="translate(760, 80)" filter="url(#glow)">
+    <rect width="180" height="48" rx="24" fill="#ffffff" fill-opacity="0.85" stroke="#e0e7ff" stroke-width="1.5"/>
+
+    <!-- Database / Storage Icon -->
+    <g transform="translate(24, 15)">
+      <ellipse cx="10" cy="4" rx="9" ry="3.5" fill="none" stroke="#6366f1" stroke-width="2"/>
+      <path d="M1,4 L1,14 C1,16 19,16 19,14 L19,4" fill="none" stroke="#6366f1" stroke-width="2"/>
+      <path d="M1,9 C1,11 19,11 19,9" fill="none" stroke="#6366f1" stroke-width="2"/>
+    </g>
+
+    <!-- Recording / Memory Active Dot -->
+    <circle cx="68" cy="24" r="5" fill="#6366f1"/>
+
+    <!-- Wi-Fi / Local Network -->
+    <path d="M96, 26 A 12,12 0 0,1 114,26 M100, 22 A 16,16 0 0,1 110,22 M104, 18 A 20,20 0 0,1 106,18" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="105" cy="27" r="1.5" fill="#6366f1"/>
+
+    <!-- Battery / Native Level -->
+    <rect x="132" y="16" width="22" height="15" rx="3" fill="none" stroke="#6366f1" stroke-width="2"/>
+    <rect x="135" y="19" width="13" height="9" rx="1.5" fill="#6366f1"/>
+    <path d="M155, 21 L157, 21 L157, 26 L155, 26" fill="#6366f1"/>
+  </g>
+</svg>
