@@ -180,26 +180,26 @@ export const DATA = {
       video: "",
     },
     {
-      title: "Artimech",
-      href: "https://artimech.com",
+      title: "Engram",
+      href: "https://www.linkedin.com/company/110910576/",
       active: true,
       description:
-        "Intelligent engineering studio. We build AI/ML systems that work. Clean, efficient, and purpose-built for modern problems.",
+        "GTM infra for AI-native companies. SOTA memory, context retrieval, agent skills, and multi-surface orchestration.",
       technologies: [
-        "AI Strategy",
-        "MLOps",
+        "Hypergraphs",
+        "Context Retrieval",
+        "Agent Skills",
         "LLMs",
-        "Data Engineering",
-        "Agentic Systems",
+        "Vector Search",
       ],
       links: [
         {
           type: "Website",
-          href: "https://artimech.com",
+          href: "https://www.linkedin.com/company/110910576/",
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "/artimech.png",
+      image: "/engram.png",
       video: "",
     },
     {
