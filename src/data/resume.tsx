@@ -203,6 +203,52 @@ export const DATA = {
       video: "",
     },
     {
+      title: "OpenOutreach",
+      href: "https://github.com/sdntsng/openoutreach",
+      active: true,
+      description:
+        "Self-hosted, agent-first cold outreach engine. cold-cli daemon, Gmail OAuth, background scheduling, and unified MCP tools.",
+      technologies: [
+        "Go",
+        "Cloudflare Workers",
+        "Gmail API",
+        "MCP",
+        "PostgreSQL",
+      ],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/sdntsng/openoutreach",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/openmool-cover.png",
+      video: "",
+    },
+    {
+      title: "Sutrana",
+      href: "https://github.com/sdntsng/sutrana",
+      active: true,
+      description:
+        "Local-first ambient memory for macOS: ScreenCaptureKit OCR, on-device SQLite FTS5, and MCP server for Claude/Cursor.",
+      technologies: [
+        "Swift",
+        "macOS",
+        "Local AI",
+        "MCP",
+        "SQLite FTS5",
+      ],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/sdntsng/sutrana",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/sheety-cover.png",
+      video: "",
+    },
+    {
       title: "Open Mool",
       href: "https://openmool.org",
       active: true,
