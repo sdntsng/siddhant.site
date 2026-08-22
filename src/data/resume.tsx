@@ -223,7 +223,7 @@ export const DATA = {
     },
     {
       title: "Sheety CRM",
-      href: "https://sheety.it",
+      href: "https://sheety.site/",
       active: true,
       description:
         "A stateless, open-source CRM built on Google Sheets. Own your data, no vendor lock-in.",
@@ -237,7 +237,7 @@ export const DATA = {
       links: [
         {
           type: "Website",
-          href: "https://sheety.it",
+          href: "https://sheety.site/",
           icon: <Icons.globe className="size-3" />,
         },
         {
