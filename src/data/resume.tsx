@@ -157,29 +157,6 @@ export const DATA = {
   ],
   projects: [
     {
-      title: "Vinci",
-      href: "https://tryvinci.com",
-      active: true,
-      description:
-        "AI agents for brands. Context-aware creative generation for marketing teams.",
-      technologies: [
-        "Next.js",
-        "Typescript",
-        "GenAI",
-        "Stable Diffusion",
-        "TailwindCSS",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://tryvinci.com",
-          icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "/vinci.gif",
-      video: "",
-    },
-    {
       title: "Engram",
       href: "https://www.linkedin.com/company/110910576/",
       active: true,
@@ -200,6 +177,29 @@ export const DATA = {
         },
       ],
       image: "/engram.png",
+      video: "",
+    },
+    {
+      title: "Vinci",
+      href: "https://tryvinci.com",
+      active: true,
+      description:
+        "AI agents for brands. Context-aware creative generation for marketing teams.",
+      technologies: [
+        "Next.js",
+        "Typescript",
+        "GenAI",
+        "Stable Diffusion",
+        "TailwindCSS",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://tryvinci.com",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "/vinci.gif",
       video: "",
     },
     {
