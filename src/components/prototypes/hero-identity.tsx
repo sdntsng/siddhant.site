@@ -19,9 +19,9 @@ export function HeroIdentity() {
   const showAlt = autoFlipped !== isHovering;
 
   return (
-    <div className="flex flex-row gap-4 sm:gap-6 items-center">
+    <div className="flex flex-row gap-3.5 sm:gap-5 items-center">
       <Avatar
-        className="size-16 sm:size-20 border border-border/80 bg-muted relative rounded-full shrink-0 cursor-pointer ring-2 ring-border/20 shadow-sm"
+        className="size-14 sm:size-16 border border-border/80 bg-muted relative rounded-full shrink-0 cursor-pointer ring-1 ring-border/30 shadow-xs"
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
       >
@@ -44,8 +44,8 @@ export function HeroIdentity() {
         <AvatarFallback>{DATA.initials}</AvatarFallback>
       </Avatar>
 
-      <div className="flex flex-col space-y-1 min-w-0">
-        <h1 className="text-xl sm:text-2xl md:text-3xl font-medium tracking-tight lowercase truncate text-foreground">
+      <div className="flex flex-col space-y-0.5 min-w-0">
+        <h1 className="text-lg sm:text-xl md:text-2xl font-medium tracking-tight lowercase truncate text-foreground">
           {DATA.name.toLowerCase()}
         </h1>
         <p className="text-xs sm:text-sm text-muted-foreground leading-normal">

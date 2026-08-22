@@ -77,28 +77,40 @@ export const DATA = {
 
   work: [
     {
+      company: "Engram",
+      href: "https://www.linkedin.com/company/110910576/",
+      badges: [],
+      location: "San Francisco Bay Area · Remote",
+      title: "Co-Founder & CTO",
+      logoUrl: "/vinci.png",
+      start: "Feb 2026",
+      end: "Present",
+      description:
+        "GTM infra for AI-native companies. SOTA memory, context retrieval, agent skills, and multi-surface orchestration.",
+    },
+    {
       company: "Vinci",
       href: "https://tryvinci.com",
       badges: [],
       location: "San Francisco Bay Area",
       title: "Founder & CEO",
       logoUrl: "/vinci.png",
-      start: "May 2024",
+      start: "Aug 2024",
       end: "Present",
       description:
-        "Building AI agents for brands. Streamlining creative workflows with context, taste, and GenAI infrastructure.",
+        "Building agentic rails to deliver production-ready creatives. Proprietary generative workflows for OOH, animation, and live-action. Scaled AI-native content biz to $1M ARR and AI-SaaS to $60K MRR.",
     },
     {
-      company: "Startups",
-      href: "#",
+      company: "Early-Stage Startups",
+      href: "https://www.flashy.cash",
       badges: [],
       location: "Remote",
-      title: "Founding Member",
-      logoUrl: "/memoji.png", // Using memoji or generic icon for various startups
+      title: "Founding Member & Operator",
+      logoUrl: "/memoji.png",
       start: "Apr 2015",
       end: "Present",
       description:
-        "Co-founded web3 projects like Ajna Capital and Flashy Cash. Wrote on crypto strategy for Hackernoon and Bitcoin99.",
+        "Founding member of web3 projects & funds (Ajna Capital, Flashy Cash, 0xcel, nicehire.in). Wrote on crypto and tech strategy for Hackernoon, Bitcoin99, and CoinPublish.",
     },
     {
       company: "Flipkart",
@@ -107,10 +119,10 @@ export const DATA = {
       location: "Bengaluru, India",
       title: "Senior Manager - Product Marketing",
       logoUrl: "/flipkart.png",
-      start: "Feb 2023",
+      start: "Aug 2021",
       end: "Apr 2024",
       description:
-        "Scaled B2B revenue to $1B ARR. Led GTM strategy and co-authored the 'How India Shops Online' report with Bain.",
+        "Built MarTech systems and agentic AI pipelines. Co-authored the 'How India Shops Online' report with Bain & Company and helped group scale to $1B ARR.",
     },
     {
       company: "OnePlus",
@@ -122,7 +134,7 @@ export const DATA = {
       start: "Jul 2020",
       end: "Aug 2021",
       description:
-        "Launched the Red Cable Club loyalty program. Scaled to 10M+ users.",
+        "Product x tech x community. Drove new business initiatives under the India CEO; built and scaled the Red Cable Club loyalty program to 10M+ users.",
     },
   ],
   education: [

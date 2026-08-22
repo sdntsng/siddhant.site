@@ -40,58 +40,81 @@ export function HeaderInsetMenu() {
 /**
  * Mid-Scroll Floating Inset Tile:
  * Sleek, tactile floating dock with navigation + social channels (GitHub, X, LinkedIn) + theme toggle.
- * No CLI/terminal button.
+ * Positioned fixed at bottom-6 on viewport, appears smoothly when scrollY > 80.
  */
 export function FloatingInsetMenu() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
+      setIsVisible(scrollY > 80);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="flex items-center justify-between p-1.5 rounded-2xl bg-background/95 dark:bg-zinc-900/95 border border-border/90 shadow-2xl backdrop-blur-xl ring-1 ring-border/20">
-      {/* Primary Links */}
-      <div className="flex items-center gap-1">
-        <Link
-          href="/"
-          className="px-3 py-1.5 rounded-xl text-xs font-medium text-foreground hover:bg-muted/80 transition-all lowercase"
-        >
-          home
-        </Link>
-        <Link
-          href="/blog"
-          className="px-3 py-1.5 rounded-xl text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-all lowercase"
-        >
-          blog
-        </Link>
+    <div
+      aria-hidden={!isVisible}
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? "translateY(0px)" : "translateY(16px)",
+        pointerEvents: isVisible ? "auto" : "none",
+      }}
+      className="fixed bottom-6 inset-x-0 mx-auto z-[9999] flex justify-center px-4 transition-all duration-300 ease-out"
+    >
+      <div className="w-full max-w-md flex items-center justify-between p-1.5 rounded-2xl bg-background/95 dark:bg-zinc-900/95 border border-border/90 shadow-2xl backdrop-blur-xl ring-1 ring-border/20">
+        {/* Primary Links */}
+        <div className="flex items-center gap-1">
+          <Link
+            href="/"
+            className="px-3 py-1.5 rounded-xl text-xs font-medium text-foreground hover:bg-muted/80 transition-all lowercase"
+          >
+            home
+          </Link>
+          <Link
+            href="/blog"
+            className="px-3 py-1.5 rounded-xl text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-all lowercase"
+          >
+            blog
+          </Link>
 
-        <div className="h-4 w-px bg-border/60 mx-1" />
+          <div className="h-4 w-px bg-border/60 mx-1" />
 
-        {/* Social Icons that reveal on scroll */}
-        <Link
-          href={DATA.contact.social.GitHub.url}
-          target="_blank"
-          className="p-1.5 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-all"
-          title="GitHub"
-        >
-          <DATA.contact.social.GitHub.icon className="size-3.5" />
-        </Link>
-        <Link
-          href={DATA.contact.social.X.url}
-          target="_blank"
-          className="p-1.5 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-all"
-          title="X (Twitter)"
-        >
-          <DATA.contact.social.X.icon className="size-3.5" />
-        </Link>
-        <Link
-          href={DATA.contact.social.LinkedIn.url}
-          target="_blank"
-          className="p-1.5 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-all"
-          title="LinkedIn"
-        >
-          <DATA.contact.social.LinkedIn.icon className="size-3.5" />
-        </Link>
-      </div>
+          {/* Social Icons revealed on scroll */}
+          <Link
+            href={DATA.contact.social.GitHub.url}
+            target="_blank"
+            className="p-1.5 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-all"
+            title="GitHub"
+          >
+            <DATA.contact.social.GitHub.icon className="size-3.5" />
+          </Link>
+          <Link
+            href={DATA.contact.social.X.url}
+            target="_blank"
+            className="p-1.5 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-all"
+            title="X (Twitter)"
+          >
+            <DATA.contact.social.X.icon className="size-3.5" />
+          </Link>
+          <Link
+            href={DATA.contact.social.LinkedIn.url}
+            target="_blank"
+            className="p-1.5 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-all"
+            title="LinkedIn"
+          >
+            <DATA.contact.social.LinkedIn.icon className="size-3.5" />
+          </Link>
+        </div>
 
-      {/* Theme toggle */}
-      <div className="flex items-center gap-1 pl-1 border-l border-border/40 scale-90 origin-center">
-        <ModeToggle />
+        {/* Theme toggle */}
+        <div className="flex items-center gap-1 pl-1 border-l border-border/40 scale-90 origin-center">
+          <ModeToggle />
+        </div>
       </div>
     </div>
   );
@@ -101,7 +124,6 @@ export function FloatingInsetMenu() {
  * 2-Line Expanded Inset Footer Dock:
  * Clean 2-row layout providing quick navigation, calendar session action, direct email,
  * and social channels (GitHub, X, LinkedIn, Instagram).
- * WhatsApp, Resume, and Terminal/CLI removed.
  */
 export function ExpandedFooterDock() {
   return (
@@ -181,76 +203,6 @@ export function ExpandedFooterDock() {
           <ModeToggle />
         </div>
       </div>
-    </div>
-  );
-}
-
-/**
- * 3-State Master Navigation Controller
- * Reliable pure CSS + scroll position state:
- *   1. Header state: visible at top
- *   2. Floating mid-scroll state: guaranteed fixed bottom-6 overlay
- */
-export function MorphingInsetNav() {
-  const [showFloating, setShowFloating] = useState(false);
-
-  useEffect(() => {
-    const checkScroll = () => {
-      const scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
-      const windowHeight = window.innerHeight || 0;
-      const docHeight = Math.max(
-        document.body.scrollHeight,
-        document.documentElement.scrollHeight,
-        document.body.offsetHeight,
-        document.documentElement.offsetHeight
-      );
-      const distanceFromBottom = docHeight - (scrollY + windowHeight);
-
-      // Show floating tile when scrolled down past header (> 50px)
-      // and not right at the very bottom dock (< 70px)
-      if (scrollY > 50 && distanceFromBottom > 70) {
-        setShowFloating(true);
-      } else {
-        setShowFloating(false);
-      }
-    };
-
-    window.addEventListener("scroll", checkScroll, { passive: true });
-    checkScroll();
-    return () => window.removeEventListener("scroll", checkScroll);
-  }, []);
-
-  return (
-    <>
-      {/* 1. Header Position (Embedded at top of card) */}
-      <div className="w-full">
-        <HeaderInsetMenu />
-      </div>
-
-      {/* 2. Floating Inset Menu in Mid-Scroll */}
-      <div
-        className={cn(
-          "fixed bottom-6 inset-x-0 mx-auto z-[100] flex justify-center px-4 transition-all duration-300 ease-out",
-          showFloating
-            ? "opacity-100 translate-y-0 pointer-events-auto"
-            : "opacity-0 translate-y-4 pointer-events-none"
-        )}
-      >
-        <div className="w-full max-w-md">
-          <FloatingInsetMenu />
-        </div>
-      </div>
-    </>
-  );
-}
-
-/**
- * Footer Inset Dock Container
- */
-export function FooterInsetDock() {
-  return (
-    <div className="w-full pt-4">
-      <ExpandedFooterDock />
     </div>
   );
 }
