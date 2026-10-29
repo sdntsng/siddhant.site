@@ -49,6 +49,7 @@
     "zod": "^4.3.4"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "4.20250924.0",
     "@tailwindcss/typography": "^0.5.16",
     "@types/cheerio": "^0.22.35",
     "@types/node": "^20.17.30",
@@ -60,6 +61,7 @@
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
     "tsx": "^4.21.0",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "wrangler": "4.40.0"
   }
 }
