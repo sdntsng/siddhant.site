@@ -77,18 +77,6 @@ export const DATA = {
 
   work: [
     {
-      company: "Thundercat",
-      href: "https://www.linkedin.com/company/110910576/",
-      badges: [],
-      location: "San Francisco Bay Area · Remote",
-      title: "Co-Founder & CTO",
-      logoUrl: "/thundercat-icon.svg",
-      start: "Feb 2026",
-      end: "Present",
-      description:
-        "GTM infra for AI-native companies. SOTA memory, context retrieval, agent skills, and multi-surface orchestration.",
-    },
-    {
       company: "Vinci",
       href: "https://tryvinci.com",
       badges: [],
@@ -99,6 +87,29 @@ export const DATA = {
       end: "Present",
       description:
         "Building agentic rails to deliver production-ready creatives. Proprietary generative workflows for OOH, animation, and live-action. Scaled AI-native content biz to $1M ARR and AI-SaaS to $60K MRR.",
+    },
+    {
+      company: "Engram",
+      href: "https://www.linkedin.com/company/110910576/",
+      badges: [],
+      location: "San Francisco Bay Area · Remote",
+      title: "Co-Founder & CTO",
+      logoUrl: "/engram.png",
+      start: "Feb 2026",
+      end: "Present",
+      description:
+        "GTM infra for AI-native companies. SOTA memory, context retrieval, agent skills, and multi-surface orchestration.",
+    },
+    {
+      company: "Anumati",
+      badges: [],
+      location: "India",
+      title: "Co-Founder",
+      logoUrl: "/anumati.svg",
+      start: "Sep 2026",
+      end: "Present",
+      description:
+        "Bringing data and technology to constituency-level governance and development.",
     },
     {
       company: "Early-Stage Startups",
@@ -157,29 +168,6 @@ export const DATA = {
   ],
   projects: [
     {
-      title: "Thundercat",
-      href: "https://www.linkedin.com/company/110910576/",
-      active: true,
-      description:
-        "GTM infra for AI-native companies. SOTA memory, context retrieval, agent skills, and multi-surface orchestration.",
-      technologies: [
-        "Hypergraphs",
-        "Context Retrieval",
-        "Agent Skills",
-        "LLMs",
-        "Vector Search",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://www.linkedin.com/company/110910576/",
-          icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "/thundercat-cover.svg",
-      video: "",
-    },
-    {
       title: "Vinci",
       href: "https://tryvinci.com",
       active: true,
@@ -200,6 +188,29 @@ export const DATA = {
         },
       ],
       image: "/vinci.gif",
+      video: "",
+    },
+    {
+      title: "Engram",
+      href: "https://www.linkedin.com/company/110910576/",
+      active: true,
+      description:
+        "GTM infra for AI-native companies. SOTA memory, context retrieval, agent skills, and multi-surface orchestration.",
+      technologies: [
+        "Hypergraphs",
+        "Context Retrieval",
+        "Agent Skills",
+        "LLMs",
+        "Vector Search",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://www.linkedin.com/company/110910576/",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "/engram.png",
       video: "",
     },
     {
