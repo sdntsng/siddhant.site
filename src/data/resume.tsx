@@ -105,7 +105,7 @@ export const DATA = {
       badges: [],
       location: "India",
       title: "Co-Founder",
-      logoUrl: "/anumati.svg",
+      logoUrl: "/anumati-tile.png",
       start: "Sep 2026",
       end: "Present",
       description:
