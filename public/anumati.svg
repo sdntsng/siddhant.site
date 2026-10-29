@@ -1,5 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
-  <rect width="128" height="128" rx="28" fill="#1a2e1a"/>
-  <!-- A letterform -->
-  <path d="M64 26 L98 102 L82 102 L75 85 L53 85 L46 102 L30 102 Z M64 52 L70 71 L58 71 Z" fill="#a8d5a2"/>
+  <rect width="128" height="128" rx="28" fill="#17221E"/>
+  <g>
+    <rect x="22" y="22" width="20" height="20" rx="5" fill="#F5F0E7"/>
+    <rect x="54" y="22" width="20" height="20" rx="5" fill="#F5F0E7"/>
+    <rect x="86" y="22" width="20" height="20" rx="5" fill="#D86E35"/>
+    <rect x="22" y="54" width="20" height="20" rx="5" fill="#F5F0E7"/>
+    <rect x="54" y="54" width="20" height="20" rx="5" fill="#F5F0E7"/>
+    <rect x="86" y="54" width="20" height="20" rx="5" fill="#F5F0E7"/>
+    <rect x="22" y="86" width="20" height="20" rx="5" fill="#D86E35"/>
+    <rect x="54" y="86" width="20" height="20" rx="5" fill="#F5F0E7"/>
+    <rect x="86" y="86" width="20" height="20" rx="5" fill="#F5F0E7"/>
+    <rect x="49" y="49" width="30" height="30" rx="8" fill="none" stroke="#84A198" stroke-width="4"/>
+  </g>
 </svg>

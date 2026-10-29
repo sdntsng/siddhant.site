@@ -210,7 +210,28 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "/engram.png",
+      image: "/engram-card.png",
+      video: "",
+    },
+    {
+      title: "Anumati",
+      href: "https://anumati.org.in",
+      active: true,
+      description:
+        "Constituency operating system. Bringing data and technology to constituency-level governance and development.",
+      technologies: [
+        "Constituency Operations",
+        "Political Strategy",
+        "Research",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://anumati.org.in",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "/anumati-card.png",
       video: "",
     },
     {
